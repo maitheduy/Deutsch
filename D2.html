@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bé Học Tiếng Đức - Bài 1.1 Chào Hỏi</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #fdf5e6; /* Màu kem */
+            color: #5d4037; /* Màu nâu đậm */
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 950px;
+            margin: auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            border: 5px solid #ffca28; /* Màu vàng nắng */
+        }
+        h1, h2, h3 {
+            color: #ff7043; /* Màu cam san hô */
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px #ffcc80;
+        }
+        h2 {
+            background-color: #a5d6a7; /* Màu xanh lá nhạt */
+            padding: 10px;
+            border-radius: 10px;
+            color: #2e7d32; /* Màu xanh lá đậm */
+        }
+        .audio-player, .activity {
+            text-align: center;
+            margin: 20px auto;
+            padding: 15px;
+            background: #e1f5fe; /* Màu xanh da trời nhạt */
+            border-radius: 15px;
+            border: 2px dashed #0288d1;
+        }
+        .dialogue {
+            margin: 20px 0;
+            padding: 15px;
+            background: #fff9c4; /* Màu vàng nhạt */
+            border-left: 8px solid #fbc02d; /* Màu vàng đậm */
+            border-radius: 10px;
+        }
+        .dialogue p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+        .dialogue .speaker {
+            font-weight: bold;
+            color: #c2185b; /* Màu hồng đậm */
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 25px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4fc3f7; /* Màu xanh da trời */
+            color: white;
+            font-size: 1.2em;
+        }
+        td:first-child {
+            font-weight: bold;
+            color: #00796b; /* Màu xanh mòng két */
+        }
+        tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+        tr:hover {
+            background-color: #ffecb3; /* Màu vàng amber */
+        }
+        .language-building {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fce4ec; /* Màu hồng rất nhạt */
+            border: 3px solid #f48fb1; /* Màu hồng nhạt */
+            border-radius: 15px;
+        }
+        .language-building h3 {
+            color: #ad1457; /* Màu hồng đậm */
+        }
+        .note {
+            background: #e8eaf6; /* Màu oải hương nhạt */
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 6px solid #5c6bc0; /* Màu oải hương đậm */
+        }
+        .note-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #3f51b5;
+        }
+        .example {
+            font-style: italic;
+            color: #757575;
+            padding-left: 20px;
+            border-left: 3px solid #bdbdbd;
+            margin-left: 10px;
+        }
+        .quiz-option {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 15px;
+            background-color: #ffb74d; /* Màu cam nhạt */
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .quiz-option:hover {
+            transform: scale(1.1);
+            background-color: #ffa726;
+        }
+        #feedback {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Bài 1.1: Chào Hỏi (Greetings) - Guten Tag</h1>
+
+        <div class="audio-player">
+            <h3>Nghe toàn bộ bài học tại đây</h3>
+            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/1mHKuYeuXUQQ?autoplay=0" frameborder="0" allow="autoplay"></iframe></div>
+        </div>
+
+        <section id="activity-2">
+            <h2>Hoạt Động 2 (Activity 2)</h2>
+            <div class="activity">
+                <p>Ba cuộc hội thoại này diễn ra vào lúc nào? Hãy chọn đúng thời điểm trong ngày (sáng, chiều, hoặc tối) cho mỗi cuộc hội thoại nhé!</p>
+                <div id="quiz-feedback"></div>
+            </div>
+        </section>
+
+        <section id="dialogues">
+            <h2>Hội Thoại (Dialogue 1)</h2>
+            <div id="dialogue-container">
+                <!-- JavaScript will populate this -->
+            </div>
+        </section>
+
+        <section id="vocabulary">
+            <h2>Từ Vựng (Vocabulary)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tiếng Đức</th>
+                        <th>Tiếng Anh</th>
+                        <th>Tiếng Việt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>guten Tag</td>
+                        <td>hello [literally good day]</td>
+                        <td>chào (dùng ban ngày)</td>
+                    </tr>
+                    <tr>
+                        <td>guten Abend</td>
+                        <td>good evening</td>
+                        <td>chào buổi tối</td>
+                    </tr>
+                    <tr>
+                        <td>guten Morgen</td>
+                        <td>good morning</td>
+                        <td>chào buổi sáng</td>
+                    </tr>
+                    <tr>
+                        <td>Herr</td>
+                        <td>Mr</td>
+                        <td>Ngài / Ông</td>
+                    </tr>
+                    <tr>
+                        <td>Frau</td>
+                        <td>Mrs</td>
+                        <td>Bà / Cô (trang trọng)</td>
+                    </tr>
+                    <tr>
+                        <td>ich heiße</td>
+                        <td>I'm called</td>
+                        <td>tôi tên là</td>
+                    </tr>
+                    <tr>
+                        <td>wie heißen Sie?</td>
+                        <td>what are you called? [formal]</td>
+                        <td>bạn tên là gì? (trang trọng)</td>
+                    </tr>
+                     <tr>
+                        <td>Sie</td>
+                        <td>you [formal]</td>
+                        <td>bạn / ngài (trang trọng)</td>
+                    </tr>
+                    <tr>
+                        <td>und</td>
+                        <td>and</td>
+                        <td>và</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="language-points">
+            <div class="language-building">
+                <h2>Xây Dựng Ngôn Ngữ (Language Building)</h2>
+
+                <div class="note">
+                    <p class="note-title">✓ Viết hoa chữ cái đầu (Capital letters)</p>
+                    <p>Trong tiếng Đức, tất cả các danh từ đều được viết hoa.</p>
+                    <p class="example">guten <strong>A</strong>bend (chào buổi tối)<br>guten <strong>M</strong>orgen (chào buổi sáng)</p>
+                </div>
+
+                <div class="note">
+                    <p class="note-title">✓ Chữ ß (The letter ß)</p>
+                    <p>Lưu ý cách sử dụng chữ ß trong từ <strong>heißen</strong>. Đây là một chữ cái đặc biệt trong bảng chữ cái tiếng Đức, được gọi là eszett hoặc scharfes s. Nó phát âm giống như 'ss'. Bạn thường thấy ß thay vì ss sau các nguyên âm đôi: ei, au, ie, eu.</p>
+                </div>
+
+                <div class="note">
+                    <p class="note-title">✓ Cách đặt câu hỏi (How to ask a question)</p>
+                    <p>Trong một câu khẳng định, chủ ngữ ('tôi' / 'bạn' / 'anh ấy' / 'cô ấy', v.v.) thường đứng trước động từ.</p>
+                    <p class="example"><strong>Ich</strong> <u>heiße</u> Müller. (Tôi tên là Müller.)<br><em>chủ ngữ + động từ</em></p>
+                    <p>Trong một câu hỏi, trật tự từ sẽ thay đổi: động từ đứng trước chủ ngữ.</p>
+                     <p class="example">Wie <u>heißen</u> <strong>Sie</strong>? (Bạn tên là gì?)<br><em>động từ + chủ ngữ</em></p>
+                </div>
+
+                <div class="note">
+                    <p class="note-title">✓ Cách xưng hô trang trọng và thân mật (Formal and informal address)</p>
+                    <p>Có nhiều cách để nói 'bạn' trong tiếng Đức, tùy thuộc vào mức độ trang trọng.</p>
+                    <p><strong>Sie</strong> ('bạn') được sử dụng trong các tình huống trang trọng. Theo quy tắc chung, bạn nên tiếp tục sử dụng hình thức này cho đến khi bạn chuyển sang gọi nhau bằng tên riêng.</p>
+                    <p><strong>Lưu ý:</strong> Từ <strong>Sie</strong> luôn được viết hoa.</p>
+                     <p>Dạng thân mật <strong>du</strong> ('bạn') được sử dụng khi bạn nói chuyện với bạn bè thân thiết hoặc trẻ em. Nếu bạn không chắc nên sử dụng <strong>Sie</strong> hay <strong>du</strong>, hãy làm theo cách người Đức nói chuyện với bạn.</p>
+                     <p><strong>Lưu ý:</strong> Cách chia động từ cho <strong>Sie</strong> và <strong>du</strong> là khác nhau: Sie heiß<strong>en</strong>, nhưng du heiß<strong>t</strong>.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const dialogues = [
+            {
+                id: 1,
+                correctAnswer: "afternoon",
+                conversation: [
+                    { speaker: "○", text: "Guten Tag, Frau Herbst." },
+                    { speaker: "■", text: "Ah, Herr Müller, guten Tag." }
+                ]
+            },
+            {
+                id: 2,
+                correctAnswer: "evening",
+                conversation: [
+                    { speaker: "○", text: "Guten Abend, ich heiße Herbst, Peter Herbst. Und wie heißen Sie?" },
+                    { speaker: "■", text: "Ich heiße Müller, Johann Müller." }
+                ]
+            },
+            {
+                id: 3,
+                correctAnswer: "morning",
+                conversation: [
+                    { speaker: "○", text: "Guten Morgen, ich heiße Ingrid. Und wie heißt du?" },
+                    { speaker: "■", text: "Ich heiße Karin." }
+                ]
+            }
+        ];
+
+        const dialogueContainer = document.getElementById('dialogue-container');
+        const quizFeedback = document.getElementById('quiz-feedback');
+
+        dialogues.forEach(dialogue => {
+            const dialogueDiv = document.createElement('div');
+            dialogueDiv.className = 'dialogue';
+
+            const title = document.createElement('h3');
+            title.textContent = `Hội thoại ${dialogue.id}`;
+            dialogueDiv.appendChild(title);
+
+            dialogue.conversation.forEach(line => {
+                const p = document.createElement('p');
+                p.innerHTML = `<span class="speaker">${line.speaker}</span> ${line.text}`;
+                dialogueDiv.appendChild(p);
+            });
+
+            const quizDiv = document.createElement('div');
+            quizDiv.innerHTML = `<strong>Thời gian:</strong> `;
+            
+            const options = ['morning', 'afternoon', 'evening'];
+            const optionTexts = {'morning': 'Buổi sáng', 'afternoon': 'Buổi chiều', 'evening': 'Buổi tối'};
+
+            options.forEach(option => {
+                const optionSpan = document.createElement('span');
+                optionSpan.className = 'quiz-option';
+                optionSpan.textContent = optionTexts[option];
+                optionSpan.onclick = () => checkAnswer(dialogue.id, option, dialogue.correctAnswer, optionSpan);
+                quizDiv.appendChild(optionSpan);
+            });
+            
+            const feedbackP = document.createElement('p');
+            feedbackP.id = `feedback-${dialogue.id}`;
+            quizDiv.appendChild(feedbackP);
+
+            dialogueDiv.appendChild(quizDiv);
+            dialogueContainer.appendChild(dialogueDiv);
+        });
+        
+        function checkAnswer(dialogueId, selected, correct, element) {
+            const feedbackEl = document.getElementById(`feedback-${dialogueId}`);
+            // Clear previous feedback styles from siblings
+            const parent = element.parentNode;
+            parent.querySelectorAll('.quiz-option').forEach(el => {
+                el.style.backgroundColor = '#ffb74d'; // Reset to original color
+                el.style.border = 'none';
+                el.onclick = null; // Disable further clicks
+            });
+
+
+            if (selected === correct) {
+                feedbackEl.textContent = "Chính xác! 🎉";
+                feedbackEl.style.color = "green";
+                element.style.backgroundColor = '#81c784'; // Green for correct
+                element.style.border = '3px solid green';
+            } else {
+                feedbackEl.textContent = `Sai rồi! Đáp án đúng là "${correct}". 🙁`;
+                feedbackEl.style.color = "red";
+                element.style.backgroundColor = '#e57373'; // Red for incorrect
+                element.style.border = '3px solid red';
+            }
+        }
+    </script>
+
+</body>
+</html>
