@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bé Học Tiếng Đức - Bài 1.2 Gặp Gỡ</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
+            background-color: #e0f7fa; /* Màu xanh băng */
+            color: #004d40; /* Màu xanh rêu đậm */
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 8px solid #80deea; /* Viền xanh cyan */
+        }
+        h1, h2 {
+            text-align: center;
+            color: #00796b; /* Màu xanh mòng két */
+        }
+        h1 {
+            font-size: 2.8em;
+            text-shadow: 3px 3px #b2ebf2;
+        }
+        h2 {
+            background-color: #ffcc80; /* Màu cam đào */
+            padding: 12px;
+            border-radius: 15px;
+            color: #ef6c00; /* Màu cam đậm */
+            font-size: 1.8em;
+        }
+        h3 {
+            color: #d84315; /* Màu cam cháy */
+            border-bottom: 3px dashed #ffab91;
+            padding-bottom: 5px;
+        }
+        .audio-player, .activity {
+            text-align: center;
+            margin: 25px auto;
+            padding: 20px;
+            background: #fce4ec; /* Màu hồng nhạt */
+            border-radius: 20px;
+            border: 3px dotted #f06292;
+        }
+        .dialogue {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f1f8e9; /* Màu xanh lá rất nhạt */
+            border-left: 10px solid #aed581; /* Màu xanh lá cây */
+            border-radius: 10px;
+        }
+        .dialogue p {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        .dialogue .speaker {
+            font-weight: bold;
+            color: #5e35b1; /* Màu tím đậm */
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 25px 0;
+            border: 2px solid #a1887f; /* Màu nâu nhạt */
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 2px solid #d7ccc8;
+        }
+        th {
+            background-color: #a1887f; /* Màu nâu nhạt */
+            color: white;
+            font-size: 1.3em;
+        }
+        td:first-child { font-weight: bold; color: #4e342e; /* Màu nâu đậm */ }
+        tr:nth-child(even) { background-color: #efebe9; }
+        tr:hover { background-color: #d7ccc8; }
+        .language-building {
+            margin-top: 30px;
+            padding: 20px;
+            background: #e3f2fd; /* Màu xanh da trời rất nhạt */
+            border: 3px solid #90caf9;
+            border-radius: 15px;
+        }
+        .note {
+            background: #fffde7; /* Màu vàng kem */
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 6px solid #ffd54f; /* Màu vàng nắng */
+        }
+        .note-title { font-weight: bold; font-size: 1.4em; color: #f57f17; }
+        .example { font-style: italic; color: #757575; padding-left: 20px; }
+        .verb-table { background: white; padding: 10px; border-radius: 5px; margin-top: 10px; }
+
+        /* Activity 6 Styles */
+        #activity6-container { display: flex; justify-content: space-around; flex-wrap: wrap; }
+        .name-list, .city-list { list-style-type: none; padding: 0; }
+        .name-list li, .city-list li {
+            padding: 12px 20px; margin: 8px; background: #c5cae9; border-radius: 20px; cursor: pointer;
+            transition: all 0.2s ease-in-out; border: 2px solid #7986cb;
+        }
+        .name-list li:hover, .city-list li:hover { transform: scale(1.05); background: #9fa8da; }
+        .selected { background-color: #3f51b5 !important; color: white; }
+        .correct { background-color: #a5d6a7 !important; color: #2e7d32; border-color: #2e7d32; cursor: default !important; }
+        .disabled { pointer-events: none; opacity: 0.6; }
+
+        /* Activity 7 Styles */
+        .sentence-scramble { margin-bottom: 20px; }
+        .words { margin-bottom: 10px; }
+        .word-btn { padding: 8px 12px; margin: 5px; background: #ffccbc; border-radius: 10px; cursor: pointer; display: inline-block; border: 2px solid #ff8a65; }
+        .answer-box { min-height: 40px; background: #fafafa; border: 2px dashed #ccc; padding: 10px; border-radius: 10px; margin: 10px 0; }
+        .check-btn { padding: 10px 15px; background: #4db6ac; color: white; border: none; border-radius: 10px; cursor: pointer; font-size: 1em; }
+        .feedback { margin-top: 5px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Bài 1.2: Gặp Gỡ (Meetings) - Kennenlernen</h1>
+
+        <div class="audio-player">
+            <h3>Nghe toàn bộ bài học tại đây</h3>
+            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/11XIM8gah3ha?autoplay=0" frameborder="0" allow="autoplay"></iframe></div>
+        </div>
+
+        <section id="activity-6">
+            <h2>Hoạt Động 6: Họ Đến Từ Đâu?</h2>
+            <div class="activity">
+                <p>Hãy nối mỗi người với đúng thành phố của họ nhé! (Nhấn vào tên rồi nhấn vào thành phố)</p>
+                <div id="activity6-container">
+                    <ul class="name-list">
+                        <li data-name="Ingrid Herbst">Ingrid Herbst</li>
+                        <li data-name="Frau Jung">Frau Jung</li>
+                        <li data-name="Michael Weiss">Michael Weiss</li>
+                        <li data-name="Karl Schmidt">Karl Schmidt</li>
+                    </ul>
+                    <ul class="city-list">
+                        <li data-city="Munich">Munich</li>
+                        <li data-city="Heidelberg">Heidelberg</li>
+                        <li data-city="Frankfurt">Frankfurt</li>
+                        <li data-city="Berlin">Berlin</li>
+                    </ul>
+                </div>
+                <p id="activity6-feedback" style="font-weight:bold; font-size:1.2em;"></p>
+            </div>
+        </section>
+
+        <section id="dialogue-2">
+            <h2>Hội Thoại 2 (Dialogue 2)</h2>
+            <div class="dialogue">
+                <p><span class="speaker">○</span> Ich heiße Ingrid Herbst. Ich komme aus Berlin. Und woher kommen Sie?</p>
+                <p><span class="speaker">■</span> Ich komme aus Frankfurt, mein Name ist Jung.</p>
+                <p><span class="speaker">○</span> Ich heiße Michael Weiss. Und wer sind Sie?</p>
+                <p><span class="speaker">■</span> Ich bin Karl Schmidt. Ich komme aus München. Woher kommen Sie?</p>
+                <p><span class="speaker">○</span> Ich komme aus Heidelberg.</p>
+                <p><span class="speaker">○</span> Guten Morgen, Frau Jung. Wie geht es Ihnen?</p>
+                <p><span class="speaker">■</span> Gut, danke. Und Ihnen?</p>
+                <p><span class="speaker">○</span> Ganz gut, danke.</p>
+            </div>
+        </section>
+
+        <section id="vocabulary">
+            <h2>Từ Vựng (Vocabulary)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tiếng Đức</th>
+                        <th>Tiếng Anh</th>
+                        <th>Tiếng Việt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich komme</td><td>I come</td><td>tôi đến từ</td></tr>
+                    <tr><td>aus</td><td>from</td><td>từ</td></tr>
+                    <tr><td>woher?</td><td>where from?</td><td>từ đâu?</td></tr>
+                    <tr><td>Sie kommen</td><td>you come [formal]</td><td>bạn đến từ (trang trọng)</td></tr>
+                    <tr><td>mein Name ist</td><td>my name is</td><td>tên tôi là</td></tr>
+                    <tr><td>wer</td><td>who</td><td>ai</td></tr>
+                    <tr><td>Sie sind</td><td>you are [formal]</td><td>bạn là (trang trọng)</td></tr>
+                    <tr><td>ich bin</td><td>I am</td><td>tôi là</td></tr>
+                    <tr><td>München</td><td>Munich</td><td>thành phố Munich</td></tr>
+                    <tr><td>wie geht es Ihnen?</td><td>how are you? [formal]</td><td>bạn có khỏe không? (trang trọng)</td></tr>
+                    <tr><td>gut</td><td>well</td><td>khỏe / tốt</td></tr>
+                    <tr><td>danke</td><td>thank you</td><td>cảm ơn</td></tr>
+                    <tr><td>und Ihnen?</td><td>and (how are) you?</td><td>còn bạn thì sao?</td></tr>
+                    <tr><td>ganz gut</td><td>fine</td><td>rất khỏe / rất tốt</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="language-building-section">
+            <div class="language-building">
+                <h2>Xây Dựng Ngôn Ngữ (Language Building)</h2>
+                <div class="note">
+                    <p class="note-title">✓ Động từ có quy tắc (Regular verbs)</p>
+                    <p>Trong tiếng Đức, động từ có các đuôi khác nhau tùy thuộc vào chủ ngữ ('tôi', 'bạn', 'anh ấy', v.v.).</p>
+                    <p><strong>kommen</strong> ('đến') là một động từ có quy tắc ở thì hiện tại. Tất cả các động từ có quy tắc đều có cùng một mẫu đuôi. Khi bạn đã thành thạo, bạn sẽ biết cách chia đuôi cho phần lớn các động từ tiếng Đức. Lưu ý rằng bạn thêm các đuôi vào gốc của động từ - là động từ nguyên thể trừ đi <strong>-en</strong>: komm-, heiß-.</p>
+                    <div class="verb-table">
+                        <p><strong>ich</strong> komm<strong>e</strong> (tôi đến) --- <strong>wir</strong> komm<strong>en</strong> (chúng tôi đến)</p>
+                        <p><strong>du</strong> komm<strong>st</strong> (bạn đến) --- <strong>ihr</strong> komm<strong>t</strong> (các bạn đến)</p>
+                        <p><strong>er/sie/es</strong> komm<strong>t</strong> (anh/cô/nó đến) --- <strong>sie</strong> komm<strong>en</strong> (họ đến)</p>
+                        <p><strong>Sie</strong> komm<strong>en</strong> (bạn đến [trang trọng])</p>
+                    </div>
+                    <p>Động từ <strong>heißen</strong> ('được gọi là') hơi bất quy tắc một chút. Nó có cùng đuôi với <strong>kommen</strong>, ngoại trừ dạng thân mật <strong>du heißt</strong>.</p>
+                    <hr>
+                    <p>Từ bây giờ, các động từ sẽ được đưa ra ở dạng nguyên thể trong phần từ vựng.</p>
+                    <p><strong>trinken</strong> (uống) | <strong>kaufen</strong> (mua) | <strong>spielen</strong> (chơi) | <strong>gehen</strong> (đi) | <strong>bezahlen</strong> (trả tiền)</p>
+                </div>
+                <div class="note">
+                    <p class="note-title">✓ Sie</p>
+                    <p>Dạng trang trọng <strong>Sie</strong> ('bạn') được sử dụng cho dù bạn đang nói chuyện với một người hay nhiều người.</p>
+                    <p class="example">Wie heißen <strong>Sie</strong>? (Bạn tên là gì?)<br>Woher kommen <strong>Sie</strong>, Ingrid und Peter? (Ingrid và Peter, các bạn đến từ đâu?)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="activity-7">
+             <h2>Hoạt Động 7: Sắp Xếp Câu</h2>
+             <div class="activity">
+                 <p>Đặt các từ theo đúng thứ tự để tạo thành câu, sau đó dịch chúng nhé.</p>
+                 <!-- Sentences will be generated by JavaScript -->
+             </div>
+        </section>
+
+    </div>
+
+    <script>
+        // --- Activity 6: Matching Game ---
+        const correctMatches = {
+            "Ingrid Herbst": "Berlin",
+            "Frau Jung": "Heidelberg",
+            "Michael Weiss": "Frankfurt",
+            "Karl Schmidt": "Munich"
+        };
+        let selectedName = null;
+        let correctCount = 0;
+        const nameItems = document.querySelectorAll('.name-list li');
+        const cityItems = document.querySelectorAll('.city-list li');
+        const feedback6 = document.getElementById('activity6-feedback');
+
+        nameItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (item.classList.contains('correct')) return;
+                selectedName = item;
+                nameItems.forEach(li => li.classList.remove('selected'));
+                item.classList.add('selected');
+                feedback6.textContent = "";
+            });
+        });
+
+        cityItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (!selectedName || item.classList.contains('correct')) return;
+                const name = selectedName.dataset.name;
+                const city = item.dataset.city;
+
+                if (correctMatches[name] === city) {
+                    selectedName.classList.add('correct', 'disabled');
+                    item.classList.add('correct', 'disabled');
+                    selectedName.classList.remove('selected');
+                    feedback6.textContent = "Chính xác! 🎉";
+                    feedback6.style.color = 'green';
+                    selectedName = null;
+                    correctCount++;
+                    if (correctCount === 4) {
+                        feedback6.textContent = "Tuyệt vời! Bé đã hoàn thành xuất sắc! 🌟";
+                    }
+                } else {
+                    feedback6.textContent = "Chưa đúng rồi, thử lại nhé! 🤔";
+                    feedback6.style.color = 'red';
+                    selectedName.classList.remove('selected');
+                    selectedName = null;
+                }
+            });
+        });
+
+        // --- Activity 7: Sentence Scramble ---
+        const sentences = [
+            { jumbled: ["heiße", "Herbst", "Johann", "ich"], correct: "Ich heiße Johann Herbst.", translation: "Tôi tên là Johann Herbst." },
+            { jumbled: ["Karin Müller", "mein Name", "ist"], correct: "Mein Name ist Karin Müller.", translation: "Tên của tôi là Karin Müller." },
+            { jumbled: ["aus Berlin", "ich", "komme"], correct: "Ich komme aus Berlin.", translation: "Tôi đến từ Berlin." },
+            { jumbled: ["heißen", "wie", "Sie"], correct: "Wie heißen Sie?", translation: "Bạn tên là gì?" },
+            { jumbled: ["kommen", "woher", "Sie"], correct: "Woher kommen Sie?", translation: "Bạn đến từ đâu?" }
+        ];
+
+        const activity7Container = document.querySelector('#activity-7 .activity');
+
+        sentences.forEach((sentence, index) => {
+            const scrambleDiv = document.createElement('div');
+            scrambleDiv.className = 'sentence-scramble';
+
+            const questionP = document.createElement('p');
+            questionP.innerHTML = `<strong>Câu ${index + 1}:</strong>`;
+            scrambleDiv.appendChild(questionP);
+            
+            const wordsDiv = document.createElement('div');
+            wordsDiv.className = 'words';
+            sentence.jumbled.sort(() => Math.random() - 0.5).forEach(word => {
+                wordsDiv.innerHTML += `<span class="word-btn">${word}</span>`;
+            });
+            scrambleDiv.appendChild(wordsDiv);
+            
+            const answerBox = document.createElement('div');
+            answerBox.className = 'answer-box';
+            scrambleDiv.appendChild(answerBox);
+            
+            const checkBtn = document.createElement('button');
+            checkBtn.className = 'check-btn';
+            checkBtn.textContent = 'Kiểm tra';
+            scrambleDiv.appendChild(checkBtn);
+            
+            const feedbackDiv = document.createElement('div');
+            feedbackDiv.className = 'feedback';
+            scrambleDiv.appendChild(feedbackDiv);
+            
+            activity7Container.appendChild(scrambleDiv);
+
+            // Logic for dragging words
+            wordsDiv.querySelectorAll('.word-btn').forEach(wordBtn => {
+                wordBtn.addEventListener('click', () => {
+                    answerBox.appendChild(wordBtn);
+                });
+            });
+            
+            answerBox.addEventListener('click', (e) => {
+                if (e.target.classList.contains('word-btn')) {
+                    wordsDiv.appendChild(e.target);
+                }
+            });
+
+            // Logic for checking answer
+            checkBtn.addEventListener('click', () => {
+                const answerWords = Array.from(answerBox.querySelectorAll('.word-btn')).map(btn => btn.textContent);
+                const userAnswer = answerWords.join(' ').trim() + ".";
+                
+                if (userAnswer === sentence.correct) {
+                    feedbackDiv.textContent = `Chính xác! 👍 Dịch là: "${sentence.translation}"`;
+                    feedbackDiv.style.color = 'green';
+                } else {
+                    feedbackDiv.textContent = `Sai rồi! 🙁 Đáp án đúng là: "${sentence.correct}"`;
+                    feedbackDiv.style.color = 'red';
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
