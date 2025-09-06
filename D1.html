@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bé Học Phát Âm Tiếng Đức</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #ff6347;
+        }
+        .audio-player {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #4682b4;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .category {
+            background-color: #add8e6;
+            font-weight: bold;
+            text-align: center;
+        }
+        .phonetic {
+            font-family: 'Courier New', Courier, monospace;
+            color: #008080;
+        }
+        .english {
+            color: #2e8b57;
+        }
+        .vietnamese {
+            color: #8b0000;
+        }
+        .example {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Bé Học Phát Âm Tiếng Đức</h1>
+        <p style="text-align:center;">Chào mừng các bé đến với bài học phát âm tiếng Đức đầu tiên!</p>
+
+        <div class="audio-player">
+            <h2>Nghe phát âm mẫu</h2>
+            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/1geaHdmCJKKg?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/1geaHdmCJKKg" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+        </div>
+
+        <div id="pronunciation-guide"></div>
+    </div>
+
+    <script>
+        const pronunciationData = {
+            vowels: [
+                { type: "Nguyên Âm" },
+                { written: "a short", phonetic: "/a/", approx: "between hat and hut", example: "wann (khi nào, when)" },
+                { written: "a long", phonetic: "/a:/", approx: "barn", example: "sagen (nói, to say)" },
+                { written: "e short", phonetic: "/e/", approx: "lesson", example: "essen (ăn, to eat)" },
+                { written: "e long", phonetic: "/e:/", approx: "gate", example: "Regen (mưa, rain)" },
+                { written: "i short", phonetic: "/ɪ/", approx: "bit", example: "immer (luôn luôn, always)" },
+                { written: "i long", phonetic: "/i:/", approx: "ease", example: "Kino (rạp chiếu phim, cinema)" },
+                { written: "o short", phonetic: "/o/", approx: "hot", example: "noch (vẫn, still)" },
+                { written: "o long", phonetic: "/o:/", approx: "post", example: "wo (ở đâu, where)" },
+                { written: "u short", phonetic: "/ʊ/", approx: "put", example: "und (và, and)" },
+                { written: "u long", phonetic: "/u:/", approx: "moon", example: "Fuß (bàn chân, foot)" },
+                { written: "ä short", phonetic: "/ε/", approx: "left", example: "Männer (đàn ông, men)" },
+                { written: "ä long", phonetic: "/ε:/", approx: "between pair and pace", example: "spät (muộn, late)" },
+                { written: "ö short", phonetic: "/œ/", approx: "fur", example: "können (có thể, can)" },
+                { written: "ö long", phonetic: "/ø:/", approx: "burn", example: "mögen (thích, to like)" },
+                { written: "ü short", phonetic: "/ʏ/", approx: "short ee with rounded lips", example: "müssen (phải, must)" },
+                { written: "ü long", phonetic: "/y:/", approx: "longer ee with rounded lips", example: "müde (mệt, tired)" }
+            ],
+            vowelCombinations: [
+                { type: "Tổ Hợp Nguyên Âm" },
+                { written: "au", phonetic: "/aʊ/", approx: "cow", example: "Frau (phụ nữ, woman), Haus (ngôi nhà, house)" },
+                { written: "äu, eu", phonetic: "/ɔʏ/", approx: "boy", example: "Häuser (những ngôi nhà, houses), Bäume (cây, trees), heute (hôm nay, today), Leute (người, people)" },
+                { written: "ei", phonetic: "/aɪ/", approx: "right", example: "ein (một, a/an), mein (của tôi, my)" },
+                { written: "eu long", phonetic: "/ɔʏ/", approx: "boy", example: "heute (hôm nay, today), Leute (người, people)" },
+                { written: "ie long", phonetic: "/i:/", approx: "feel", example: "die (mạo từ, the), Spiel (trò chơi, game)" }
+            ],
+            consonants: [
+                { type: "Phụ Âm" },
+                { written: "b at end of word", phonetic: "/p/", approx: "bap", example: "ab (từ, from)" },
+                { written: "d at end of word", phonetic: "/t/", approx: "bat", example: "Kind (đứa trẻ, child)" },
+                { written: "g at end of word", phonetic: "/k/", approx: "tick", example: "Tag (ngày, day)" },
+                { written: "h at end of syllable", phonetic: "", approx: "not pronounced, but makes the preceding vowel long", example: "nehmen (lấy, to take), froh (vui mừng, happy)" },
+                { written: "j", phonetic: "/j/", approx: "young", example: "ja (vâng, yes), jung (trẻ, young)" },
+                { written: "s before a vowel", phonetic: "/z/", approx: "zoo", example: "Samstag (thứ bảy, Saturday), Gemüse (rau, vegetables)" },
+                { written: "s otherwise", phonetic: "/s/", approx: "sat", example: "lustig (vui vẻ, funny)" },
+                { written: "z", phonetic: "/ts/", approx: "cats", example: "zwei (số hai, two), ganz (hoàn toàn, whole)" },
+                { written: "v", phonetic: "/f/", approx: "fox", example: "viel (nhiều, much), vor (trước, before)" },
+                { written: "w", phonetic: "/v/", approx: "van", example: "wie (như thế nào, how), wo (ở đâu, where)" },
+                { written: "ß", phonetic: "/s/", approx: "sat", example: "Fuß (bàn chân, foot), Großmutter (bà, grandmother)" }
+            ],
+            consonantCombinations: [
+                { type: "Tổ Hợp Phụ Âm" },
+                { written: "ch after a, o, u, au", phonetic: "/x/", approx: "Scottish loch", example: "Tochter (con gái, daughter), Kuchen (bánh, cake)" },
+                { written: "ch otherwise", phonetic: "/ç/", approx: "similar to the first sound in huge", example: "euch (các bạn, you all), möchten (muốn, would like)" },
+                { written: "sch", phonetic: "/ʃ/", approx: "crash", example: "Flasche (cái chai, bottle), Geschenk (món quà, gift)" },
+                { written: "tsch", phonetic: "/tʃ/", approx: "latch", example: "Deutsch (tiếng Đức, German)" },
+                { written: "ig at end of word", phonetic: "/iç/", approx: "similar to the first sound in huge", example: "dreißig (ba mươi, thirty), fertig (xong, finished)" },
+                { written: "sp generally", phonetic: "/ʃp/", approx: "shp", example: "Sprache (ngôn ngữ, language)" },
+                { written: "st generally", phonetic: "/ʃt/", approx: "sht", example: "Stunde (giờ, hour)" }
+            ]
+        };
+
+        function createTable(data) {
+            let table = '<table>';
+            table += `
+                <tr>
+                    <th>Cách Viết</th>
+                    <th>Ký Hiệu Phiên Âm</th>
+                    <th>Gần Giống Trong Tiếng Anh</th>
+                    <th>Ví Dụ</th>
+                </tr>
+            `;
+            data.forEach(item => {
+                if (item.type) {
+                    table += `<tr><td colspan="4" class="category">${item.type}</td></tr>`;
+                } else {
+                    table += `
+                        <tr>
+                            <td>${item.written}</td>
+                            <td class="phonetic">${item.phonetic}</td>
+                            <td class="english">${item.approx}</td>
+                            <td class="example">${item.example}</td>
+                        </tr>
+                    `;
+                }
+            });
+            table += '</table>';
+            return table;
+        }
+
+        const guide = document.getElementById('pronunciation-guide');
+        guide.innerHTML += '<h2>Nguyên Âm</h2>';
+        guide.innerHTML += createTable(pronunciationData.vowels);
+        guide.innerHTML += '<h2>Tổ Hợp Nguyên Âm</h2>';
+        guide.innerHTML += createTable(pronunciationData.vowelCombinations);
+        guide.innerHTML += '<h2>Phụ Âm</h2>';
+        guide.innerHTML += createTable(pronunciationData.consonants);
+        guide.innerHTML += '<h2>Tổ Hợp Phụ Âm</h2>';
+        guide.innerHTML += createTable(pronunciationData.consonantCombinations);
+
+    </script>
+
+</body>
+</html>
