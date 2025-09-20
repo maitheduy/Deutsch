@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học Tiếng Đức Cùng Leo & Lina - Hội Thoại Cơ Bản</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            max-width: 800px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #4a6fa5;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #6c5ce7;
+            font-style: italic;
+        }
+
+        .characters {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .character {
+            text-align: center;
+            width: 120px;
+        }
+
+        .character img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid #e0e0e0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .character span {
+            font-weight: bold;
+            color: #4a6fa5;
+            font-size: 1.2rem;
+        }
+
+        .dialogue-box {
+            background: #f0f7ff;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 6px solid #4a6fa5;
+            text-align: left;
+            font-size: 1.4rem;
+            line-height: 1.6;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .dialogue-box::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 30px;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid #f0f7ff;
+        }
+
+        .dialogue-line {
+            margin: 15px 0;
+            padding: 10px;
+            background: #fff;
+            border-radius: 15px;
+            display: inline-block;
+            min-width: 80%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .audio-container {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .audio-frame {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .audio-link {
+            color: #4a6fa5;
+            text-decoration: none;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        .audio-link:hover {
+            text-decoration: underline;
+        }
+
+        .grammar-section {
+            background: #fff9e6;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 6px solid #ffcc00;
+            text-align: left;
+        }
+
+        .grammar-title {
+            color: #d35400;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .grammar-point {
+            margin: 15px 0;
+            padding: 12px;
+            background: #fff;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.2rem;
+            border-left: 4px solid #ffcc00;
+        }
+
+        .grammar-point img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .practice-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 40px auto;
+            box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-family: 'Comic Sans MS', cursive;
+        }
+
+        .practice-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .subtitle { font-size: 1.2rem; }
+            .dialogue-box { font-size: 1.2rem; }
+            .grammar-point { font-size: 1.1rem; }
+            .practice-btn { padding: 12px 30px; font-size: 1.3rem; }
+            .character { width: 100px; }
+            .character img { width: 80px; height: 80px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>🎉 Học Tiếng Đức Cùng Leo & Lina!</h1>
+            <p class="subtitle">Hội thoại đầu tiên của bạn — "Wie geht es dir?"</p>
+        </div>
+
+        <div class="characters">
+            <div class="character">
+                <img src="https://i.ibb.co/0jZQqXm/boy.png" alt="Leo">
+                <span>Leo</span>
+            </div>
+            <div class="character">
+                <img src="https://i.ibb.co/0JFVgKk/girl.png" alt="Lina">
+                <span>Lina</span>
+            </div>
+        </div>
+
+        <div class="dialogue-box">
+            <div class="dialogue-line">Hallo!</div>
+            <div class="dialogue-line">Hallo!</div>
+            <div class="dialogue-line">Wie geht es dir heute?</div>
+            <div class="dialogue-line">Mir geht es gut, danke. Und dir?</div>
+            <div class="dialogue-line">Mir geht es auch gut.</div>
+        </div>
+
+        <div class="audio-container">
+            <iframe class="audio-frame" width="300" height="60" src="https://vocaroo.com/embed/1TbOMes7KV0M?autoplay=0" frameborder="0" allow="autoplay"></iframe>
+            <a class="audio-link" href="https://voca.ro/1TbOMes7KV0M" target="_blank">Xem trên Vocaroo >></a>
+        </div>
+
+        <div class="grammar-section">
+            <h2 class="grammar-title"><img src="https://i.ibb.co/3rSdPqW/book.png" alt="Sách"> Giải Thích Dễ Hiểu!</h2>
+
+            <div class="grammar-point">
+                <img src="https://i.ibb.co/0yBzYtC/hello.png" alt="Chào">
+                <strong>Hallo!</strong> → Nghĩa là: <em>“Chào!”</em> — Câu chào phổ biến nhất khi gặp ai đó!
+            </div>
+
+            <div class="grammar-point">
+                <img src="https://i.ibb.co/5wR0bJx/question.png" alt="Hỏi">
+                <strong>Wie geht es dir heute?</strong> → Nghĩa là: <em>“Hôm nay cậu khỏe không?”</em><br>
+                <small>„Wie“ = như thế nào, „geht es“ = đi thế nào, „dir“ = với bạn → Câu hỏi lịch sự dành cho bạn bè!</small>
+            </div>
+
+            <div class="grammar-point">
+                <img src="https://i.ibb.co/5hNfL1g/good.png" alt="Tốt">
+                <strong>Mir geht es gut.</strong> → Nghĩa là: <em>“Mình khỏe.”</em><br>
+                <small>„Mir“ = với mình, „geht es gut“ = đi tốt → Tức là: Mình cảm thấy tốt!</small>
+            </div>
+
+            <div class="grammar-point">
+                <img src="https://i.ibb.co/6XrXK0k/thanks.png" alt="Cảm ơn">
+                <strong>Danke.</strong> → Nghĩa là: <em>“Cảm ơn!”</em> — Đừng quên nói “Cảm ơn” khi ai đó hỏi bạn!
+            </div>
+
+            <div class="grammar-point">
+                <img src="https://i.ibb.co/fj4v8Yf/and-you.png" alt="Còn bạn">
+                <strong>Und dir?</strong> → Nghĩa là: <em>“Còn bạn thì sao?”</em><br>
+                <small>„Und“ = và, „dir“ = với bạn → Đây là cách lịch sự để hỏi lại người vừa nói!</small>
+            </div>
+
+            <div class="grammar-point">
+                <img src="https://i.ibb.co/0jZQqXm/boy.png" alt="Leo">
+                <strong>Mir geht es auch gut.</strong> → Nghĩa là: <em>“Mình cũng khỏe.”</em><br>
+                <small>„Auch“ = cũng → Câu trả lời vui vẻ, thể hiện bạn đang vui cùng bạn!</small>
+            </div>
+        </div>
+
+        <button class="practice-btn">🎤 Luyện Phát Âm Theo Leo & Lina!</button>
+
+    </div>
+
+    <script>
+        // Khi nhấn nút luyện tập, phát âm lại audio
+        document.querySelector('.practice-btn').addEventListener('click', () => {
+            const iframe = document.querySelector('iframe');
+            iframe.src = iframe.src + '&autoplay=1';
+            setTimeout(() => {
+                iframe.src = iframe.src.replace('&autoplay=1', '');
+            }, 5000); // Tự tắt sau 5 giây
+        });
+    </script>
+
+</body>
+</html>
