@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bản Đồ Mạo Từ & Cách – Học Tiếng Đức Vui Nhộn!</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #a8e6cf, #dcedc1);
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #e91e63;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    h2, h3 {
+      color: #4caf50;
+      border-bottom: 3px solid #e0e0e0;
+      padding-bottom: 10px;
+      margin-top: 30px;
+    }
+
+    .section {
+      background: #f9f9f9;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 25px 0;
+      border-left: 6px solid #4caf50;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+
+    .key-word {
+      font-weight: bold;
+      color: #d81b60;
+      font-size: 1.3rem;
+      padding: 5px 10px;
+      background: #ffebee;
+      border-radius: 10px;
+      border: 1px solid #ffcdd2;
+    }
+
+    .example {
+      background: #e8f5e9;
+      padding: 15px;
+      border-radius: 12px;
+      margin: 15px 0;
+      border-left: 4px solid #4caf50;
+      font-size: 1.2rem;
+    }
+
+    .example p {
+      margin: 8px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border: 1px solid #ddd;
+      font-size: 1.1rem;
+    }
+
+    th {
+      background: #4fc3f7;
+      color: white;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    tr:nth-child(even) {
+      background: #e3f2fd;
+    }
+
+    tr:hover {
+      background: #dcedc1;
+    }
+
+    .tip-box {
+      background: #fff3e0;
+      border: 2px dashed #ff9800;
+      padding: 15px;
+      border-radius: 12px;
+      margin: 20px 0;
+      font-style: italic;
+      color: #e65100;
+      font-weight: bold;
+    }
+
+    .vocab-table {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .vocab-card {
+      width: 140px;
+      height: 140px;
+      background: #fff;
+      border-radius: 15px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border: 2px solid #e0e0e0;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .vocab-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .vocab-card h4 {
+      margin: 10px 0 5px;
+      color: #d81b60;
+      font-size: 1rem;
+    }
+
+    .vocab-card .word {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #4fc3f7;
+    }
+
+    .drag-drop-area {
+      margin: 30px 0;
+      padding: 20px;
+      background: #f5f5f5;
+      border-radius: 15px;
+      min-height: 120px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .drag-item {
+      padding: 12px 20px;
+      background: #4fc3f7;
+      color: white;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: grab;
+      user-select: none;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    .drag-item:active {
+      cursor: grabbing;
+      transform: scale(1.1);
+    }
+
+    .drop-zone {
+      width: 120px;
+      height: 60px;
+      background: #fffde7;
+      border: 2px dashed #ff9800;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #757575;
+      font-size: 1rem;
+    }
+
+    .correct {
+      background: #c8e6c9 !important;
+      border: 2px solid #4caf50;
+    }
+
+    .wrong {
+      background: #ffcdd2 !important;
+      border: 2px solid #f44336;
+    }
+
+    .feedback {
+      font-size: 1.5rem;
+      margin: 20px 0;
+      font-weight: bold;
+      min-height: 60px;
+      color: #d81b60;
+    }
+
+    .audio-btn {
+      background: #ff9800;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin: 15px 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .emoji {
+      font-size: 2.5rem;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      th, td { padding: 10px; font-size: 0.9rem; }
+      .vocab-card { width: 100px; height: 100px; }
+      .drop-zone { width: 90px; height: 50px; font-size: 0.8rem; }
+      .drag-item { padding: 8px 12px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🗺️ Bản Đồ Mạo Từ & Cách – Học Tiếng Đức Vui Nhộn!</h1>
+
+    <div class="emoji">📖🗣️</div>
+    <p style="text-align: center; font-size: 1.3rem;">Học cách và mạo từ như chơi trò chơi! Không cần học thuộc — chỉ cần nhìn và nhớ!</p>
+
+    <!-- Bảng tổng hợp mạo từ -->
+    <div class="section">
+      <h2>✅ BẢNG MẠO TỪ XÁC ĐỊNH – “BẢN ĐỒ NGỮ PHÁP”</h2>
+      <p style="font-size: 1.2rem; color: #555;">Nhìn vào bảng này 30 giây — bạn sẽ nhớ suốt đời!</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Cách</th>
+            <th>Giống đực<br>(der Mann)</th>
+            <th>Giống cái<br>(die Frau)</th>
+            <th>Giống trung<br>(das Kind)</th>
+            <th>Số nhiều<br>(die Leute)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Nominativ<br>(Chủ ngữ)</strong></td>
+            <td class="key-word">der</td>
+            <td class="key-word">die</td>
+            <td class="key-word">das</td>
+            <td class="key-word">die</td>
+          </tr>
+          <tr>
+            <td><strong>Akkusativ<br>(Tân ngữ trực tiếp)</strong></td>
+            <td class="key-word">den</td>
+            <td class="key-word">die</td>
+            <td class="key-word">das</td>
+            <td class="key-word">die</td>
+          </tr>
+          <tr>
+            <td><strong>Dativ<br>(Tân ngữ gián tiếp)</strong></td>
+            <td class="key-word">dem</td>
+            <td class="key-word">der</td>
+            <td class="key-word">dem</td>
+            <td class="key-word">den</td>
+          </tr>
+          <tr>
+            <td><strong>Genitiv<br>(Sở hữu)</strong></td>
+            <td class="key-word">des</td>
+            <td class="key-word">der</td>
+            <td class="key-word">des</td>
+            <td class="key-word">der</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip-box">
+        🎯 Mẹo nhớ nhanh:  
+        <strong>“Der” → “den” → “dem” → “des”</strong> (giống đực đổi dần)  
+        <strong>“Die” → “die” → “der” → “der”</strong> (giống cái chỉ đổi ở Dativ/Genitiv)  
+        <strong>“Das” → “das” → “dem” → “des”</strong> (giống trung giống giống đực!)  
+        <strong>Số nhiều: luôn là “die” (Nominativ/Akkusativ), “den” (Dativ), “der” (Genitiv)</strong>
+      </div>
+    </div>
+
+    <!-- Cách học qua ví dụ thực tế -->
+    <div class="section">
+      <h2>💬 VÍ DỤ THỰC TẾ TRONG HỘI THOẠI</h2>
+      <div class="example">
+        <p><strong>Ich gebe <span class="key-word">dem</span> Mann <span class="key-word">den</span> Ball.</strong></p>
+        <p><em>Tôi đưa quả bóng cho người đàn ông.</em></p>
+        <p>👉 “dem Mann” = cho <strong>ai</strong>? → Dativ (tân ngữ gián tiếp)</p>
+        <p>👉 “den Ball” = đưa <strong>cái gì</strong>? → Akkusativ (tân ngữ trực tiếp)</p>
+      </div>
+      <div class="example">
+        <p><strong>Das ist das Buch <span class="key-word">des</span> Lehrers.</strong></p>
+        <p><em>Đó là cuốn sách của giáo viên.</em></p>
+        <p>👉 “des Lehrers” = “của giáo viên” → Genitiv (sở hữu)</p>
+      </div>
+    </div>
+
+    <!-- Mạo từ theo giới tính -->
+    <div class="section">
+      <h2>🏷️ Mạo Từ Theo Giới Tính – GHI NHỚ NHANH!</h2>
+      <div class="vocab-table">
+        <div class="vocab-card">
+          <h4>Giống đực</h4>
+          <div class="word">der</div>
+          <p>→ Mann, Lehrer, Vater, Hund</p>
+        </div>
+        <div class="vocab-card">
+          <h4>Giống cái</h4>
+          <div class="word">die</div>
+          <p>→ Frau, Mutter, Blume, Stadt</p>
+        </div>
+        <div class="vocab-card">
+          <h4>Giống trung</h4>
+          <div class="word">das</div>
+          <p>→ Kind, Buch, Auto, Haus</p>
+        </div>
+        <div class="vocab-card">
+          <h4>Số nhiều</h4>
+          <div class="word">die</div>
+          <p>→ alle Plural!</p>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        🧠 Mẹo ghi nhớ giới tính:  
+        <strong>“-er”, “-or”, “-ling”, “-ig” → thường là giống đực</strong> (der Lehrer, der König)  
+        <strong>“-ung”, “-keit”, “-heit”, “-schaft” → luôn là giống cái</strong> (die Freundschaft, die Krankheit)  
+        <strong>“-chen”, “-lein”, “-ium”, “-ment” → thường là giống trung</strong> (das Mädchen, das Museum)
+      </div>
+    </div>
+
+    <!-- Trò chơi kéo thả luyện tập -->
+    <div class="section">
+      <h2>🎯 TRÒ CHƠI: KÉO THẢ MẠO TỪ ĐÚNG!</h2>
+      <p style="font-size: 1.2rem;">Kéo các mạo từ bên dưới vào ô đúng với cách và giới tính!</p>
+
+      <div class="drag-drop-area" id="drag-drop-area">
+        <div class="drop-zone" data-case="nominativ" data-gender="maskulin">Nominativ<br>đực</div>
+        <div class="drop-zone" data-case="akkusativ" data-gender="maskulin">Akkusativ<br>đực</div>
+        <div class="drop-zone" data-case="dativ" data-gender="maskulin">Dativ<br>đực</div>
+        <div class="drop-zone" data-case="genitiv" data-gender="maskulin">Genitiv<br>đực</div>
+        <div class="drop-zone" data-case="nominativ" data-gender="feminin">Nominativ<br>cái</div>
+        <div class="drop-zone" data-case="akkusativ" data-gender="feminin">Akkusativ<br>cái</div>
+        <div class="drop-zone" data-case="dativ" data-gender="feminin">Dativ<br>cái</div>
+        <div class="drop-zone" data-case="genitiv" data-gender="feminin">Genitiv<br>cái</div>
+      </div>
+
+      <div class="word-bank" id="word-bank">
+        <div class="drag-item" draggable="true">der</div>
+        <div class="drag-item" draggable="true">den</div>
+        <div class="drag-item" draggable="true">dem</div>
+        <div class="drag-item" draggable="true">des</div>
+        <div class="drag-item" draggable="true">die</div>
+        <div class="drag-item" draggable="true">die</div>
+        <div class="drag-item" draggable="true">der</div>
+        <div class="drag-item" draggable="true">der</div>
+      </div>
+
+      <div class="feedback" id="feedback"></div>
+      <button class="audio-btn" onclick="playAudio('der den dem des die die der der')">🔊 Phát âm các mạo từ</button>
+    </div>
+
+    <!-- Kết luận -->
+    <div class="section">
+      <h2>🌟 TÓM TẮT NHỚ NHANH</h2>
+      <ul>
+        <li>Chủ ngữ = Nominativ → “Ai?” / “Cái gì?” → “der, die, das”</li>
+        <li>Tân ngữ = Akkusativ → “Cái gì bị tác động?” → “den, die, das”</li>
+        <li>Cho ai = Dativ → “Cho ai?” → “dem, der, dem”</li>
+        <li>Sở hữu = Genitiv → “Của ai?” → “des, der, des”</li>
+        <li>Số nhiều luôn dùng “die” ở Nominativ/Akkusativ!</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      🎧 Chúc bạn học tiếng Đức vui vẻ như một trò chơi! <br>
+      👩‍🏫 Phù hợp học sinh cấp 2 – không cần học thuộc, chỉ cần hiểu và chơi!
+    </div>
+  </div>
+
+  <!-- Âm thanh -->
+  <audio id="audio-player" style="display: none;"></audio>
+
+  <script>
+    // Phát âm các mạo từ
+    function playAudio(text) {
+      const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=de&q=${encodeURIComponent(text)}&client=tw-ob`;
+      const audio = new Audio(url);
+      audio.play().catch(e => {
+        alert("Không phát được âm thanh. Vui lòng dùng Chrome và bật autoplay!");
+      });
+    }
+
+    // Tạo mảng các từ cần kéo
+    const dragItems = document.querySelectorAll('.drag-item');
+    const dropZones = document.querySelectorAll('.drop-zone');
+    const feedback = document.getElementById('feedback');
+
+    // Đáp án đúng
+    const correctAnswers = [
+      { word: 'der', case: 'nominativ', gender: 'maskulin' },
+      { word: 'den', case: 'akkusativ', gender: 'maskulin' },
+      { word: 'dem', case: 'dativ', gender: 'maskulin' },
+      { word: 'des', case: 'genitiv', gender: 'maskulin' },
+      { word: 'die', case: 'nominativ', gender: 'feminin' },
+      { word: 'die', case: 'akkusativ', gender: 'feminin' },
+      { word: 'der', case: 'dativ', gender: 'feminin' },
+      { word: 'der', case: 'genitiv', gender: 'feminin' }
+    ];
+
+    // Khi kéo
+    dragItems.forEach(item => {
+      item.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text/plain', item.textContent);
+        e.dataTransfer.effectAllowed = 'move';
+      });
+    });
+
+    // Khi thả vào ô
+    dropZones.forEach(zone => {
+      zone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'copy';
+      });
+
+      zone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const word = e.dataTransfer.getData('text/plain');
+        const caseType = zone.dataset.case;
+        const genderType = zone.dataset.gender;
+
+        // Kiểm tra đúng/sai
+        const isCorrect = correctAnswers.some(ans => 
+          ans.word === word && ans.case === caseType && ans.gender === genderType
+        );
+
+        if (isCorrect) {
+          zone.textContent = word;
+          zone.classList.add('correct');
+          zone.draggable = false;
+          zone.style.color = '#2e7d32';
+          zone.style.fontWeight = 'bold';
+        } else {
+          zone.textContent = 'Sai!';
+          zone.classList.add('wrong');
+          zone.style.color = '#c62828';
+          setTimeout(() => {
+            zone.textContent = `${caseType}<br>${genderType}`;
+            zone.classList.remove('wrong');
+            zone.style.color = '#757575';
+          }, 1500);
+        }
+
+        // Kiểm tra hoàn thành
+        const allCorrect = Array.from(dropZones).every(z => 
+          z.classList.contains('correct') || z.textContent === 'Sai!'
+        );
+        if (allCorrect) {
+          feedback.textContent = '🎉 CHÚC MỪNG! Bạn đã làm đúng tất cả! 👏';
+          feedback.style.color = '#2e7d32';
+        }
+      });
+    });
+
+    // Phát âm khi nhấn nút
+    document.querySelector('.audio-btn').addEventListener('click', () => {
+      playAudio('der den dem des die die der der');
+    });
+  </script>
+</body>
+</html>
