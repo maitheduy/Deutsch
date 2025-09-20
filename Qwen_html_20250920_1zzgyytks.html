@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hội Thoại & Chia Động Từ "Lernen" – Giải Thích Từ Vựng Chi Tiết</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #bbdefb);
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #0277bd;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .speaker {
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: #d81b60;
+      margin: 20px 0 10px;
+      text-align: left;
+    }
+
+    .dialogue {
+      background: #f1f8e9;
+      padding: 15px;
+      border-radius: 15px;
+      margin: 10px 0;
+      font-size: 1.3rem;
+      border-left: 5px solid #4caf50;
+    }
+
+    .pronunciation {
+      background: #fff3e0;
+      padding: 12px;
+      border-radius: 12px;
+      margin: 10px 0;
+      font-style: italic;
+      color: #e65100;
+      font-size: 1.1rem;
+      border-left: 4px solid #ff9800;
+    }
+
+    .translation {
+      background: #e3f2fd;
+      padding: 12px;
+      border-radius: 12px;
+      margin: 10px 0;
+      font-weight: bold;
+      color: #1565c0;
+      font-size: 1.1rem;
+      border-left: 4px solid #2196f3;
+    }
+
+    .vocaroo-embed {
+      margin: 15px 0;
+      text-align: center;
+    }
+
+    .btn-toggle-grammar,
+    .btn-toggle-vocab,
+    .btn-next {
+      background: #673ab7;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin: 20px auto 10px;
+      display: block;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .btn-toggle-vocab {
+      background: #4caf50;
+    }
+
+    .grammar-table-container,
+    .vocab-table-container {
+      margin-top: 20px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+      background: #e3f2fd;
+      border-radius: 15px;
+      border: 2px solid #4fc3f7;
+      padding: 15px;
+      display: none; /* Ẩn ban đầu */
+    }
+
+    .grammar-table,
+    .vocab-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .grammar-table th,
+    .grammar-table td,
+    .vocab-table th,
+    .vocab-table td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #bbdefb;
+      font-size: 1rem;
+    }
+
+    .grammar-table th,
+    .vocab-table th {
+      background: #4fc3f7;
+      color: white;
+      font-weight: bold;
+    }
+
+    .grammar-table tr:nth-child(even),
+    .vocab-table tr:nth-child(even) {
+      background: #e3f2fd;
+    }
+
+    .grammar-table tr:hover,
+    .vocab-table tr:hover {
+      background: #dcedc1;
+    }
+
+    .btn-next {
+      background: #673ab7;
+    }
+
+    .emoji {
+      font-size: 3rem;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .divider {
+      border-bottom: 2px dashed #ccc;
+      margin: 30px 0;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 30px;
+    }
+
+    .vocab-category {
+      font-weight: bold;
+      color: #d81b60;
+      margin-top: 15px;
+      border-bottom: 1px dashed #ccc;
+      padding-bottom: 5px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .dialogue, .pronunciation, .translation { font-size: 1.1rem; }
+      .vocaroo-embed iframe { width: 280px; height: 50px; }
+      .grammar-table th, .grammar-table td,
+      .vocab-table th, .vocab-table td { padding: 8px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📚 Hội Thoại & Chia Động Từ "Lernen" – Giải Thích Từ Vựng Chi Tiết</h1>
+
+    <div class="emoji">💬🧵📖</div>
+
+    <!-- Hiển thị hội thoại -->
+    <div id="dialogue-container">
+      <!-- Các câu sẽ được thêm bằng JS -->
+    </div>
+
+    <!-- Nút hiển thị bảng chia động từ -->
+    <button class="btn-toggle-grammar" id="toggle-grammar">👉 Xem Chia Động Từ "Lernen" Trong Hội Thoại!</button>
+
+    <!-- Bảng chia động từ (ẩn ban đầu) -->
+    <div class="grammar-table-container" id="grammar-table-container">
+      <h3 style="text-align: center; color: #1565c0;">✨ Công thức “May Áo” của động từ “lernen”</h3>
+      <table class="grammar-table">
+        <thead>
+          <tr>
+            <th>Ngôi (Pronomen)</th>
+            <th>Dạng chia</th>
+            <th>Ví dụ trong hội thoại</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>ich (tôi)</td><td>lerne</td><td><em>"Ich lerne gerade meinen neuen Stundenplan."</em></td></tr>
+          <tr><td>du (bạn)</td><td>lernst</td><td><em>"Lernst du gern Kunst?"</em></td></tr>
+          <tr><td>er (anh ấy/cậu ấy)</td><td>lernt</td><td><em>"...er lernt nicht gern Mathe."</em></td></tr>
+          <tr><td>wir (chúng tôi)</td><td>lernen</td><td><em>"Wir lernen heute Nachmittag zusammen..."</em></td></tr>
+          <tr><td>ihr (các bạn)</td><td>lernt</td><td><em>"...was lernt ihr am liebsten?"</em></td></tr>
+          <tr><td>sie (họ)</td><td>lernen</td><td><em>"Sie lernen alles über Tiere und Pflanzen."</em></td></tr>
+          <tr><td>Sie (Ngài/Cô)</td><td>lernen</td><td><em>"...Sie lernen jetzt Japanisch..."</em></td></tr>
+        </tbody>
+      </table>
+      <p style="text-align: center; margin-top: 15px; color: #2e7d32; font-style: italic;">
+        👉 Gốc từ: <strong>lern-</strong> + đuôi: <strong>-e, -st, -t, -en, -t, -en</strong> <br>
+        Nhớ: “ich” và “wir/sie” giống nhau! “er” và “ihr” giống nhau!
+      </p>
+    </div>
+
+    <!-- Nút giải thích từ vựng -->
+    <button class="btn-toggle-vocab" id="toggle-vocab">🔍 Giải thích từ vựng & cụm từ trong hội thoại</button>
+
+    <!-- Bảng giải thích từ vựng (ẩn ban đầu) -->
+    <div class="vocab-table-container" id="vocab-table-container">
+      <h3 style="text-align: center; color: #1565c0;">📖 GIẢI THÍCH TỪ VỰNG & CỤM TỪ</h3>
+
+      <div class="vocab-category">🔹 Từ đơn (Từ vựng cơ bản)</div>
+      <table class="vocab-table">
+        <tr><th>Từ</th><th>Nghĩa</th><th>Ví dụ</th><th>Mẹo nhớ</th></tr>
+        <tr><td>fröhlich</td><td>vui vẻ</td><td>„Du siehst nicht so fröhlich aus.“</td><td>Gần giống "fröhlich" = "happy" → phát âm như "frờ-lích"</td></tr>
+        <tr><td>Spaß</td><td>sự vui vẻ, niềm vui</td><td>„...viel Spaß beim Lernen!“</td><td>“Spaß haben” = vui vẻ, thích thú. Nhớ: “Spaß” = “fun” trong tiếng Anh</td></tr>
+        <tr><td>gern</td><td>thích, thích làm gì đó</td><td>„Lernst du gern Kunst?“, „er lernt nicht gern Mathe“</td><td>Luôn đi sau động từ. “Ich esse gern Pizza” = Tôi thích ăn pizza</td></tr>
+        <tr><td>schwer</td><td>khó</td><td>„Das ist schwer für ihn.“</td><td>“Schwer” = nặng → “khó khăn” như mang vật nặng</td></tr>
+        <tr><td>toll</td><td>tuyệt vời</td><td>„Wow, toll!“</td><td>Giống “cool” trong tiếng Anh. Dùng để khen!</td></tr>
+        <tr><td>neu</td><td>mới</td><td>„meinen neuen Stundenplan“</td><td>“Neu” = mới, “alt” = cũ. “der neue Freund” = người bạn mới</td></tr>
+        <tr><td>viel</td><td>nhiều</td><td>„So viele Fächer!“, „viel Erfolg!“</td><td>“viel” dùng cho danh từ không đếm được. “viele” dùng cho danh từ đếm được → “viele Fächer”</td></tr>
+        <tr><td>Erfolg</td><td>sự thành công</td><td>„Oh, viel Erfolg!“</td><td>“Erfolg haben” = đạt được thành công. “Viel Erfolg!” = Chúc bạn thành công!</td></tr>
+        <tr><td>immer</td><td>luôn luôn</td><td>(Không xuất hiện nhưng hay dùng: „Ich lerne immer Deutsch.“)</td><td>Thường đi với động từ: „Ich gehe immer zur Schule.“</td></tr>
+      </table>
+
+      <div class="vocab-category">🔹 Cụm từ & giới từ</div>
+      <table class="vocab-table">
+        <tr><th>Cụm từ</th><th>Nghĩa</th><th>Ví dụ</th><th>Mẹo nhớ</th></tr>
+        <tr><td>am Anfang</td><td>lúc đầu</td><td>„Ja, am Anfang ist das viel.“</td><td>“am” = tại + “Anfang” = bắt đầu → “at the beginning”</td></tr>
+        <tr><td>bei + Dative</td><td>khi, trong lúc</td><td>„beim Lernen“ = bei + dem Lernen</td><td>“beim” là viết tắt của “bei dem”. Dùng với động từ nguyên thể: beim Essen (khi ăn), beim Spielen (khi chơi)</td></tr>
+        <tr><td>für jemanden</td><td>đối với ai</td><td>„Das ist schwer für ihn.“</td><td>“für” + tân ngữ → “cho ai đó”. “Für dich!” = Cho bạn!</td></tr>
+        <tr><td>über + Akkusativ</td><td>về, về việc</td><td>„alles über Tiere und Pflanzen“</td><td>“über” = về chủ đề. “Ich lerne über Geschichte.” = Tôi học về lịch sử.</td></tr>
+        <tr><td>als + danh từ</td><td>như là</td><td>„als neues Hobby“</td><td>“als” = như một vai trò hoặc chức năng. “Er arbeitet als Lehrer.” = Anh ấy làm việc như một giáo viên.</td></tr>
+        <tr><td>mein/neu/en</td><td>tính từ sở hữu + tính từ chỉ định</td><td>„meinen neuen Stundenplan“</td><td>“meinen” = của tôi (số ít, cách accusative). “neuen” = mới (thay đổi theo cách). Học kỹ cách biến đổi tính từ!</td></tr>
+        <tr><td>zusammen</td><td>cùng nhau</td><td>„wir lernen ... zusammen“</td><td>“zusammen” luôn đứng cuối câu hoặc sau động từ. “Wir gehen zusammen nach Hause.”</td></tr>
+      </table>
+
+      <div class="vocab-category">🔹 Động từ & cách dùng</div>
+      <table class="vocab-table">
+        <tr><th>Động từ</th><th>Cách dùng</th><th>Ví dụ</th><th>Mẹo nhớ</th></tr>
+        <tr><td>lernen</td><td>học (môn học, kỹ năng)</td><td>„Ich lerne Deutsch.“</td><td>Luôn đi với danh từ: lernen + [môn học]. Không nói “lernen etwas” nếu không có danh từ rõ ràng.</td></tr>
+        <tr><td>sehen</td><td>thấy (bằng mắt)</td><td>„Ich sehe, du zeichnest oft.“</td><td>“sehen” khác “schauen” (nhìn cố ý). “Ich sehe einen Vogel.” = Tôi thấy con chim (tình cờ).</td></tr>
+        <tr><td>zeichnen</td><td>vẽ</td><td>„du zeichnest oft“</td><td>“Zeichnung” = bức tranh. “Der Maler zeichnet.” = Họa sĩ vẽ.</td></tr>
+        <tr><td>glauben</td><td>tin rằng</td><td>„Ich glaube, Sie lernen jetzt Japanisch...“</td><td>“Ich glaube, dass…” = Tôi tin rằng… Dùng khi đoán chứ không chắc chắn.</td></tr>
+        <tr><td>verstehen</td><td>hiểu</td><td>„das verstehe ich“</td><td>“verstehen” = hiểu. “Ich verstehe nicht.” = Tôi không hiểu.</td></tr>
+        <tr><td>wünschen</td><td>chúc, mong muốn</td><td>„wünsche ich euch allen viel Spaß“</td><td>“jemandem etwas wünschen” = chúc ai cái gì. “Ich wünsche dir Glück!”</td></tr>
+      </table>
+
+      <p style="text-align: center; margin-top: 20px; color: #2e7d32; font-style: italic;">
+        💡 Mẹo học: Hãy đọc to từng cụm từ 3 lần. Ghi chú lại những từ bạn chưa hiểu — rồi quay lại hội thoại để nghe lại!
+      </p>
+    </div>
+
+    <!-- Nút tiếp theo -->
+    <button class="btn-next" id="next-btn">Tiếp theo ➜</button>
+
+    <div class="footer">
+      🎧 Nghe giọng thật từ Vocaroo — luyện nghe như người bản xứ!<br>
+      📖 Hiểu từng từ, từng cụm — học tiếng Đức thật sự không phải học thuộc!
+    </div>
+  </div>
+
+  <script>
+    // Dữ liệu hội thoại với âm thanh Vocaroo riêng cho từng câu
+    const dialogue = [
+      {
+        speaker: "Lukas:",
+        text: "Hallo An! Sag mal, was ist los? Du siehst nicht so fröhlich aus.",
+        pronunciation: "Ha-lô An! Zác man, vas ist lôs? Đu zist ních-t zô frô-lich ao-s.",
+        translation: "Chào An! Này, có chuyện gì thế? Trông cậu không vui lắm.",
+        vocaroo: "<div class='vocaroo-embed'><iframe width=\"300\" height=\"60\" src=\"https://vocaroo.com/embed/1hYIUPEzsWFz?autoplay=0\" frameborder=\"0\" allow=\"autoplay\"></iframe><br><a href=\"https://voca.ro/1hYIUPEzsWFz\" title=\"Vocaroo Voice Recorder\" target=\"_blank\">View on Vocaroo >></a></div>"
+      },
+      {
+        speaker: "An:",
+        text: "Ach, hallo Lukas. Alles gut. Ich lerne gerade meinen neuen Stundenplan. So viele Fächer!",
+        pronunciation: "Ach, ha-lô Lu-kas. A-lét gút. Ích léc-nờ gờ-ra-đờ mai-nần noi-ần Stun-đần-plan. Zô fi-lờ Fe-khờ!",
+        translation: "À, chào Lukas. Mọi thứ đều ổn. Tớ đang học thuộc cái thời khóa biểu mới. Nhiều môn học quá!",
+        vocaroo: "<div class='vocaroo-embed'><iframe width=\"300\" height=\"60\" src=\"https://vocaroo.com/embed/1gGw93TgV0tk?autoplay=0\" frameborder=\"0\" allow=\"autoplay\"></iframe><br><a href=\"https://voca.ro/1gGw93TgV0tk\" title=\"Vocaroo Voice Recorder\" target=\"_blank\">View on Vocaroo >></a></div>"
+      },
+      {
+        speaker: "Lukas:",
+        text: "Ja, am Anfang ist das viel. Was ist denn dein Lieblingsfach? Lernst du gern Kunst? Ich sehe, du zeichnest oft.",
+        pronunciation: "Ya, am An-fang ist đas fil. Vas ist đen đain Líp-ling-s-fach? Léc-nst đu gern Koon-st? Ích zê-hờ, đu zai-kh-nét ọt.",
+        translation: "Ừ, lúc đầu thì thấy nhiều thật. Môn học yêu thích của cậu là gì? Cậu có thích học môn Nghệ thuật không? Tớ thấy cậu hay vẽ.",
+        vocaroo: "<div class='vocaroo-embed'><iframe width=\"300\" height=\"60\" src=\"https://vocaroo.com/embed/1icdcjyQpDAc?autoplay=0\" frameborder=\"0\" allow=\"autoplay\"></iframe><br><a href=\"https://voca.ro/1icdcjyQpDAc\" title=\"Vocaroo Voice Recorder\" target=\"_blank\">View on Vocaroo >></a></div>"
+      },
+      {
+        speaker: "An:",
+        text: "Genau! Ich liebe Kunst. Und mein kleiner Bruder auch. Aber er lernt nicht gern Mathe. Das ist schwer für ihn.",
+        pronunciation: "Gờ-nao! Ích li-bờ Koon-st. Unt main klai-nờ Bru-đờ ao-kh. A-bờ ea léc-nt ních-t gern Ma-thờ. Đas ist shvea fua in.",
+        translation: "Chính xác! Tớ yêu môn Nghệ thuật. Và em trai tớ cũng vậy. Nhưng em ấy không thích học môn Toán. Môn đó khó với em ấy.",
+        vocaroo: "<div class='vocaroo-embed'><iframe width=\"300\" height=\"60\" src=\"https://vocaroo.com/embed/1hsgDe7WqjrU?autoplay=0\" frameborder=\"0\" allow=\"autoplay\"></iframe><br><a href=\"https://voca.ro/1hsgDe7WqjrU\" title=\"Vocaroo Voice Recorder\" target=\"_blank\">View on Vocaroo >></a></div>"
+      },
+      {
+        speaker: "Lukas:",
+        text: "Haha, das verstehe ich. Wir haben morgen einen Test in Geschichte. Wir lernen heute Nachmittag zusammen in der Bibliothek.",
+        pronunciation: "Ha ha, đas fea-sh-tê-hờ ích. Via ha-bần moóc-gần ai-nần test in Gờ-shích-thờ. Via léc-nần hoi-thờ Nác-mít-tác zu-za-mần in đea Bi-bli-ô-thêk.",
+        translation: "Haha, tớ hiểu mà. Bọn tớ có bài kiểm tra môn Lịch sử vào ngày mai. Chúng tớ học cùng nhau ở thư viện vào chiều nay.",
+        vocaroo: "<div class='vocaroo-embed'><iframe width=\"300\" height=\"60\" src=\"https://vocaroo.com/embed/180oTzjjlKus?autoplay=0\" frameborder=\"0\" allow=\"autoplay\"></iframe><br><a href=\"https://voca.ro/180oTzjjlKus\" title=\"Vocaroo Voice Recorder\" target=\"_blank\">View on Vocaroo >></a></div>"
+      },
+      {
+        speaker: "An:",
+        text: "Oh, viel Erfolg! Und was ist mit deinen anderen Freunden? Was lernt ihr am liebsten?",
+        pronunciation: "Ô, fil ea-fọc! Unt vas ist mít đai-nần an-đờ-rần Froin-đần? Vas léc-nt ia am líp-stần?",
+        translation: "Ồ, chúc may mắn nhé! Thế còn những người bạn khác của cậu thì sao? Các cậu thích học môn gì nhất?",
+        vocaroo: "<div class='vocaroo-embed'><iframe width=\"300\" height=\"60\" src=\"https://vocaroo.com/embed/1gwJKAhtgZl6?autoplay=0\" frameborder=\"0\" allow=\"autoplay\"></iframe><br><a href=\"https://voca.ro/1gwJKAhtgZl6\" title=\"Vocaroo Voice Recorder\" target=\"_blank\">View on Vocaroo >></a></div>"
+      },
+      {
+        speaker: "Lukas:",
+        text: "Maria und Tom lieben Biologie. Sie lernen alles über Tiere und Pflanzen. Und die Lehrerin, Frau Meier? Ich glaube, Sie lernen jetzt Japanisch als neues Hobby!",
+        pronunciation: "Ma-ri-a unt Tôm li-bần Bi-ô-lô-ghi. Zi léc-nần a-lét uy-bờ Tia-rờ unt F’lan-zần. Unt đi Lê-rờ-rin, F’rao Mai-ờ? Ích glao-bờ, Zi léc-nần yét-st Ya-pa-nish als noi-ét Hóp-bi!",
+        translation: "Maria và Tom thì yêu môn Sinh học. Họ học mọi thứ về động vật và thực vật. Còn cô giáo, cô Meier ấy? Tớ nghĩ là Cô đang học tiếng Nhật như một sở thích mới đó!",
+        vocaroo: "<div class='vocaroo-embed'><iframe width=\"300\" height=\"60\" src=\"https://vocaroo.com/embed/1lxdmJVeQeNF?autoplay=0\" frameborder=\"0\" allow=\"autoplay\"></iframe><br><a href=\"https://voca.ro/1lxdmJVeQeNF\" title=\"Vocaroo Voice Recorder\" target=\"_blank\">View on Vocaroo >></a></div>"
+      },
+      {
+        speaker: "An:",
+        text: "Wow, toll! Dann wünsche ich euch allen viel Spaß beim Lernen!",
+        pronunciation: "Wow, tol! Đan wuyn-shờ ích oich a-lần fil shpas baim Léc-nần!",
+        translation: "Wow, tuyệt quá! Vậy tớ chúc tất cả các cậu học vui nhé!",
+        vocaroo: "<div class='vocaroo-embed'><iframe width=\"300\" height=\"60\" src=\"https://vocaroo.com/embed/1fzxCmQCP8EP?autoplay=0\" frameborder=\"0\" allow=\"autoplay\"></iframe><br><a href=\"https://voca.ro/1fzxCmQCP8EP\" title=\"Vocaroo Voice Recorder\" target=\"_blank\">View on Vocaroo >></a></div>"
+      }
+    ];
+
+    const container = document.getElementById('dialogue-container');
+    const nextBtn = document.getElementById('next-btn');
+    const toggleGrammarBtn = document.getElementById('toggle-grammar');
+    const toggleVocabBtn = document.getElementById('toggle-vocab');
+    const grammarContainer = document.getElementById('grammar-table-container');
+    const vocabContainer = document.getElementById('vocab-table-container');
+
+    let currentStep = 0;
+
+    // Hiển thị một bước hội thoại
+    function displayStep(index) {
+      if (index >= dialogue.length) return;
+
+      const item = dialogue[index];
+
+      container.innerHTML = `
+        <div class="speaker">${item.speaker}</div>
+        <div class="dialogue">${item.text}</div>
+        <div class="pronunciation">🔊 Mẹo đọc: ${item.pronunciation}</div>
+        <div class="translation">🌐 Dịch nghĩa: ${item.translation}</div>
+        ${item.vocaroo}
+      `;
+    }
+
+    // Toggle bảng chia động từ
+    toggleGrammarBtn.addEventListener('click', () => {
+      if (grammarContainer.style.display === 'block') {
+        grammarContainer.style.display = 'none';
+        toggleGrammarBtn.textContent = '👉 Xem Chia Động Từ "Lernen" Trong Hội Thoại!';
+      } else {
+        grammarContainer.style.display = 'block';
+        toggleGrammarBtn.textContent = '🙈 Ẩn Bảng Chia Động Từ';
+      }
+    });
+
+    // Toggle bảng giải thích từ vựng
+    toggleVocabBtn.addEventListener('click', () => {
+      if (vocabContainer.style.display === 'block') {
+        vocabContainer.style.display = 'none';
+        toggleVocabBtn.textContent = '🔍 Giải thích từ vựng & cụm từ trong hội thoại';
+      } else {
+        vocabContainer.style.display = 'block';
+        toggleVocabBtn.textContent = '🙈 Ẩn Giải Thích Từ Vựng';
+      }
+    });
+
+    // Nút "Tiếp theo"
+    nextBtn.addEventListener('click', () => {
+      if (currentStep < dialogue.length - 1) {
+        currentStep++;
+        displayStep(currentStep);
+      } else {
+        nextBtn.textContent = "🎉 Hoàn thành! Bạn đã học xong hội thoại!";
+        nextBtn.disabled = true;
+        nextBtn.style.background = "#4caf50";
+        container.innerHTML += `
+          <div style="margin-top: 30px; text-align: center; font-size: 1.5rem; color: #2e7d32;">
+            👏 Tuyệt vời! Bạn đã học xong toàn bộ hội thoại "Lieblingsfächer"! <br>
+            Hãy luyện lại mỗi ngày để ghi nhớ tự nhiên nhé!
+          </div>
+        `;
+      }
+    });
+
+    // Khởi chạy
+    displayStep(currentStep);
+  </script>
+</body>
+</html>
