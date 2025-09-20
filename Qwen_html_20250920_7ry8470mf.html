@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Học Động Từ "Lernen" - Tiếng Đức Cho Trẻ Em</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      color: #333;
+    }
+
+    h1 {
+      color: #e91e63;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      font-size: 3rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .audio-btn {
+      background: #ff9800;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin: 15px 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .word-bank {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+      padding: 15px;
+      background: #fff3e0;
+      border-radius: 15px;
+    }
+
+    .word {
+      padding: 12px 18px;
+      background: #4fc3f7;
+      color: white;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: grab;
+      user-select: none;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .word:active {
+      cursor: grabbing;
+      transform: scale(1.1);
+    }
+
+    .sentence-area {
+      margin: 30px 0;
+      padding: 20px;
+      background: #e8f5e9;
+      border-radius: 15px;
+      min-height: 80px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      position: relative;
+    }
+
+    .placeholder {
+      width: 90px;
+      height: 50px;
+      background: #fffde7;
+      border: 2px dashed #ff9800;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #757575;
+    }
+
+    .correct {
+      background: #c8e6c9 !important;
+      border: 2px solid #4caf50;
+    }
+
+    .wrong {
+      background: #ffcdd2 !important;
+      border: 2px solid #f44336;
+    }
+
+    .feedback {
+      font-size: 1.5rem;
+      margin: 20px 0;
+      font-weight: bold;
+      min-height: 60px;
+      color: #d81b60;
+    }
+
+    .grammar-table {
+      margin: 30px auto;
+      border-collapse: collapse;
+      background: #e3f2fd;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .grammar-table td, .grammar-table th {
+      padding: 12px 15px;
+      text-align: center;
+      border: 1px solid #bbdefb;
+    }
+
+    .grammar-table th {
+      background: #4fc3f7;
+      color: white;
+      font-weight: bold;
+    }
+
+    .grammar-table tr:nth-child(even) {
+      background: #e3f2fd;
+    }
+
+    .success-sound, .error-sound {
+      display: none;
+    }
+
+    .btn-next {
+      background: #673ab7;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .emoji {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .word { padding: 10px 15px; font-size: 0.9rem; }
+      .placeholder { width: 70px; height: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📚 Học Động Từ "Lernen" – CÙNG MÈO THÔNG MINH!</h1>
+
+    <button class="audio-btn" id="play-first">🔊 Phát âm câu đầu tiên: "Ich lerne Deutsch."</button>
+
+    <div class="emoji">🐱</div>
+    <p style="font-size: 1.3rem;">Kéo những từ bên dưới để tạo thành câu đúng nhé!<br><em>(Các từ đã bị xáo trộn – hãy sắp xếp đúng!)</em></p>
+
+    <div class="word-bank" id="word-bank"></div>
+
+    <div class="sentence-area" id="sentence-area"></div>
+
+    <div class="feedback" id="feedback"></div>
+
+    <table class="grammar-table">
+      <thead>
+        <tr>
+          <th>Chủ ngữ</th><th>Động từ "lernen"</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>ich</td><td>lerne</td></tr>
+        <tr><td>du</td><td>lernst</td></tr>
+        <tr><td>er / sie / es</td><td>lernt</td></tr>
+        <tr><td>wir</td><td>lernen</td></tr>
+        <tr><td>ihr</td><td>lernt</td></tr>
+        <tr><td>sie / Sie</td><td>lernen</td></tr>
+      </tbody>
+    </table>
+
+    <button class="btn-next" id="next-btn" disabled>Tiếp theo ➜</button>
+  </div>
+
+  <!-- Âm thanh -->
+  <audio id="success-sound" class="success-sound">
+    <source src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jump-up-score-achievement-bling-210.mp3" type="audio/mp3">
+  </audio>
+  <audio id="error-sound" class="error-sound">
+    <source src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    // Các câu cần sắp xếp (bản gốc - thứ tự đúng)
+    const sentences = [
+      ["Ich", "lerne", "Deutsch."],
+      ["Du", "lernst", "Englisch."],
+      ["Er", "lernt", "Mathe."],
+      ["Wir", "lernen", "Französisch."],
+      ["Ihr", "lernt", "Spanisch."],
+      ["Sie", "lernen", "Italienisch."]
+    ];
+
+    // Gợi ý nếu sai
+    const hints = [
+      "Ich + lerne = Tôi học",
+      "Du + lernst = Bạn học",
+      "Er + lernt = Anh ấy học",
+      "Wir + lernen = Chúng tôi học",
+      "Ihr + lernt = Các bạn học",
+      "Sie + lernen = Họ học"
+    ];
+
+    let currentSentenceIndex = 0;
+
+    // Hàm tráo ngẫu nhiên mảng (Fisher-Yates shuffle)
+    function shuffleArray(array) {
+      const shuffled = [...array];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    }
+
+    // Khởi tạo giao diện cho câu hiện tại
+    function init() {
+      const wordBank = document.getElementById('word-bank');
+      const sentenceArea = document.getElementById('sentence-area');
+      const feedback = document.getElementById('feedback');
+
+      // Xóa dữ liệu cũ
+      wordBank.innerHTML = '';
+      sentenceArea.innerHTML = '';
+      feedback.textContent = '';
+
+      const originalSentence = sentences[currentSentenceIndex]; // Thứ tự đúng
+      const shuffledSentence = shuffleArray(originalSentence);   // Thứ tự tráo ngẫu nhiên
+
+      // Thêm các từ vào word bank (từ đã tráo)
+      shuffledSentence.forEach(word => {
+        const div = document.createElement('div');
+        div.className = 'word';
+        div.textContent = word;
+        div.draggable = true;
+        div.dataset.word = word;
+        wordBank.appendChild(div);
+
+        div.addEventListener('dragstart', (e) => {
+          e.dataTransfer.setData('text/plain', word);
+          e.dataTransfer.effectAllowed = 'move';
+        });
+      });
+
+      // Tạo các ô placeholder theo thứ tự TRÁO
+      shuffledSentence.forEach((_, index) => {
+        const placeholder = document.createElement('div');
+        placeholder.className = 'placeholder';
+        placeholder.dataset.index = index;
+        placeholder.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          e.dataTransfer.dropEffect = 'move';
+        });
+        placeholder.addEventListener('drop', handleDrop);
+        sentenceArea.appendChild(placeholder);
+      });
+
+      // Lưu bản gốc để kiểm tra sau này
+      window.currentOriginalSentence = originalSentence;
+      window.currentShuffledSentence = shuffledSentence;
+
+      // Phát âm câu đầu tiên khi mới vào
+      if (currentSentenceIndex === 0) {
+        speakText(originalSentence.join(' '));
+      }
+    }
+
+    // Xử lý khi thả từ vào ô
+    function handleDrop(e) {
+      e.preventDefault();
+      const word = e.dataTransfer.getData('text/plain');
+      const placeholder = e.target;
+
+      const originalSentence = window.currentOriginalSentence;
+      const placeholderIndex = Array.from(placeholder.parentNode.children).indexOf(placeholder);
+
+      // Kiểm tra: từ vừa thả có đúng vị trí trong câu gốc không?
+      const correctWordInPosition = originalSentence[placeholderIndex];
+
+      if (word === correctWordInPosition) {
+        // Đúng!
+        placeholder.textContent = word;
+        placeholder.classList.add('correct');
+        placeholder.draggable = false;
+
+        // Kiểm tra hoàn thành
+        const allFilled = Array.from(placeholder.parentNode.children).every(p => p.textContent !== '');
+        if (allFilled) {
+          playSound('success');
+          document.getElementById('feedback').textContent = '✨ Chúc mừng! Bạn đã làm rất tốt! 🎉';
+          document.getElementById('next-btn').disabled = false;
+        }
+      } else {
+        // Sai!
+        playSound('error');
+        document.getElementById('feedback').textContent = `Sai rồi! Gợi ý: ${hints[currentSentenceIndex]}.\nĐáp án đúng: "${originalSentence.join(' ')}"`;
+        placeholder.style.animation = 'shake 0.5s';
+        setTimeout(() => {
+          placeholder.style.animation = '';
+        }, 500);
+      }
+    }
+
+    // Phát âm bằng Google TTS (miễn phí)
+    function speakText(text) {
+      const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=de&q=${encodeURIComponent(text)}&client=tw-ob`;
+      const audio = new Audio(url);
+      audio.play().catch(e => console.log("TTS bị chặn:", e));
+    }
+
+    // Phát âm âm thanh
+    function playSound(type) {
+      const sound = document.getElementById(type + '-sound');
+      sound.currentTime = 0;
+      sound.play().catch(e => console.log("Không phát được âm thanh:", e));
+    }
+
+    // Nút "Tiếp theo"
+    document.getElementById('next-btn').addEventListener('click', () => {
+      if (currentSentenceIndex < sentences.length - 1) {
+        currentSentenceIndex++;
+        init();
+        document.getElementById('next-btn').disabled = true;
+        document.getElementById('feedback').textContent = '';
+      } else {
+        document.getElementById('feedback').textContent = '🎉 Bạn đã hoàn thành tất cả các câu! Tuyệt vời! 👏';
+        document.getElementById('next-btn').disabled = true;
+      }
+    });
+
+    // Nút phát âm câu đầu
+    document.getElementById('play-first').addEventListener('click', () => {
+      speakText(sentences[0].join(' '));
+    });
+
+    // Khởi chạy
+    init();
+  </script>
+</body>
+</html>
