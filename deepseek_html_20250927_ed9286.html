@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chơi LEGO với Động Từ Tiếng Đức: gehen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --lego-blue: #3498db;
+            --lego-red: #e74c3c;
+            --lego-green: #2ecc71;
+            --lego-yellow: #f1c40f;
+            --explanation-blue: #e3f2fd;
+            --explanation-border: #2196f3;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14pt;
+            line-height: 1.6;
+            margin: 0;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            color: #333;
+            max-width: 21cm;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: var(--shadow);
+            background-color: white;
+        }
+        
+        h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            padding-left: 0.5rem;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        h3 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            padding-bottom: 0.3rem;
+            border-bottom: 2px solid var(--lego-yellow);
+        }
+        
+        .author {
+            display: block;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .date {
+            display: block;
+            text-align: center;
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+        }
+        
+        .abstract {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: var(--light-color);
+            border-left: 5px solid var(--secondary-color);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            box-shadow: var(--shadow);
+        }
+        
+        .center {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 1em;
+            box-shadow: var(--shadow);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e9f7fe;
+            transition: background-color 0.3s;
+        }
+        
+        .right {
+            text-align: right;
+            margin-top: 2rem;
+            font-style: italic;
+            padding-top: 1rem;
+            border-top: 1px dashed #bdc3c7;
+        }
+        
+        .math {
+            font-family: 'Cambria Math', serif;
+            font-style: italic;
+        }
+        
+        .bold {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .italic {
+            font-style: italic;
+        }
+        
+        .highlight {
+            background-color: #fff9c4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+        
+        .lego-brick {
+            display: inline-block;
+            padding: 0.3rem 0.6rem;
+            margin: 0.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .base-brick {
+            background-color: var(--lego-blue);
+            color: white;
+        }
+        
+        .ending-brick {
+            background-color: var(--lego-red);
+            color: white;
+        }
+        
+        .example {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--lego-green);
+        }
+        
+        .step-box {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--secondary-color);
+        }
+        
+        .conjugation-formula {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: linear-gradient(to right, #f8f9fa, #e9f7fe);
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        
+        ul {
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .audio-container {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f0f8ff;
+            border-radius: 8px;
+            border-left: 3px solid var(--lego-blue);
+        }
+        
+        .audio-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        
+        .audio-player {
+            width: 100%;
+            margin: 10px 0;
+        }
+        
+        .audio-link {
+            display: inline-block;
+            margin-top: 5px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        
+        .audio-link:hover {
+            text-decoration: underline;
+        }
+        
+        .interactive-demo {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 2px dashed #bdc3c7;
+        }
+        
+        .demo-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--primary-color);
+        }
+        
+        .demo-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .pronoun-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            background-color: var(--lego-blue);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .pronoun-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .demo-result {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 600;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+        }
+        
+        .lego-animation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1rem 0;
+            height: 80px;
+        }
+        
+        .lego-piece {
+            width: 40px;
+            height: 20px;
+            margin: 0 5px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.5s;
+        }
+        
+        .plus-sign {
+            font-size: 1.5em;
+            margin: 0 10px;
+        }
+        
+        .equals-sign {
+            font-size: 1.5em;
+            margin: 0 10px;
+        }
+        
+        .explanation-box {
+            background-color: var(--explanation-blue);
+            border-left: 5px solid var(--explanation-border);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .grammar-rule {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .grammar-highlight {
+            background-color: #e8f5e9;
+            padding: 0.3rem 0.5rem;
+            border-radius: 3px;
+            font-weight: 600;
+            color: #2e7d32;
+        }
+        
+        .preposition-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+            justify-content: center;
+        }
+        
+        .preposition-item {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            border-top: 4px solid var(--lego-yellow);
+        }
+        
+        @media print {
+            body {
+                box-shadow: none;
+                padding: 0;
+            }
+            
+            .abstract, .step-box, table {
+                box-shadow: none;
+            }
+            
+            .pronoun-btn {
+                background-color: #ccc !important;
+                color: #000 !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+                font-size: 13pt;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+            
+            th, td {
+                padding: 8px 10px;
+            }
+            
+            .demo-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .pronoun-btn {
+                width: 80%;
+            }
+            
+            .preposition-item {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Chơi LEGO với Động Từ Tiếng Đức: <br>Khám Phá Động Từ "gehen"</h1>
+    <span class="author">Mai Thế Duy</span>
+    <span class="date">Dành cho những người thợ xây ngôn ngữ tương lai</span>
+
+    <div class="abstract">
+        Chia động từ trong tiếng Đức nghe có vẻ phức tạp, nhưng thực ra lại giống hệt như một trò chơi xếp hình LEGO quen thuộc. Trong bài giảng này, chúng ta sẽ không học thuộc lòng những quy tắc khô khan. Thay vào đó, chúng ta sẽ cùng nhau khám phá "bộ xếp hình" mang tên <span class="bold">gehen</span> (đi). Chúng ta sẽ tìm ra đâu là "viên gạch nền tảng" không bao giờ thay đổi và đâu là những "mảnh ghép nhỏ diệu kỳ" để lắp vào, tạo nên những câu hoàn chỉnh và đầy ý nghĩa. Sẵn sàng chơi chưa nào?
+    </div>
+
+    <div class="step-box">
+        <h2>Bước 1: Tìm Ra Viên Gạch Nền Tảng (Thân Động Từ)</h2>
+        <p>
+            Mỗi động từ trong tiếng Đức đều giống như một bộ LEGO. Việc đầu tiên chúng ta cần làm là tìm ra viên gạch chính, viên gạch nền tảng không bao giờ thay đổi.
+        </p>
+        <p>
+            Với động từ <span class="bold">gehen</span> (dạng nguyên thể), chúng ta chỉ cần làm một thao tác đơn giản: bỏ đi hai chữ cái cuối cùng là <span class="bold">-en</span>.
+        </p>
+        
+        <div class="lego-animation">
+            <div class="lego-piece" style="background-color: var(--lego-blue);">gehen</div>
+            <div class="plus-sign">⟶</div>
+            <div>bỏ -en</div>
+            <div class="plus-sign">⟶</div>
+            <div class="lego-piece" style="background-color: var(--lego-blue);">geh-</div>
+        </div>
+        
+        <div class="conjugation-formula">
+            <span class="lego-brick base-brick">gehen</span> 
+            &nbsp; ⟶ &nbsp; bỏ -en &nbsp; ⟶ &nbsp; 
+            <span class="lego-brick base-brick">geh-</span>
+        </div>
+        <p>
+            Vậy là xong! <span class="highlight"><span class="bold">Geh-</span></span> chính là "viên gạch nền tảng" của chúng ta. Dù bạn nói về "tôi", "bạn", hay "anh ấy", viên gạch này sẽ luôn luôn có mặt.
+        </p>
+    </div>
+
+    <div class="step-box">
+        <h2>Bước 2: Gặp Gỡ Những Người Thợ Xây và Các Mảnh Ghép Đặc Biệt</h2>
+        <p>
+            Trong trò chơi này, những "người thợ xây" chính là các đại từ nhân xưng (tôi, bạn, chúng ta...). Mỗi người thợ lại có một "mảnh ghép nhỏ" (đuôi động từ) của riêng mình để gắn vào viên gạch nền tảng.
+        </p>
+        <p>
+            Đây là danh sách các người thợ và mảnh ghép của họ (chắc bạn đã thấy quen quen rồi!):
+        </p>
+        <ul>
+            <li>Người thợ <span class="bold">ich</span> (tôi) có mảnh ghép là: <span class="lego-brick ending-brick">-e</span></li>
+            <li>Người thợ <span class="bold">du</span> (bạn - thân mật) có mảnh ghép là: <span class="lego-brick ending-brick">-st</span></li>
+            <li>Các người thợ <span class="bold">er/sie/es</span> (anh ấy/cô ấy/nó) dùng chung mảnh ghép: <span class="lego-brick ending-brick">-t</span></li>
+            <li>Đội thợ <span class="bold">wir</span> (chúng tôi) có mảnh ghép là: <span class="lego-brick ending-brick">-en</span></li>
+            <li>Đội thợ <span class="bold">ihr</span> (các bạn - thân mật) có mảnh ghép là: <span class="lego-brick ending-brick">-t</span></li>
+            <li>Đội thợ <span class="bold">sie/Sie</span> (họ/Ngài - trang trọng) dùng chung mảnh ghép: <span class="lego-brick ending-brick">-en</span></li>
+        </ul>
+        <p>
+            Bộ quy tắc này không hề thay đổi. Một khi đã thuộc, bạn có thể áp dụng cho rất nhiều động từ khác.
+        </p>
+    </div>
+
+    <div class="interactive-demo">
+        <div class="demo-title">Thử Nghiệm LEGO: Chia Động Từ "gehen"</div>
+        <div class="demo-controls">
+            <button class="pronoun-btn" onclick="showConjugation('ich')">ich</button>
+            <button class="pronoun-btn" onclick="showConjugation('du')">du</button>
+            <button class="pronoun-btn" onclick="showConjugation('er')">er/sie/es</button>
+            <button class="pronoun-btn" onclick="showConjugation('wir')">wir</button>
+            <button class="pronoun-btn" onclick="showConjugation('ihr')">ihr</button>
+            <button class="pronoun-btn" onclick="showConjugation('sie')">sie/Sie</button>
+        </div>
+        <div class="demo-result" id="demoResult">
+            Chọn một đại từ để xem cách chia động từ
+        </div>
+    </div>
+
+    <div class="step-box">
+        <h2>Bước 3: Giờ Thì Lắp Ráp Thôi!</h2>
+        <p>
+            Bây giờ là phần vui nhất: kết hợp "viên gạch nền tảng" và các "mảnh ghép nhỏ". Hãy xem những người thợ của chúng ta xây nên những từ hoàn chỉnh như thế nào nhé.
+        </p>
+
+        <table>
+            <tr>
+                <th><b>Người Thợ</b></th>
+                <th><b>Công Thức Lắp Ráp</b></th>
+                <th><b>Câu Hoàn Chỉnh</b></th>
+            </tr>
+            <tr>
+                <td><b>ich</b> (tôi)</td>
+                <td><span class="lego-brick base-brick">geh-</span> + <span class="lego-brick ending-brick">-e</span> = <i>gehe</i></td>
+                <td>
+                    <div class="example">
+                        Ich <b>gehe</b> ins Kino. <br>
+                        <i>(Tôi đi xem phim.)</i>
+                    </div>
+                    <div class="audio-container">
+                        <div class="audio-title">Nghe phát âm:</div>
+                        <iframe width="100%" height="60" src="https://vocaroo.com/embed/1e4kg9cHPlTD?autoplay=0" frameborder="0" allow="autoplay" class="audio-player"></iframe>
+                        <a href="https://voca.ro/1e4kg9cHPlTD" title="Vocaroo Voice Recorder" target="_blank" class="audio-link">Xem trên Vocaroo &gt;&gt;</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><b>du</b> (bạn)</td>
+                <td><span class="lego-brick base-brick">geh-</span> + <span class="lego-brick ending-brick">-st</span> = <i>gehst</i></td>
+                <td>
+                    <div class="example">
+                        Du <b>gehst</b> in die Schule. <br>
+                        <i>(Bạn đi đến trường.)</i>
+                    </div>
+                    <div class="audio-container">
+                        <div class="audio-title">Nghe phát âm:</div>
+                        <iframe width="100%" height="60" src="https://vocaroo.com/embed/1ehp35xS6rJx?autoplay=0" frameborder="0" allow="autoplay" class="audio-player"></iframe>
+                        <a href="https://voca.ro/1ehp35xS6rJx" title="Vocaroo Voice Recorder" target="_blank" class="audio-link">Xem trên Vocaroo &gt;&gt;</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><b>er</b> (anh ấy)</td>
+                <td><span class="lego-brick base-brick">geh-</span> + <span class="lego-brick ending-brick">-t</span> = <i>geht</i></td>
+                <td>
+                    <div class="example">
+                        Wie <b>geht</b> es dir? <br>
+                        <i>(Bạn có khỏe không? - Đây là một câu rất đặc biệt!)</i>
+                    </div>
+                    <div class="audio-container">
+                        <div class="audio-title">Nghe phát âm:</div>
+                        <iframe width="100%" height="60" src="https://vocaroo.com/embed/1h93xGjyjRtf?autoplay=0" frameborder="0" allow="autoplay" class="audio-player"></iframe>
+                        <a href="https://voca.ro/1h93xGjyjRtf" title="Vocaroo Voice Recorder" target="_blank" class="audio-link">Xem trên Vocaroo &gt;&gt;</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><b>wir</b> (chúng tôi)</td>
+                <td><span class="lego-brick base-brick">geh-</span> + <span class="lego-brick ending-brick">-en</span> = <i>gehen</i></td>
+                <td>
+                    <div class="example">
+                        Wir <b>gehen</b> zusammen spazieren. <br>
+                        <i>(Chúng tôi đi dạo cùng nhau.)</i>
+                    </div>
+                    <div class="audio-container">
+                        <div class="audio-title">Nghe phát âm:</div>
+                        <iframe width="100%" height="60" src="https://vocaroo.com/embed/1aPj6NSB4Qwz?autoplay=0" frameborder="0" allow="autoplay" class="audio-player"></iframe>
+                        <a href="https://voca.ro/1aPj6NSB4Qwz" title="Vocaroo Voice Recorder" target="_blank" class="audio-link">Xem trên Vocaroo &gt;&gt;</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><b>ihr</b> (các bạn)</td>
+                <td><span class="lego-brick base-brick">geh-</span> + <span class="lego-brick ending-brick">-t</span> = <i>geht</i></td>
+                <td>
+                    <div class="example">
+                        Wohin <b>geht</b> ihr? <br>
+                        <i>(Các bạn đi đâu đấy?)</i>
+                    </div>
+                    <div class="audio-container">
+                        <div class="audio-title">Nghe phát âm:</div>
+                        <iframe width="100%" height="60" src="https://vocaroo.com/embed/1dNzKY8SZwhW?autoplay=0" frameborder="0" allow="autoplay" class="audio-player"></iframe>
+                        <a href="https://voca.ro/1dNzKY8SZwhW" title="Vocaroo Voice Recorder" target="_blank" class="audio-link">Xem trên Vocaroo &gt;&gt;</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><b>sie/Sie</b> (họ/Ngài)</td>
+                <td><span class="lego-brick base-brick">geh-</span> + <span class="lego-brick ending-brick">-en</span> = <i>gehen</i></td>
+                <td>
+                    <div class="example">
+                        Sie <b>gehen</b> in den Supermarkt. <br>
+                        <i>(Họ/Ngài đi vào siêu thị.)</i>
+                    </div>
+                    <div class="audio-container">
+                        <div class="audio-title">Nghe phát âm:</div>
+                        <iframe width="100%" height="60" src="https://vocaroo.com/embed/1lBZviFfqnrq?autoplay=0" frameborder="0" allow="autoplay" class="audio-player"></iframe>
+                        <a href="https://voca.ro/1lBZviFfqnrq" title="Vocaroo Voice Recorder" target="_blank" class="audio-link">Xem trên Vocaroo &gt;&gt;</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- PHẦN MỚI ĐƯỢC THÊM VÀO -->
+    <div class="step-box">
+        <h2>Khám Phá Sâu Hơn: Những "Viên Gạch Nối" Đặc Biệt</h2>
+        <p>
+            Trong các câu ví dụ trên, bạn có thấy những từ nhỏ như <span class="bold">ins, in die, in den</span> không? Chúng giống như những "viên gạch nối" đặc biệt, kết nối hành động "đi" với "nơi chốn". Hãy cùng "mổ xẻ" chúng nhé!
+        </p>
+
+        <div class="explanation-box">
+            <h3>Quy Tắc Vàng: Hướng đi (Wohin?) và Nơi chốn (Wo?)</h3>
+            <p>
+                Trước khi phân tích, hãy nhớ quy tắc quan trọng này: Khi hành động chỉ <span class="bold">sự di chuyển, hướng tới một đích đến</span> (trả lời cho câu hỏi <span class="bold">Wohin?</span> - Đi đâu?), danh từ chỉ nơi đến đó thường phải ở cách 4 - <span class="bold">Akkusativ</span>. Động từ <span class="bold">gehen</span> (đi) chính là một động từ như vậy!
+            </p>
+        </div>
+
+        <div class="preposition-box">
+            <div class="preposition-item">
+                <h3>1. "ins Kino": Một viên gạch LEGO rút gọn</h3>
+                <p>
+                    Trong câu "Ich gehe <span class="grammar-highlight">ins</span> Kino", từ <span class="bold">ins</span> là một dạng viết tắt rất phổ biến.
+                </p>
+                <div class="grammar-rule">
+                    <span class="bold">ins</span> = <span class="bold">in + das</span>
+                </div>
+                <ul>
+                    <li><span class="bold">in:</span> là giới từ có nghĩa là "vào trong".</li>
+                    <li><span class="bold">das:</span> là mạo từ của danh từ <span class="bold">das Kino</span> (rạp chiếu phim - Giống trung).</li>
+                </ul>
+            </div>
+
+            <div class="preposition-item">
+                <h3>2. "in die Schule": Viên gạch không cần rút gọn</h3>
+                <p>
+                    Trong câu "Du gehst <span class="grammar-highlight">in die</span> Schule", chúng ta không rút gọn.
+                </p>
+                <ul>
+                    <li><span class="bold">in:</span> giới từ "vào trong".</li>
+                    <li><span class="bold">die:</span> là mạo từ của danh từ <span class="bold">die Schule</span> (trường học - Giống cái).</li>
+                </ul>
+            </div>
+
+            <div class="preposition-item">
+                <h3>3. "in den Supermarkt": Viên gạch biến hình quan trọng</h3>
+                <p>
+                    Đây là ví dụ quan trọng nhất! Trong câu "Sie gehen <span class="grammar-highlight">in den</span> Supermarkt":
+                </p>
+                <ul>
+                    <li><span class="bold">in:</span> giới từ "vào trong".</li>
+                    <li><span class="bold">den:</span> Đây là mạo từ <span class="bold">der</span> của danh từ <span class="bold">der Supermarkt</span> (siêu thị - Giống đực) đã bị "biến hình".</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>4. "Wie geht es dir?": Một công trình đặc biệt</h3>
+        <p>
+            Câu này là một thành ngữ, một "công trình LEGO" được xây sẵn. "Geht" ở đây không có nghĩa là "đi" theo nghĩa đen.
+        </p>
+        <ul>
+            <li><span class="bold">Wie geht es...?</span> có nghĩa là "Nó diễn ra như thế nào...?" hoặc "Tình hình thế nào?".</li>
+            <li><span class="bold">dir</span> là "cho bạn" (ở cách 3 - Dativ).</li>
+            <li>Cả câu có nghĩa đen là: "Nó (cuộc sống) diễn ra với bạn như thế nào?" và chúng ta dịch là "Bạn có khỏe không?".</li>
+        </ul>
+        
+        <h3>5. "spazieren gehen": Cặp đôi LEGO hoàn hảo</h3>
+        <p>
+            Cụm từ "spazieren gehen" là một "cặp đôi" luôn đi cùng nhau, có nghĩa là "đi dạo". Trong ngữ pháp, nó được gọi là một dạng động từ tách.
+        </p>
+        <ul>
+            <li>Động từ chính <span class="bold">gehen</span> sẽ được chia và đứng ở vị trí thứ hai.</li>
+            <li>Thành phần còn lại <span class="bold">spazieren</span> sẽ bị đẩy về cuối câu. Đây là một dạng "khung động từ" mà chúng ta sẽ học kỹ hơn sau này.</li>
+        </ul>
+    </div>
+    <!-- HẾT PHẦN MỚI -->
+
+    <div class="step-box">
+        <h2>Chìa Khóa Vàng: Mở Khóa Hàng Trăm Động Từ Khác</h2>
+        <p>
+            Điều tuyệt vời nhất là gì, bạn biết không? "Bộ xếp hình" mà chúng ta vừa chơi với <span class="bold">gehen</span> cũng chính là cách để lắp ráp hàng trăm động từ khác trong tiếng Đức!
+        </p>
+        <p>
+            Những động từ này được gọi là <span class="bold">động từ có quy tắc</span> (regelmäßige Verben). Chỉ cần bạn tìm ra "viên gạch nền tảng" (bằng cách bỏ -en) và gắn đúng "mảnh ghép" cho từng người thợ, bạn đã có thể chia được rất nhiều động từ như:
+        </p>
+        <ul>
+            <li><span class="bold">machen</span> (làm) → <span class="lego-brick base-brick">mach-</span> → ich mache, du machst, er macht...</li>
+            <li><span class="bold">wohnen</span> (sống, ở) → <span class="lego-brick base-brick">wohn-</span> → ich wohne, du wohnst, er wohnt...</li>
+            <li><span class="bold">spielen</span> (chơi) → <span class="lego-brick base-brick">spiel-</span> → ich spiele, du spielst, er spielt...</li>
+        </ul>
+    </div>
+
+    <div class="step-box">
+        <h2>Lời Kết: Bạn Chính Là Người Thợ Xây Của Chính Mình</h2>
+        <p>
+            Việc chia động từ không phải là gánh nặng, mà là một kỹ năng sáng tạo. Mỗi câu bạn nói ra là một công trình nhỏ mà bạn tự tay xây dựng nên từ những viên gạch và mảnh ghép đơn giản.
+        </p>
+        <p>
+            Hãy nhớ lấy quy tắc LEGO này, và bạn sẽ thấy việc "xây dựng" câu trong tiếng Đức trở nên dễ dàng và thú vị hơn rất nhiều. Hãy tiếp tục luyện tập, và chẳng mấy chốc, bạn sẽ trở thành một "kiến trúc sư ngôn ngữ" tài ba!
+        </p>
+    </div>
+
+    <div class="right">
+        Chúc bạn học vui, <br>
+        <span class="bold">Mai Thế Duy</span>
+    </div>
+
+    <script>
+        function showConjugation(pronoun) {
+            const conjugations = {
+                'ich': 'gehe',
+                'du': 'gehst',
+                'er': 'geht',
+                'wir': 'gehen',
+                'ihr': 'geht',
+                'sie': 'gehen'
+            };
+            
+            const examples = {
+                'ich': 'Ich gehe ins Kino. (Tôi đi xem phim.)',
+                'du': 'Du gehst in die Schule. (Bạn đi đến trường.)',
+                'er': 'Er geht nach Hause. (Anh ấy đi về nhà.)',
+                'wir': 'Wir gehen zusammen spazieren. (Chúng tôi đi dạo cùng nhau.)',
+                'ihr': 'Wohin geht ihr? (Các bạn đi đâu đấy?)',
+                'sie': 'Sie gehen in den Supermarkt. (Họ đi vào siêu thị.)'
+            };
+            
+            const resultElement = document.getElementById('demoResult');
+            resultElement.innerHTML = `
+                <div>
+                    <div style="font-size: 1.5em; margin-bottom: 10px;">
+                        <span class="lego-brick base-brick">geh-</span> + 
+                        <span class="lego-brick ending-brick">-${getEnding(pronoun)}</span> = 
+                        <span style="color: var(--lego-green);">${conjugations[pronoun]}</span>
+                    </div>
+                    <div>${examples[pronoun]}</div>
+                </div>
+            `;
+        }
+        
+        function getEnding(pronoun) {
+            const endings = {
+                'ich': 'e',
+                'du': 'st',
+                'er': 't',
+                'wir': 'en',
+                'ihr': 't',
+                'sie': 'en'
+            };
+            return endings[pronoun];
+        }
+    </script>
+
+</body>
+</html>
