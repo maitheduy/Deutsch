@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Học tiếng Đức: Giống, Cách & Mạo Từ - Tổng quan dễ hiểu về ngữ pháp tiếng Đức">
+    <title>Học Tiếng Đức: Giống, Cách & Mạo Từ (Tổng Quan Dễ Hiểu)</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #007bff;
+            --accent-color: #2c3e50;
+            --light-bg: #eef2f5;
+            --white: #ffffff;
+            --text-color: #333;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --border-radius: 12px;
+            --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 960px;
+            margin: auto;
+            background: var(--white);
+            padding: 30px 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        h1, h2, h3 {
+            color: var(--accent-color);
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 20px;
+            margin-bottom: 45px;
+            font-size: 2.5em;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: var(--secondary-color);
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: var(--accent-color);
+            cursor: pointer;
+            padding: 15px;
+            margin: 0;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            transition: var(--transition);
+            position: relative;
+            padding-right: 40px;
+        }
+
+        h3:hover {
+            background-color: #e9ecef;
+        }
+
+        h3.active {
+            background-color: #e8f0fe;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        h3::after {
+            content: '+';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+            transition: var(--transition);
+        }
+
+        h3.active::after {
+            content: '-';
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .intro, .conclusion {
+            background-color: #e8f0fe;
+            border-left: 6px solid var(--secondary-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: var(--accent-color);
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            background-color: var(--white);
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: var(--danger-color);
+        }
+
+        .sub-highlight {
+            font-weight: bold;
+            color: var(--success-color);
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        ol {
+            list-style-type: decimal;
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 14px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.95em;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+
+        .example-box {
+            background-color: #f6faff;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .example-box p {
+            margin: 5px 0;
+            font-style: italic;
+        }
+
+        .example-box strong {
+            color: var(--primary-color);
+        }
+
+        .tip-box {
+            background-color: #fff3cd;
+            border-left: 4px solid var(--warning-color);
+            padding: 15px;
+            margin: 25px 0;
+            border-radius: 6px;
+            color: #856404;
+        }
+
+        .tip-box strong {
+            color: #d39e00;
+        }
+
+        .important-note {
+            background-color: #f8d7da;
+            border-left: 4px solid var(--danger-color);
+            padding: 15px;
+            margin: 25px 0;
+            border-radius: 6px;
+            color: #721c24;
+        }
+
+        .important-note strong {
+            color: var(--danger-color);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px dashed #ccc;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        .audio-container {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .audio-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            h3 {
+                font-size: 1.2em;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+            
+            th, td {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.7em;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cùng "Giải Mã" Tiếng Đức: Giống, Cách & Mạo Từ - Không Khó Như Bạn Tưởng!</h1>
+
+        <div class="intro">
+            <p>Bạn đang lo lắng về giống, cách, `der, die, das` trong tiếng Đức? Đừng lo lắng! Rất nhiều người học đã từng cảm thấy như vậy. Nhưng hãy nhìn theo một cách khác: <strong>Tiếng Đức rất logic và có hệ thống.</strong> Một khi bạn "vỡ ra" những quy tắc này, bạn sẽ thấy nó không hề khó khăn mà còn rất thú vị!</p>
+            <p>Hãy cùng nhau xem xét một cách tổng quan, đơn giản hóa và tập trung vào những điều cốt lõi nhất, để bạn thấy rằng ngữ pháp tiếng Đức rất logic và có quy tắc.</p>
+        </div>
+
+        <h2>1. Bắt Đầu Với "Tính Cách" Của Danh Từ: Giới Tính (Genus)</h2>
+        <p>Mỗi danh từ trong tiếng Đức (người, vật, hiện tượng...) đều có một "giới tính" cố định. Điều này hơi khác tiếng Anh (chỉ có giống trung cho vật) nhưng lại rất quan trọng. Có 3 giới tính:</p>
+
+        <ul>
+            <li>
+                <strong class="sub-highlight">Giống Đực (Maskulin):</strong> Luôn đi với mạo từ <span class="highlight">`der`</span> (ở Chủ Cách).
+                <div class="audio-container">
+                    <div class="audio-label">Nghe phát âm:</div>
+                    <div><iframe width="300" height="60" src="https://vocaroo.com/embed/1h7dG4SmHXQu?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/1h7dG4SmHXQu" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                </div>
+                <div class="example-box">
+                    <p>Ví dụ: <strong class="highlight">`der`</strong> Mann (người đàn ông), <strong class="highlight">`der`</strong> Tisch (cái bàn)</p>
+                </div>
+            </li>
+            <li>
+                <strong class="sub-highlight">Giống Cái (Feminin):</strong> Luôn đi với mạo từ <span class="highlight">`die`</span> (ở Chủ Cách).
+                <div class="audio-container">
+                    <div class="audio-label">Nghe phát âm:</div>
+                    <div><iframe width="300" height="60" src="https://vocaroo.com/embed/1jSxeOvFPuHu?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/1jSxeOvFPuHu" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                </div>
+                <div class="example-box">
+                    <p>Ví dụ: <strong class="highlight">`die`</strong> Frau (người phụ nữ), <strong class="highlight">`die`</strong> Lampe (cái đèn)</p>
+                </div>
+            </li>
+            <li>
+                <strong class="sub-highlight">Giống Trung (Neutral):</strong> Luôn đi với mạo từ <span class="highlight">`das`</span> (ở Chủ Cách).
+                <div class="audio-container">
+                    <div class="audio-label">Nghe phát âm:</div>
+                    <div><iframe width="300" height="60" src="https://vocaroo.com/embed/1dixfWRJZcKa?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/1dixfWRJZcKa" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                </div>
+                <div class="example-box">
+                    <p>Ví dụ: <strong class="highlight">`das`</strong> Kind (đứa trẻ), <strong class="highlight">`das`</strong> Buch (cuốn sách)</p>
+                </div>
+            </li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Mẹo nhỏ để thấy "không khó":</strong>
+            <ul>
+                <li><strong>Hãy chấp nhận:</strong> Coi giới tính của danh từ như một phần tên của nó. Thay vì học "Mann", hãy học "<strong><span class="highlight">`der`</span></strong> Mann". Thay vì "Buch", học "<strong><span class="highlight">`das`</span></strong> Buch". Như học từ mới tiếng Việt có dấu thôi!</li>
+                <li><strong>Có một số quy tắc "ngầm" (nhưng không tuyệt đối):</strong> Ví dụ, các từ kết thúc bằng `-ung`, `-heit`, `-keit`, `-schaft` thường là giống cái 
+                    (<span class="highlight">`die Zeitung`</span>
+                    <div class="audio-container">
+                        <div class="audio-label">Nghe phát âm:</div>
+                        <div><iframe width="300" height="60" src="https://vocaroo.com/embed/1mA383mQSJWu?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/1mA383mQSJWu" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                    </div>, 
+                    <span class="highlight">`die Freiheit`</span>
+                    <div class="audio-container">
+                        <div class="audio-label">Nghe phát âm:</div>
+                        <div><iframe width="300" height="60" src="https://vocaroo.com/embed/15Q5vYlyOQTC?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/15Q5vYlyOQTC" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                    </div>). Các từ kết thúc bằng `-chen`, `-lein` thường là giống trung 
+                    (<span class="highlight">`das Mädchen`</span>
+                    <div class="audio-container">
+                        <div class="audio-label">Nghe phát âm:</div>
+                        <div><iframe width="300" height="60" src="https://vocaroo.com/embed/1fT58gVxutWP?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/1fT58gVxutWP" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                    </div>, 
+                    <span class="highlight">`das Büchlein`</span>
+                    <div class="audio-container">
+                        <div class="audio-label">Nghe phát âm:</div>
+                        <div><iframe width="300" height="60" src="https://vocaroo.com/embed/1fPchMA42vcQ?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/1fPchMA42vcQ" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                    </div>). Nhưng đừng quá bận tâm, cứ học thuộc là tốt nhất!</li>
+            </ul>
+        </div>
+
+        <h2>2. Sự "Biến Hóa" Của Danh Từ: Các Cách (Kasus)</h2>
+        <p>Đây là lúc danh từ "thay áo" để thể hiện vai trò của nó trong câu. Tiếng Đức có 4 cách, và hãy coi mỗi cách là một "chức vụ" của danh từ:</p>
+
+        <div class="section">
+            <h3>1. Chủ Cách (Nominativ): "Ai làm gì?"</h3>
+            <div class="section-content">
+                <ul>
+                    <li><strong>Chức vụ:</strong> Chủ ngữ của câu. Đứa trẻ đi học.</li>
+                    <li><strong>Trả lời câu hỏi:</strong> <strong class="sub-highlight">Wer?</strong> (Ai?), <strong class="sub-highlight">Was?</strong> (Cái gì?)</li>
+                    <li><strong>Mạo từ (nhắc lại):</strong> <span class="highlight">`der`</span>, <span class="highlight">`die`</span>, <span class="highlight">`das`</span></li>
+                </ul>
+                <div class="example-box">
+                    <p>Ví dụ:</p>
+                    <p><strong class="highlight">`Der Mann`</strong> liest. (Người đàn ông đọc.)
+                        <div class="audio-container">
+                            <div class="audio-label">Nghe phát âm:</div>
+                            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/1gtRXUwkXJfC?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/1gtRXUwkXJfC" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                        </div>
+                    </p>
+                    <p><strong class="highlight">`Die Frau`</strong> arbeitet. (Người phụ nữ làm việc.)
+                        <div class="audio-container">
+                            <div class="audio-label">Nghe phát âm:</div>
+                            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/19A1W0pSc8Vg?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/19A1W0pSc8Vg" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                        </div>
+                    </p>
+                    <p>*Wer liest? Der Mann.*
+                        <div class="audio-container">
+                            <div class="audio-label">Nghe phát âm:</div>
+                            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/15KlOeaOonYn?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/15KlOeaOonYn" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                        </div>
+                    </p>
+                    <p>*Wer arbeitet? Die Frau.*
+                        <div class="audio-container">
+                            <div class="audio-label">Nghe phát âm:</div>
+                            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/1k414j097ZC4?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/1k414j097ZC4" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>2. Đối Cách (Akkusativ): "Làm gì/thấy ai/cái gì?"</h3>
+            <div class="section-content">
+                <ul>
+                    <li><strong>Chức vụ:</strong> Tân ngữ trực tiếp. Đối tượng chịu tác động của hành động. Bạn thấy cái bàn.</li>
+                    <li><strong>Trả lời câu hỏi:</strong> <strong class="sub-highlight">Wen?</strong> (Ai? - tân ngữ), <strong class="sub-highlight">Was?</strong> (Cái gì? - tân ngữ)</li>
+                    <li><strong class="important-note">Mẹo nhỏ: Chỉ có giống đực thay đổi từ <span class="highlight">`der`</span> thành <span class="highlight">`den`</span>!</strong> Giống cái (<span class="highlight">`die`</span>) và giống trung (<span class="highlight">`das`</span>) vẫn giữ nguyên.</li>
+                </ul>
+                <h4>Bảng biến đổi mạo từ xác định (cập nhật):</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cách</th>
+                            <th>Giống Đực</th>
+                            <th>Giống Cái</th>
+                            <th>Giống Trung</th>
+                            <th>Số Nhiều</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>**Nominativ**</td>
+                            <td><span class="highlight">der</span></td>
+                            <td><span class="highlight">die</span></td>
+                            <td><span class="highlight">das</span></td>
+                            <td><span class="highlight">die</span></td>
+                        </tr>
+                        <tr>
+                            <td>**Akkusativ**</td>
+                            <td><span class="highlight">den</span></td>
+                            <td><span class="highlight">die</span></td>
+                            <td><span class="highlight">das</span></td>
+                            <td><span class="highlight">die</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="example-box">
+                    <p>Ví dụ:</p>
+                    <p>Ich sehe <strong class="highlight">`den Mann`</strong>. (Tôi nhìn thấy người đàn ông.)
+                        <div class="audio-container">
+                            <div class="audio-label">Nghe phát âm:</div>
+                            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/16IJFeEFeQXC?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/16IJFeEFeQXC" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                        </div>
+                    </p>
+                    <p>*Wen sehe ich? Den Mann.*
+                        <div class="audio-container">
+                            <div class="audio-label">Nghe phát âm:</div>
+                            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/1dqyuitBAUKV?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/1dqyuitBAUKV" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                        </div>
+                    </p>
+                    <p>Ich kaufe <strong class="highlight">`die Lampe`</strong>. (Tôi mua cái đèn.)
+                        <div class="audio-container">
+                            <div class="audio-label">Nghe phát âm:</div>
+                            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/1j2PWxYmcNA7?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/1j2PWxYmcNA7" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                        </div>
+                    </p>
+                    <p>*Was kaufe ich? Die Lampe.*
+                        <div class="audio-container">
+                            <div class="audio-label">Nghe phát âm:</div>
+                            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/1j2PWxYmcNA7?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/1j2PWxYmcNA7" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                        </div>
+                    </p>
+                    <p>Ich lese <strong class="highlight">`das Buch`</strong>. (Tôi đọc cuốn sách.)
+                        <div class="audio-container">
+                            <div class="audio-label">Nghe phát âm:</div>
+                            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/16Fu2Fb2RpAz?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/16Fu2Fb2RpAz" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                        </div>
+                    </p>
+                    <p>*Was lese ich? Das Buch.*
+                        <div class="audio-container">
+                            <div class="audio-label">Nghe phát âm:</div>
+                            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/163AOzf1o4g1?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/163AOzf1o4g1" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>3. Tặng Cách (Dativ): "Cho ai/cái gì? (hoặc đi với động từ/giới từ đặc biệt)"</h3>
+            <div class="section-content">
+                <ul>
+                    <li><strong>Chức vụ:</strong> Tân ngữ gián tiếp. Người nhận hoặc hưởng lợi từ hành động, hoặc đi sau một số động từ/giới từ đặc biệt. Bạn đưa sách cho đứa trẻ.</li>
+                    <li><strong>Trả lời câu hỏi:</strong> <strong class="sub-highlight">Wem?</strong> (Cho ai/Cái gì?)</li>
+                    <li><strong class="important-note">Mẹo nhỏ: Hầu hết các giới tính đều thay đổi!</strong></li>
+                </ul>
+                <h4>Bảng biến đổi mạo từ xác định (tiếp tục cập nhật):</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cách</th>
+                            <th>Giống Đực</th>
+                            <th>Giống Cái</th>
+                            <th>Giống Trung</th>
+                            <th>Số Nhiều</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>**Nominativ**</td>
+                            <td><span class="highlight">der</span></td>
+                            <td><span class="highlight">die</span></td>
+                            <td><span class="highlight">das</span></td>
+                            <td><span class="highlight">die</span></td>
+                        </tr>
+                        <tr>
+                            <td>**Akkusativ**</td>
+                            <td><span class="highlight">den</span></td>
+                            <td><span class="highlight">die</span></td>
+                            <td><span class="highlight">das</span></td>
+                            <td><span class="highlight">die</span></td>
+                        </tr>
+                        <tr>
+                            <td>**Dativ**</td>
+                            <td><span class="highlight">dem</span></td>
+                            <td><span class="highlight">der</span></td>
+                            <td><span class="highlight">dem</span></td>
+                            <td><span class="highlight">den</span> (+n cho danh từ nếu cần)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="example-box">
+                    <p>Ví dụ:</p>
+                    <p>Ich helfe <strong class="highlight">`dem Mann`</strong>. (Tôi giúp người đàn ông.)
+                        <div class="audio-container">
+                            <div class="audio-label">Nghe phát âm:</div>
+                            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/1lLSlCxLbMb6?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/1lLSlCxLbMb6" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                        </div>
+                    </p>
+                    <p>*Wem helfe ich? Dem Mann.*
+                        <div class="audio-container">
+                            <div class="audio-label">Nghe phát âm:</div>
+                            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/11ZPkbGo6fnt?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/11ZPkbGo6fnt" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                        </div>
+                    </p>
+                    <p>Ich gebe <strong class="highlight">`der Frau`</strong> ein Geschenk. (Tôi tặng người phụ nữ một món quà.)
+                        <div class="audio-container">
+                            <div class="audio-label">Nghe phát âm:</div>
+                            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/19kawefPT6Qv?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/19kawefPT6Qv" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                        </div>
+                    </p>
+                    <p>Ich danke <strong class="highlight">`dem Kind`</strong>. (Tôi cảm ơn đứa trẻ.)
+                        <div class="audio-container">
+                            <div class="audio-label">Nghe phát âm:</div>
+                            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/1kePX99uzvP6?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/1kePX99uzvP6" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                        </div>
+                    </p>
+                    <p><strong class="sub-highlight">Quay lại câu "Wie geht's dir?"</strong>: "dir" chính là Dativ của "du" (bạn). Nghĩa đen là "Nó đi với bạn như thế nào?". Và trả lời "Mir geht's gut." thì "Mir" là Dativ của "ich" (tôi). Nghĩa đen là "Nó đi với tôi tốt."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>4. Sở Hữu Cách (Genitiv): "Của ai/cái gì?"</h3>
+            <div class="section-content">
+                <ul>
+                    <li><strong>Chức vụ:</strong> Thể hiện sự sở hữu.</li>
+                    <li><strong>Trả lời câu hỏi:</strong> <strong class="sub-highlight">Wessen?</strong> (Của ai/cái gì?)</li>
+                    <li><strong class="important-note">Mẹo nhỏ: Giống đực và giống trung thường thêm -s/-es vào danh từ.</strong></li>
+                </ul>
+                <h4>Bảng biến đổi mạo từ xác định (hoàn chỉnh):</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cách</th>
+                            <th>Giống Đực</th>
+                            <th>Giống Cái</th>
+                            <th>Giống Trung</th>
+                            <th>Số Nhiều</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>**Nominativ**</td>
+                            <td><span class="highlight">der</span></td>
+                            <td><span class="highlight">die</span></td>
+                            <td><span class="highlight">das</span></td>
+                            <td><span class="highlight">die</span></td>
+                        </tr>
+                        <tr>
+                            <td>**Akkusativ**</td>
+                            <td><span class="highlight">den</span></td>
+                            <td><span class="highlight">die</span></td>
+                            <td><span class="highlight">das</span></td>
+                            <td><span class="highlight">die</span></td>
+                        </tr>
+                        <tr>
+                            <td>**Dativ**</td>
+                            <td><span class="highlight">dem</span></td>
+                            <td><span class="highlight">der</span></td>
+                            <td><span class="highlight">dem</span></td>
+                            <td><span class="highlight">den</span> (+n)</td>
+                        </tr>
+                        <tr>
+                            <td>**Genitiv**</td>
+                            <td><span class="highlight">des</span> (+s/es)</td>
+                            <td><span class="highlight">der</span></td>
+                            <td><span class="highlight">des</span> (+s/es)</td>
+                            <td><span class="highlight">der</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="example-box">
+                    <p>Ví dụ:</p>
+                    <p>Das ist das Auto <strong class="highlight">`des Mannes`</strong>. (Đó là chiếc xe của người đàn ông.)
+                        <div class="audio-container">
+                            <div class="audio-label">Nghe phát âm:</div>
+                            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/1ewmQed3jaSz?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/1ewmQed3jaSz" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                        </div>
+                    </p>
+                    <p>Die Farbe <strong class="highlight">`der Blume`</strong> ist schön. (Màu sắc của bông hoa đẹp.)
+                        <div class="audio-container">
+                            <div class="audio-label">Nghe phát âm:</div>
+                            <div><iframe width="300" height="60" src="https://vocaroo.com/embed/1gICZSlzUlvK?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/1gICZSlzUlvK" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <h2>3. Mẹo Cốt Lõi Để "Vượt Qua" Nỗi Sợ Hãi:</h2>
+        <ol>
+            <li><strong class="sub-highlight">Học thuộc bảng mạo từ xác định (der, die, das) này như lòng bàn tay.</strong> Nó là xương sống của mọi thứ! Hãy in ra, dán khắp nơi và đọc đi đọc lại mỗi ngày.</li>
+            <li><strong class="sub-highlight">Học danh từ KÈM THEO mạo từ của nó.</strong> Đừng bao giờ học "Tisch" mà hãy học "<strong class="highlight">`der`</strong> Tisch". Đừng học "Lampe" mà hãy học "<strong class="highlight">`die`</strong> Lampe".</li>
+            <li><strong class="sub-highlight">Tập trung vào 3 cách đầu tiên trước (Nominativ, Akkusativ, Dativ).</strong> Genitiv ít dùng trong giao tiếp hàng ngày hơn và thường có thể thay thế bằng giới từ `von` (+ Dativ).</li>
+            <li><strong class="sub-highlight">Khi học động từ, hãy tìm hiểu xem nó đi với cách nào.</strong> Ví dụ:
+                <ul>
+                    <li>`sehen` (nhìn): luôn đi với Akkusativ. (Ich sehe <strong class="highlight">den Mann</strong>.)</li>
+                    <li>`helfen` (giúp đỡ): luôn đi với Dativ. (Ich helfe <strong class="highlight">dem Kind</strong>.)</li>
+                    <li>`geben` (cho): đi với cả Akkusativ (vật được cho) và Dativ (người nhận). (Ich gebe <strong class="highlight">dem Mann</strong> <strong class="highlight">das Buch</strong>.)</li>
+                </ul>
+            </li>
+            <li><strong class="sub-highlight">Luyện tập thật nhiều với ví dụ.</strong> Tạo ra các câu đơn giản của riêng bạn, hoặc dùng các ứng dụng học tiếng Đức có bài tập về cách.</li>
+            <li><strong class="sub-highlight">Đừng sợ sai!</strong> Người Đức hiểu bạn đang học. Quan trọng là bạn cố gắng sử dụng và dần dần sẽ đúng.</li>
+        </ol>
+
+        <div class="conclusion">
+            <p>Hãy nhìn vào bảng biến đổi mạo từ một lần nữa. Bạn sẽ thấy không có quá nhiều sự thay đổi. Khi bạn đã quen với nó, bạn sẽ tự động biết phải dùng mạo từ nào khi nói chuyện.</p>
+            <p>Tiếng Đức không phức tạp, nó chỉ có nhiều quy tắc hơn một chút so với tiếng Anh, nhưng những quy tắc đó lại rất nhất quán. Hãy coi đây là một thử thách thú vị và bạn chắc chắn sẽ chinh phục được! Cố lên nhé!</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2023 Ứng Dụng Học Tiếng Đức. Mọi quyền được bảo lưu.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mở phần đầu tiên khi trang tải
+            const firstSection = document.querySelector('.section h3');
+            if (firstSection) {
+                toggleSection(firstSection);
+            }
+            
+            // Thêm sự kiện click cho tất cả các tiêu đề h3
+            const sectionHeaders = document.querySelectorAll('.section h3');
+            sectionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    toggleSection(this);
+                });
+            });
+        });
+
+        function toggleSection(element) {
+            const content = element.nextElementSibling;
+            const isActive = element.classList.contains('active');
+            
+            // Đóng tất cả các phần khác
+            document.querySelectorAll('.section h3').forEach(header => {
+                header.classList.remove('active');
+            });
+            document.querySelectorAll('.section-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Mở phần được click (trừ khi nó đã active và chúng ta đang đóng tất cả)
+            if (!isActive) {
+                element.classList.add('active');
+                content.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
