@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học Từ Mới Tiếng Đức Cùng Gấu 🇩🇪</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #a7c7e7;
+            --secondary-color: #6fa3ef;
+            --accent-color: #1e88e5;
+            --light-color: #e3f2fd;
+            --text-color: #0d47a1;
+            --yellow: #fff9c4;
+            --green: #c5e1a5;
+            --blue: #bbdefb;
+            --pink: #f8bbd0;
+            --level0: #fff9c4;
+            --level1: #ffecb3;
+            --level2: #e1f5fe;
+            --level3: #c5e1a5;
+        }
+        body {
+            font-family: 'Comic Sans MS', 'Segoe UI', cursive, sans-serif;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(13, 71, 161, 0.15);
+            width: 100%;
+            max-width: 900px;
+            border: 3px solid #bbdefb;
+        }
+        h1, h2 {
+            color: #0d47a1;
+            text-align: center;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        h1::before { content: "🧸 "; }
+        h2::before { content: "🇩🇪 "; }
+        .app-section {
+            background-color: var(--yellow);
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: 18px;
+            border: 2px dashed var(--accent-color);
+        }
+        input[type="text"], textarea, input[type="file"] {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 2px solid #bbdefb;
+            border-radius: 12px;
+            font-size: 16px;
+            outline: none;
+        }
+        button {
+            background-image: linear-gradient(to right, #1e88e5, #42a5f5);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            margin: 5px;
+        }
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+        .btn-success { background: #4CAF50; }
+        .btn-danger { background: #e53935; }
+        .btn-warning { background: #FF9800; }
+        .btn-info { background: #2196F3; }
+        .btn-purple { background: #9c27b0; }
+        .btn-grammar { background: #673ab7; }
+        .btn-typing { background: #009688; }
+
+        /* Danh sách từ */
+        #word-list { 
+            list-style: none; 
+            padding: 0; 
+            margin: 0; 
+            max-height: 700px; 
+            overflow-y: auto; 
+            border: 2px solid var(--accent-color);
+            border-radius: 12px;
+            padding: 8px;
+            background-color: #fffaf4;
+        }
+        #word-list li {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 12px;
+            border-left: 5px solid var(--accent-color);
+        }
+        #word-list li[data-level="0"] { background-color: var(--level0); }
+        #word-list li[data-level="1"] { background-color: var(--level1); }
+        #word-list li[data-level="2"] { background-color: var(--level2); }
+        #word-list li[data-level="3"] { background-color: var(--level3); }
+
+        .word-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .word-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .word-content img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+        .german-span {
+            font-weight: bold;
+            font-size: 1.3em;
+            color: #0d47a1;
+        }
+        .vietnamese-span {
+            font-style: italic;
+            color: #1b5e20;
+            font-size: 1em;
+        }
+        .example-sentence {
+            font-size: 0.95em;
+            color: #2e7d32;
+            margin: 5px 0 0 75px;
+            padding: 8px;
+            background-color: #e6ee9c;
+            border-radius: 8px;
+            border-left: 3px solid #afb42b;
+        }
+        .audio-player {
+            margin-top: 8px;
+            margin-left: 75px;
+        }
+        .delete-btn {
+            background: #e53935;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .level-badge {
+            font-size: 0.8em;
+            padding: 3px 8px;
+            background: #ffd54f;
+            border-radius: 10px;
+            margin-left: 8px;
+            color: #333;
+        }
+        .hidden-meaning {
+            filter: blur(3px);
+            transition: filter 0.3s;
+        }
+        .hidden-meaning:hover {
+            filter: blur(0);
+        }
+        .tts-btn {
+            background: #9c27b0;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-left: 8px;
+        }
+        .upload-audio-btn {
+            padding: 6px 12px;
+            font-size: 12px;
+            background: #9c27b0;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        /* Grammar Game — ĐÃ CẬP NHẬT */
+        #grammar-game {
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .question-box {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+        }
+        .explanation-box {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #0d47a1;
+            margin: 10px 0;
+            display: none; /* Ẩn mặc định */
+        }
+        .options {
+            display: grid;
+            /* 4 cột trên màn hình rộng, 2 cột trên mobile */
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .option-btn {
+            padding: 14px;
+            font-size: 1.1em;
+            background: #e3f2fd;
+            border: 2px solid #bbdefb;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #0d47a1;
+            font-weight: bold;
+            text-align: center;
+        }
+        .option-btn:hover:not(:disabled) {
+            background: #bbdefb;
+            transform: scale(1.03);
+        }
+        .option-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.9;
+        }
+        .option-btn.correct {
+            background: #c8e6c9;
+            border-color: #4CAF50;
+            color: #2e7d32;
+        }
+        .option-btn.incorrect {
+            background: #ffcdd2;
+            border-color: #f44336;
+            color: #c62828;
+        }
+        .score-display {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Học Từ Mới Tiếng Đức Cùng Gấu 🇩🇪</h1>
+
+        <!-- PHẦN THÊM TỪ MỚI -->
+        <div class="app-section">
+            <h2>➕ Thêm Từ Mới Tiếng Đức</h2>
+            <input type="text" id="german-word" placeholder="Từ tiếng Đức (ví dụ: Apfel)">
+            <button id="lookup-btn" class="btn-success">🔍 Tra Từ (Google Dịch)</button>
+            <input type="text" id="vietnamese-meaning" placeholder="Nghĩa tiếng Việt">
+            <input type="text" id="example-de" placeholder="Câu tiếng Đức">
+            <input type="text" id="example-vi" placeholder="Câu tiếng Việt">
+            <input type="text" id="image-url" placeholder="URL hình ảnh (tùy chọn)">
+            
+            <label for="audio-upload" style="display: block; margin-top: 10px; font-weight: bold;">🎤 Upload âm thanh (.mp3/.wav):</label>
+            <input type="file" id="audio-upload" accept="audio/*">
+            <input type="text" id="vocaroo-url" placeholder="Hoặc dán URL Vocaroo (https://vocaroo.com/i/...)">
+            
+            <div style="text-align: center; margin-top: 15px;">
+                <button id="add-word-btn" class="btn-info">✅ Thêm Từ</button>
+                <button id="import-vocab-btn" class="btn-warning">📥 Nhập Từ Vựng (.json)</button>
+                <input type="file" id="import-vocab-file" accept=".json" style="display: none;">
+            </div>
+        </div>
+
+        <!-- Thống kê & công cụ -->
+        <div class="app-section">
+            <h2>📊 Thống Kê & Trò Chơi</h2>
+            <div id="stats-container">
+                <p>Tổng số từ: <strong id="total-words">0</strong></p>
+                <p>Từ đã nhớ (Level 3+): <strong id="mastered-words">0</strong></p>
+            </div>
+            <div style="text-align: center; margin-top: 15px;">
+                <button id="play-game-btn" class="btn-purple">🎮 Ghép Từ</button>
+                <button id="typing-btn" class="btn-typing">⌨️ Gõ Từ Đúng</button>
+                <button id="grammar-btn" class="btn-grammar">📚 Ngữ Pháp</button>
+                <button id="add-grammar-btn" class="btn-grammar" style="background:#512da8;">➕ Thêm Câu Hỏi</button>
+                <button id="import-grammar-btn" class="btn-warning">📥 Nhập Ngữ Pháp (.json)</button>
+                <input type="file" id="import-grammar-file" accept=".json" style="display: none;">
+            </div>
+            <div style="text-align: center; margin-top: 10px;">
+                <label>
+                    <input type="checkbox" id="study-mode"> 🧠 Bật Chế độ Học (Ẩn nghĩa)
+                </label>
+            </div>
+        </div>
+
+        <!-- Form thêm câu hỏi ngữ pháp -->
+        <div class="app-section" id="grammar-form">
+            <h2>➕ Thêm Câu Hỏi Ngữ Pháp Mới</h2>
+            <div class="form-group">
+                <label>Câu hỏi:</label>
+                <input type="text" id="new-grammar-question" placeholder="Ví dụ: Ich ___ einen Apfel.">
+            </div>
+            <div class="form-group">
+                <label>Đáp án A:</label>
+                <input type="text" id="opt-a" placeholder="esse">
+            </div>
+            <div class="form-group">
+                <label>Đáp án B:</label>
+                <input type="text" id="opt-b" placeholder="isst">
+            </div>
+            <div class="form-group">
+                <label>Đáp án C:</label>
+                <input type="text" id="opt-c" placeholder="essen">
+            </div>
+            <div class="form-group">
+                <label>Đáp án D:</label>
+                <input type="text" id="opt-d" placeholder="esst">
+            </div>
+            <div class="form-group">
+                <label>Đáp án đúng (A=0, B=1, C=2, D=3):</label>
+                <input type="number" id="correct-index" min="0" max="3" value="0">
+            </div>
+            <div class="form-group">
+                <label>Giải thích (tùy chọn):</label>
+                <input type="text" id="grammar-explanation" placeholder="Ich esse → tôi ăn">
+            </div>
+            <button id="save-grammar-btn" class="btn-grammar">💾 Lưu Câu Hỏi</button>
+        </div>
+
+        <!-- Trò chơi Ghép Từ -->
+        <div class="app-section" id="matching-game">
+            <h2>🎮 Trò Chơi: Ghép Từ – Nghĩa</h2>
+            <div class="card-container" id="game-cards"></div>
+            <div style="text-align: center;">
+                <button id="reset-game-btn" class="btn-warning">🔄 Làm lại</button>
+            </div>
+        </div>
+
+        <!-- Trò chơi Gõ Từ -->
+        <div class="app-section" id="typing-game">
+            <h2>⌨️ Trò Chơi: Gõ Từ Tiếng Đức</h2>
+            <div id="vietnamese-prompt">Nghĩa: ...</div>
+            <input type="text" id="user-input" placeholder="Gõ từ tiếng Đức ở đây..." autocomplete="off" autofocus>
+            <div id="typing-result"></div>
+            <div style="margin-top: 15px;">
+                <button id="next-typing-btn" class="btn-info">⏭️ Từ tiếp theo</button>
+                <button id="speak-btn" class="btn-purple">🎧 Nghe lại</button>
+            </div>
+        </div>
+
+        <!-- Trò chơi Ngữ pháp — ĐÃ CẬP NHẬT -->
+        <div class="app-section" id="grammar-game">
+            <h2>📚 Trò Chơi: Kiểm Tra Ngữ Pháp Tiếng Đức</h2>
+            <div class="question-box" id="grammar-question">Đang tải...</div>
+            <!-- ✅ HIỂN THỊ GIẢI THÍCH Ở GIỮA -->
+            <div class="explanation-box" id="grammar-explanation"></div>
+            <div class="options" id="grammar-options"></div>
+            <div class="score-display" id="grammar-score">Điểm: 0</div>
+            <div style="text-align: center;">
+                <button id="next-grammar-btn" class="btn-info" style="display:none;">Câu tiếp theo</button>
+            </div>
+        </div>
+
+        <!-- Danh sách từ -->
+        <div class="app-section" id="word-list-section">
+            <h2>📚 Danh Sách Từ Của Bé</h2>
+            <input type="text" id="search-input" placeholder="🔍 Tìm nhanh từ..." style="width: 100%; padding: 10px; border-radius: 10px; border: 2px solid var(--accent-color); font-weight: bold;">
+            <ul id="word-list"></ul>
+        </div>
+    </div>
+
+    <script>
+        // ... (toàn bộ phần khai báo biến và các hàm khác giữ nguyên như trước) ...
+        // Chỉ thay đổi phần TRÒ CHƠI NGỮ PHÁP
+
+        // === TRÒ CHƠI NGỮ PHÁP — ĐÃ CẬP NHẬT ===
+        let currentQuestionIndex = 0;
+        let score = 0;
+        // ⏱️ KHÔNG CÒN BIẾN timeLeft và timer
+
+        function startGrammarGame() {
+            if (grammarQuestions.length === 0) {
+                alert('Chưa có câu hỏi ngữ pháp nào!');
+                return;
+            }
+            grammarGame.style.display = 'flex';
+            matchingGame.style.display = 'none';
+            typingGame.style.display = 'none';
+            grammarForm.style.display = 'none';
+            document.getElementById('word-list-section').style.display = 'block';
+
+            currentQuestionIndex = 0;
+            score = 0;
+            loadGrammarQuestion();
+        }
+
+        function loadGrammarQuestion() {
+            // ✅ KHÔNG CÒN ĐẾM THỜI GIAN
+            document.getElementById('next-grammar-btn').style.display = 'none';
+            document.getElementById('grammar-explanation').style.display = 'none';
+            document.getElementById('grammar-explanation').textContent = '';
+
+            const q = grammarQuestions[currentQuestionIndex];
+            document.getElementById('grammar-question').textContent = q.question;
+            const optionsDiv = document.getElementById('grammar-options');
+            optionsDiv.innerHTML = '';
+            document.getElementById('grammar-score').textContent = `Điểm: ${score}`;
+
+            q.options.forEach((opt, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = opt;
+                btn.onclick = () => handleGrammarAnswer(i === q.correct, q.explanation || '', btn);
+                optionsDiv.appendChild(btn);
+            });
+        }
+
+        function handleGrammarAnswer(isCorrect, explanation, btn) {
+            // ✅ VÔ HIỆU HÓA TẤT CẢ NÚT
+            const buttons = document.getElementById('grammar-options').querySelectorAll('.option-btn');
+            buttons.forEach(b => b.disabled = true);
+
+            if (isCorrect) {
+                score++;
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('incorrect');
+                // ✅ TÔ MÀU ĐÁP ÁN ĐÚNG
+                const correctBtn = buttons[grammarQuestions[currentQuestionIndex].correct];
+                if (correctBtn) correctBtn.classList.add('correct');
+            }
+
+            // ✅ HIỂN THỊ GIẢI THÍCH Ở GIỮA
+            if (explanation) {
+                const expBox = document.getElementById('grammar-explanation');
+                expBox.textContent = explanation;
+                expBox.style.display = 'block';
+            }
+
+            // Tự động chuyển sau 2 giây
+            setTimeout(() => {
+                nextGrammarQuestion();
+            }, 2000);
+        }
+
+        function nextGrammarQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < grammarQuestions.length) {
+                document.getElementById('next-grammar-btn').style.display = 'inline-block';
+                document.getElementById('next-grammar-btn').onclick = loadGrammarQuestion;
+            } else {
+                document.getElementById('grammar-question').textContent = `🎉 Hoàn thành! Điểm: ${score}/${grammarQuestions.length}`;
+                document.getElementById('grammar-options').innerHTML = '';
+                document.getElementById('grammar-explanation').style.display = 'none';
+                document.getElementById('next-grammar-btn').style.display = 'none';
+                document.getElementById('grammar-score').textContent = `Điểm cuối: ${score}/${grammarQuestions.length}`;
+            }
+        }
+
+        // ... (phần còn lại của script giữ nguyên: addWord, displayWords, trò chơi khác, v.v.) ...
+
+        // 💡 DƯỚI ĐÂY LÀ PHẦN SCRIPT ĐẦY ĐỦ — BẠN CÓ THỂ DÁN TOÀN BỘ VÀO THẺ <script>
+
+        const DEFAULT_IMAGE_URL = "https://i.postimg.cc/LnL6T1Rp/Screenshot-2025-08-06-at-19-01-44.png";
+
+        const germanWordInput = document.getElementById('german-word');
+        const vietnameseMeaningInput = document.getElementById('vietnamese-meaning');
+        const exampleDeInput = document.getElementById('example-de');
+        const exampleViInput = document.getElementById('example-vi');
+        const imageUrlInput = document.getElementById('image-url');
+        const vocarooUrlInput = document.getElementById('vocaroo-url');
+        const audioUploadInput = document.getElementById('audio-upload');
+        const addWordBtn = document.getElementById('add-word-btn');
+        const lookupBtn = document.getElementById('lookup-btn');
+        const wordList = document.getElementById('word-list');
+        const totalWordsEl = document.getElementById('total-words');
+        const masteredWordsEl = document.getElementById('mastered-words');
+        const searchInput = document.getElementById('search-input');
+        const studyModeToggle = document.getElementById('study-mode');
+        const playGameBtn = document.getElementById('play-game-btn');
+        const typingBtn = document.getElementById('typing-btn');
+        const grammarBtn = document.getElementById('grammar-btn');
+        const addGrammarBtn = document.getElementById('add-grammar-btn');
+        const grammarForm = document.getElementById('grammar-form');
+        const matchingGame = document.getElementById('matching-game');
+        const typingGame = document.getElementById('typing-game');
+        const grammarGame = document.getElementById('grammar-game');
+        const importGrammarBtn = document.getElementById('import-grammar-btn');
+        const importGrammarFile = document.getElementById('import-grammar-file');
+        const importVocabBtn = document.getElementById('import-vocab-btn');
+        const importVocabFile = document.getElementById('import-vocab-file');
+
+        let words = JSON.parse(localStorage.getItem('germanVocabWords')) || [
+            { 
+                german: 'Apfel', 
+                vietnamese: 'quả táo', 
+                exampleDe: 'Ich esse einen Apfel.', 
+                exampleVi: 'Tôi ăn một quả táo.', 
+                image: DEFAULT_IMAGE_URL, 
+                audioBlob: null,
+                vocarooUrl: '',
+                level: 0 
+            }
+        ];
+
+        let grammarQuestions = JSON.parse(localStorage.getItem('germanGrammarQuestions')) || [
+            {
+                question: "Chọn dạng đúng: Ich ___ einen Apfel.",
+                options: ["esse", "isst", "essen", "esst"],
+                correct: 0,
+                explanation: "Động từ 'essen' chia với 'ich' → 'esse'."
+            },
+            {
+                question: "Giới từ đúng: Das Buch liegt ___ dem Tisch.",
+                options: ["in", "auf", "an", "unter"],
+                correct: 1,
+                explanation: "'auf' dùng cho vị trí trên bề mặt phẳng như bàn, giường."
+            },
+            {
+                question: "Chọn câu đúng:",
+                options: [
+                    "Ich habe ein Hund.",
+                    "Ich habe einen Hund.",
+                    "Ich habe eine Hund.",
+                    "Ich habe der Hund."
+                ],
+                correct: 1,
+                explanation: "'Hund' là danh từ giống đực (der), accusative → 'einen'."
+            },
+            {
+                question: "Chia động từ: Wir ___ Deutsch.",
+                options: ["lerne", "lernst", "lernt", "lernen"],
+                correct: 3,
+                explanation: "Wir + động từ nguyên mẫu → 'lernen'."
+            },
+            {
+                question: "Câu phủ định: Ich habe ___ Geschwister.",
+                options: ["kein", "keine", "keinen", "keiner"],
+                correct: 1,
+                explanation: "'Geschwister' là danh từ số nhiều → dùng 'keine'."
+            },
+            {
+                question: "Chọn giới từ đúng: Ich gehe ___ die Schule.",
+                options: ["in", "zu", "nach", "an"],
+                correct: 0,
+                explanation: "'in die Schule' = vào trong trường (chuyển động vào trong)."
+            },
+            {
+                question: "Thì quá khứ gần (Perfekt): Ich ___ das Buch gelesen.",
+                options: ["habe", "hat", "haben", "hatte"],
+                correct: 0,
+                explanation: "Ich + haben (vì 'lesen' là động từ quy tắc) → 'habe gelesen'."
+            }
+        ];
+
+        const blobUrls = {};
+
+        function saveWords() {
+            const wordsToSave = words.map(w => {
+                const { audioBlob, ...rest } = w;
+                return rest;
+            });
+            localStorage.setItem('germanVocabWords', JSON.stringify(wordsToSave));
+            updateStats();
+        }
+
+        function saveGrammar() {
+            localStorage.setItem('germanGrammarQuestions', JSON.stringify(grammarQuestions));
+        }
+
+        function updateStats() {
+            totalWordsEl.textContent = words.length;
+            masteredWordsEl.textContent = words.filter(w => w.level >= 3).length;
+        }
+
+        function getAudioUrl(word) {
+            if (word.audioBlob) {
+                if (!blobUrls[word.german]) {
+                    blobUrls[word.german] = URL.createObjectURL(word.audioBlob);
+                }
+                return blobUrls[word.german];
+            }
+            return null;
+        }
+
+        function addWord() {
+            const german = germanWordInput.value.trim();
+            const vietnamese = vietnameseMeaningInput.value.trim();
+            const exampleDe = exampleDeInput.value.trim() || `Ich kenne das Wort "${german}".`;
+            const exampleVi = exampleViInput.value.trim() || `Tôi biết từ "${vietnamese}".`;
+            const image = imageUrlInput.value.trim() || DEFAULT_IMAGE_URL;
+            let audioBlob = null;
+
+            const file = audioUploadInput.files[0];
+            if (file) {
+                if (file.size > 2 * 1024 * 1024) {
+                    alert('⚠️ File âm thanh quá lớn (tối đa 2MB)!');
+                    return;
+                }
+                audioBlob = file;
+            }
+
+            if (german && vietnamese) {
+                words.push({
+                    german,
+                    vietnamese,
+                    exampleDe,
+                    exampleVi,
+                    image,
+                    audioBlob,
+                    vocarooUrl: vocarooUrlInput.value.trim(),
+                    level: 0
+                });
+                clearInputs();
+                saveWords();
+                displayWords();
+                alert('✅ Đã thêm từ mới!');
+            } else {
+                alert('Vui lòng nhập từ tiếng Đức và nghĩa tiếng Việt!');
+            }
+        }
+
+        function clearInputs() {
+            germanWordInput.value = '';
+            vietnameseMeaningInput.value = '';
+            exampleDeInput.value = '';
+            exampleViInput.value = '';
+            imageUrlInput.value = '';
+            vocarooUrlInput.value = '';
+            audioUploadInput.value = '';
+            germanWordInput.focus();
+        }
+
+        function sortWordsByLevel() {
+            words.sort((a, b) => a.level - b.level);
+        }
+
+        function displayWords() {
+            const query = searchInput.value.trim().toLowerCase();
+            let filteredWords = words;
+            if (query) {
+                filteredWords = words.filter(word => 
+                    word.german.toLowerCase().includes(query) ||
+                    word.vietnamese.toLowerCase().includes(query)
+                );
+            } else {
+                sortWordsByLevel();
+            }
+
+            wordList.innerHTML = '';
+            if (filteredWords.length === 0) {
+                const li = document.createElement('li');
+                li.style.textAlign = 'center';
+                li.innerHTML = `<em>Không tìm thấy từ nào chứa "${query}"</em>`;
+                wordList.appendChild(li);
+                return;
+            }
+
+            filteredWords.forEach((word, index) => {
+                const li = document.createElement('li');
+                li.dataset.level = word.level;
+
+                let audioHtml = '';
+                const audioUrl = getAudioUrl(word);
+                if (audioUrl) {
+                    audioHtml = `<div class="audio-player"><audio controls src="${audioUrl}" style="width:200px;"></audio></div>`;
+                } else if (word.vocarooUrl) {
+                    const match = word.vocarooUrl.match(/vocaroo\.com\/(?:i\/)?([a-zA-Z0-9]+)/);
+                    if (match) {
+                        const id = match[1];
+                        const embedUrl = `https://vocaroo.com/embed/${id}?autoplay=0`;
+                        audioHtml = `<div class="audio-player"><iframe width="200" height="30" src="${embedUrl}" frameborder="0" allow="autoplay"></iframe></div>`;
+                    }
+                }
+
+                const vietnameseDisplay = studyModeToggle.checked 
+                    ? `<span class="vietnamese-span hidden-meaning">${word.vietnamese}</span>`
+                    : `<span class="vietnamese-span">${word.vietnamese}</span>`;
+
+                li.innerHTML = `
+                    <div class="word-header">
+                        <div class="word-content">
+                            <img src="${word.image}" alt="${word.german}" onerror="this.src='${DEFAULT_IMAGE_URL}';">
+                            <div>
+                                <span class="german-span">${word.german}</span>
+                                <button class="tts-btn" data-german="${word.german}">🎧</button>
+                                <span class="level-badge">Lv.${word.level}</span>
+                                <br>
+                                ${vietnameseDisplay}
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn-success" style="padding:6px 10px; font-size:12px;" data-index="${index}">Tôi nhớ rồi!</button>
+                            <button class="delete-btn" data-index="${index}">Xóa</button>
+                        </div>
+                    </div>
+                    <div class="example-sentence">
+                        🇩🇪 ${word.exampleDe}
+                        <br>🇻🇳 ${word.exampleVi}
+                    </div>
+                    ${audioHtml}
+                    <div style="text-align: center;">
+                        <button class="upload-audio-btn" data-upload-index="${index}">🎤 Upload Âm Thanh</button>
+                        <input type="file" id="audio-upload-list-${index}" accept="audio/*" style="display:none;" data-index="${index}">
+                    </div>
+                `;
+                wordList.appendChild(li);
+            });
+            updateStats();
+
+            document.querySelectorAll('.upload-audio-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = e.target.dataset.uploadIndex;
+                    document.getElementById(`audio-upload-list-${index}`).click();
+                });
+            });
+
+            document.querySelectorAll(`[id^="audio-upload-list-"]`).forEach(input => {
+                input.addEventListener('change', (e) => {
+                    const index = parseInt(e.target.dataset.index);
+                    const file = e.target.files[0];
+                    if (file) {
+                        if (file.size > 2 * 1024 * 1024) {
+                            alert('⚠️ File âm thanh quá lớn (tối đa 2MB)!');
+                            return;
+                        }
+                        words[index].audioBlob = file;
+                        words[index].vocarooUrl = '';
+                        saveWords();
+                        displayWords();
+                        alert(`✅ Đã thêm âm thanh cho từ "${words[index].german}"!`);
+                    }
+                });
+            });
+        }
+
+        function speakGerman(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'de-DE';
+                utterance.rate = 0.9;
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        lookupBtn.addEventListener('click', () => {
+            const word = germanWordInput.value.trim();
+            if (!word) {
+                alert("Hãy nhập từ tiếng Đức để tra!");
+                return;
+            }
+            const url = `https://translate.google.com/?sl=de&tl=vi&text=${encodeURIComponent(word)}&op=translate`;
+            window.open(url, '_blank');
+        });
+
+        function incrementLevel(index) {
+            if (words[index].level < 3) {
+                words[index].level += 1;
+                saveWords();
+                displayWords();
+            }
+        }
+
+        function deleteWord(index) {
+            if (confirm(`Xóa từ "${words[index].german}"?`)) {
+                words.splice(index, 1);
+                saveWords();
+                displayWords();
+                alert('🗑️ Đã xóa từ!');
+            }
+        }
+
+        // === NHẬP JSON CHO TỪ VỰNG ===
+        importVocabBtn.addEventListener('click', () => {
+            importVocabFile.click();
+        });
+
+        importVocabFile.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                try {
+                    const imported = JSON.parse(event.target.result);
+                    if (Array.isArray(imported) && imported.length > 0) {
+                        const valid = imported.every(w => w.german && w.vietnamese);
+                        if (valid) {
+                            words = imported.map(w => ({
+                                german: w.german,
+                                vietnamese: w.vietnamese,
+                                exampleDe: w.exampleDe || `Ich kenne "${w.german}".`,
+                                exampleVi: w.exampleVi || `Tôi biết "${w.vietnamese}".`,
+                                image: w.image || DEFAULT_IMAGE_URL,
+                                vocarooUrl: w.vocarooUrl || '',
+                                level: w.level || 0,
+                                audioBlob: null
+                            }));
+                            saveWords();
+                            displayWords();
+                            alert(`📥 Đã nhập thành công ${imported.length} từ mới!`);
+                        } else {
+                            throw new Error('Thiếu trường bắt buộc: german, vietnamese');
+                        }
+                    } else {
+                        throw new Error('Dữ liệu không hợp lệ');
+                    }
+                } catch (err) {
+                    alert('❌ File JSON từ vựng không hợp lệ!\n\nMỗi từ phải có:\n- "german"\n- "vietnamese"\n\nVí dụ:\n[\n  {\n    "german": "Apfel",\n    "vietnamese": "quả táo"\n  }\n]');
+                }
+            };
+            reader.readAsText(file);
+            e.target.value = '';
+        });
+
+        // === NHẬP JSON CHO NGỮ PHÁP ===
+        importGrammarBtn.addEventListener('click', () => {
+            importGrammarFile.click();
+        });
+
+        importGrammarFile.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                try {
+                    const imported = JSON.parse(event.target.result);
+                    if (Array.isArray(imported) && imported.length > 0) {
+                        const valid = imported.every(q => 
+                            q.question && Array.isArray(q.options) && q.options.length === 4 && 
+                            typeof q.correct === 'number' && q.correct >= 0 && q.correct <= 3
+                        );
+                        if (valid) {
+                            grammarQuestions = imported;
+                            saveGrammar();
+                            alert('📥 Đã nhập thành công ' + imported.length + ' câu hỏi ngữ pháp!');
+                        } else {
+                            throw new Error('Định dạng không hợp lệ');
+                        }
+                    } else {
+                        throw new Error('Không phải mảng câu hỏi');
+                    }
+                } catch (err) {
+                    alert('❌ File JSON không hợp lệ!\n\nĐịnh dạng đúng:\n[\n  {\n    "question": "Câu hỏi?",\n    "options": ["A","B","C","D"],\n    "correct": 0,\n    "explanation": "Giải thích"\n  }\n]');
+                }
+            };
+            reader.readAsText(file);
+            e.target.value = '';
+        });
+
+        // === TRÒ CHƠI GHÉP TỪ ===
+        let selectedCards = [];
+        let gameWords = [];
+
+        function startMatchingGame() {
+            if (words.length < 2) {
+                alert('Cần ít nhất 2 từ để chơi!');
+                return;
+            }
+            matchingGame.style.display = 'block';
+            typingGame.style.display = 'none';
+            grammarGame.style.display = 'none';
+            grammarForm.style.display = 'none';
+            document.getElementById('word-list-section').style.display = 'block';
+
+            const count = Math.min(6, words.length);
+            gameWords = [...words].sort(() => 0.5 - Math.random()).slice(0, count);
+
+            const items = [
+                ...gameWords.map(w => ({ type: 'german', value: w.german, original: w })),
+                ...gameWords.map(w => ({ type: 'vietnamese', value: w.vietnamese, original: w }))
+            ].sort(() => 0.5 - Math.random());
+
+            gameCards.innerHTML = '';
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.textContent = item.value;
+                card.dataset.type = item.type;
+                card.dataset.word = item.original.german;
+                card.addEventListener('click', () => selectCard(card));
+                gameCards.appendChild(card);
+            });
+
+            selectedCards = [];
+        }
+
+        function selectCard(card) {
+            if (card.classList.contains('hidden')) return;
+            if (selectedCards.length >= 2) return;
+            if (selectedCards.includes(card)) return;
+
+            card.classList.add('selected');
+            selectedCards.push(card);
+
+            if (selectedCards.length === 2) {
+                const [c1, c2] = selectedCards;
+                const isMatch = c1.dataset.word === c2.dataset.word;
+                if (isMatch) {
+                    setTimeout(() => {
+                        c1.classList.add('hidden');
+                        c2.classList.add('hidden');
+                    }, 300);
+                } else {
+                    setTimeout(() => {
+                        c1.classList.remove('selected');
+                        c2.classList.remove('selected');
+                    }, 800);
+                }
+                selectedCards = [];
+            }
+        }
+
+        // === TRÒ CHƠI GÕ TỪ ===
+        let currentTypingWord = null;
+
+        function startTypingGame() {
+            if (words.length === 0) {
+                alert('Chưa có từ nào để chơi!');
+                return;
+            }
+            typingGame.style.display = 'block';
+            matchingGame.style.display = 'none';
+            grammarGame.style.display = 'none';
+            grammarForm.style.display = 'none';
+            document.getElementById('word-list-section').style.display = 'block';
+
+            loadRandomTypingWord();
+        }
+
+        function loadRandomTypingWord() {
+            currentTypingWord = words[Math.floor(Math.random() * words.length)];
+            document.getElementById('vietnamese-prompt').textContent = `Nghĩa: "${currentTypingWord.vietnamese}"`;
+            document.getElementById('user-input').value = '';
+            document.getElementById('typing-result').textContent = '';
+            document.getElementById('user-input').focus();
+        }
+
+        document.getElementById('user-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                checkTypingAnswer();
+            }
+        });
+
+        function checkTypingAnswer() {
+            const input = document.getElementById('user-input').value.trim();
+            const resultDiv = document.getElementById('typing-result');
+            if (input.toLowerCase() === currentTypingWord.german.toLowerCase()) {
+                resultDiv.innerHTML = '✅ <b>Đúng rồi!</b> Tuyệt vời!';
+                resultDiv.style.color = '#4CAF50';
+                const idx = words.findIndex(w => w.german === currentTypingWord.german);
+                if (idx !== -1 && words[idx].level < 3) {
+                    words[idx].level++;
+                    saveWords();
+                }
+            } else {
+                resultDiv.innerHTML = `❌ <b>Sai rồi!</b> Đáp án đúng: <b>${currentTypingWord.german}</b>`;
+                resultDiv.style.color = '#f44336';
+            }
+        }
+
+        document.getElementById('next-typing-btn').addEventListener('click', loadRandomTypingWord);
+        document.getElementById('speak-btn').addEventListener('click', () => {
+            speakGerman(currentTypingWord.german);
+        });
+
+        // === NÚT ĐIỀU HƯỚNG ===
+        playGameBtn.addEventListener('click', startMatchingGame);
+        document.getElementById('reset-game-btn').addEventListener('click', startMatchingGame);
+        typingBtn.addEventListener('click', startTypingGame);
+        grammarBtn.addEventListener('click', startGrammarGame);
+
+        // === SỰ KIỆN CHÍNH ===
+        addWordBtn.addEventListener('click', addWord);
+        germanWordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') addWord();
+        });
+
+        searchInput.addEventListener('input', displayWords);
+        studyModeToggle.addEventListener('change', displayWords);
+
+        wordList.addEventListener('click', e => {
+            const index = e.target.dataset.index;
+            if (e.target.classList.contains('delete-btn')) {
+                deleteWord(index);
+            } else if (e.target.classList.contains('btn-success')) {
+                incrementLevel(index);
+            } else if (e.target.classList.contains('tts-btn')) {
+                speakGerman(e.target.dataset.german);
+            }
+        });
+
+        window.addEventListener('beforeunload', () => {
+            Object.values(blobUrls).forEach(url => URL.revokeObjectURL(url));
+        });
+
+        displayWords();
+    </script>
+</body>
+</html>
