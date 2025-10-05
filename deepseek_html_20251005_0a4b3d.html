@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học Tiếng Đức Cho Trẻ Em</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #9b59b6 0%, #3498db 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(90deg, #8e44ad, #9b59b6);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 5px solid #7d3c98;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        
+        .sentence-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            margin: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .grammar-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            background-color: #f0f7ff;
+            border-radius: 15px;
+            margin: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .game-section {
+            flex: 100%;
+            padding: 20px;
+            background-color: #fff9e6;
+            border-radius: 15px;
+            margin: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: #8e44ad;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #d2b4de;
+        }
+        
+        .sentence-box {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .german-text {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #2c3e50;
+            text-align: center;
+        }
+        
+        .vietnamese-text {
+            color: #666;
+            font-style: italic;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+        
+        .audio-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            background: #e8f6f3;
+            padding: 15px;
+            border-radius: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .audio-label {
+            margin-right: 15px;
+            font-weight: bold;
+            color: #16a085;
+            font-size: 1.1rem;
+        }
+        
+        .word-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .word-card {
+            background: white;
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .word-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .german-word {
+            font-weight: bold;
+            color: #8e44ad;
+            font-size: 1.2rem;
+        }
+        
+        .vietnamese-meaning {
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .grammar-point {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .grammar-title {
+            font-weight: bold;
+            color: #8e44ad;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .grammar-explanation {
+            line-height: 1.5;
+        }
+        
+        .game-area {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .scrambled-word {
+            font-size: 2.2rem;
+            letter-spacing: 8px;
+            margin: 20px 0;
+            padding: 15px;
+            background: #e8f6f3;
+            border-radius: 10px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .word-bank {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .letter {
+            display: inline-block;
+            width: 55px;
+            height: 55px;
+            line-height: 55px;
+            text-align: center;
+            background: #8e44ad;
+            color: white;
+            font-size: 1.6rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .letter:hover {
+            background: #7d3c98;
+            transform: scale(1.1);
+        }
+        
+        .selected {
+            background: #f39c12;
+            transform: scale(1.1);
+        }
+        
+        .controls {
+            margin: 20px 0;
+        }
+        
+        button {
+            background: #8e44ad;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 0 10px;
+        }
+        
+        button:hover {
+            background: #7d3c98;
+            transform: translateY(-3px);
+        }
+        
+        #result {
+            font-size: 1.3rem;
+            margin: 15px 0;
+            min-height: 30px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        .correct {
+            color: #27ae60;
+            background-color: #e8f6f3;
+        }
+        
+        .incorrect {
+            color: #e74c3c;
+            background-color: #fdedec;
+        }
+        
+        .sentence-structure {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f4ecf7;
+            border-radius: 10px;
+        }
+        
+        .structure-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #8e44ad;
+            font-size: 1.1rem;
+        }
+        
+        .structure-item {
+            margin: 8px 0;
+            padding: 8px;
+            background: white;
+            border-radius: 5px;
+            border-left: 4px solid #8e44ad;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+            margin-top: 20px;
+        }
+        
+        .fun-fact {
+            background: #fff9e6;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .fun-fact-title {
+            font-weight: bold;
+            color: #e67e22;
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .sentence-section, .grammar-section, .game-section {
+                min-width: 100%;
+            }
+            
+            .german-text {
+                font-size: 1.5rem;
+            }
+            
+            .letter {
+                width: 45px;
+                height: 45px;
+                line-height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Học Tiếng Đức Cùng Em</h1>
+            <div class="subtitle">Khám phá ngôn ngữ mới qua những câu nói thú vị</div>
+        </header>
+        
+        <div class="content">
+            <section class="sentence-section">
+                <h2>Câu Tiếng Đức</h2>
+                <div class="sentence-box">
+                    <div class="german-text">Die Schule macht wirklich Spaß!</div>
+                    <div class="vietnamese-text">Trường học thực sự rất vui!</div>
+                </div>
+                
+                <div class="audio-container">
+                    <div class="audio-label">Nghe phát âm:</div>
+                    <div>
+                        <iframe width="300" height="60" src="https://vocaroo.com/embed/11VSG1Y95jOP?autoplay=0" frameborder="0" allow="autoplay"></iframe>
+                        <br>
+                        <a href="https://voca.ro/11VSG1Y95jOP" title="Vocaroo Voice Recorder" target="_blank">Xem trên Vocaroo &gt;&gt;</a>
+                    </div>
+                </div>
+                
+                <div class="sentence-structure">
+                    <div class="structure-title">Cấu trúc câu:</div>
+                    <div class="structure-item">
+                        <strong>Die Schule</strong> - Chủ ngữ (Trường học)
+                    </div>
+                    <div class="structure-item">
+                        <strong>macht</strong> - Động từ (làm, tạo ra)
+                    </div>
+                    <div class="structure-item">
+                        <strong>wirklich</strong> - Trạng từ (thực sự)
+                    </div>
+                    <div class="structure-item">
+                        <strong>Spaß</strong> - Tân ngữ (niềm vui)
+                    </div>
+                </div>
+                
+                <div class="fun-fact">
+                    <div class="fun-fact-title">💡 Sự thật thú vị:</div>
+                    <div>Cụm từ "Spaß machen" là một cách diễn đạt phổ biến trong tiếng Đức để nói về việc gì đó mang lại niềm vui!</div>
+                </div>
+                
+                <h2>Từ Vựng Mới</h2>
+                <div class="word-list">
+                    <div class="word-card">
+                        <div class="german-word">die Schule</div>
+                        <div class="vietnamese-meaning">trường học</div>
+                    </div>
+                    <div class="word-card">
+                        <div class="german-word">machen</div>
+                        <div class="vietnamese-meaning">làm, tạo ra</div>
+                    </div>
+                    <div class="word-card">
+                        <div class="german-word">wirklich</div>
+                        <div class="vietnamese-meaning">thực sự</div>
+                    </div>
+                    <div class="word-card">
+                        <div class="german-word">der Spaß</div>
+                        <div class="vietnamese-meaning">niềm vui, sự vui vẻ</div>
+                    </div>
+                    <div class="word-card">
+                        <div class="german-word">die Freude</div>
+                        <div class="vietnamese-meaning">niềm vui (đồng nghĩa)</div>
+                    </div>
+                    <div class="word-card">
+                        <div class="german-word">lernen</div>
+                        <div class="vietnamese-meaning">học</div>
+                    </div>
+                    <div class="word-card">
+                        <div class="german-word">lustig</div>
+                        <div class="vietnamese-meaning">vui vẻ, hài hước</div>
+                    </div>
+                    <div class="word-card">
+                        <div class="german-word">toll</div>
+                        <div class="vietnamese-meaning">tuyệt vời</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="grammar-section">
+                <h2>Ngữ Pháp Trọng Điểm</h2>
+                
+                <div class="grammar-point">
+                    <div class="grammar-title">Mạo Từ Xác Định "die"</div>
+                    <div class="grammar-explanation">
+                        "die" là mạo từ xác định cho danh từ giống cái số ít. "Schule" là danh từ giống cái nên có mạo từ "die".
+                    </div>
+                </div>
+                
+                <div class="grammar-point">
+                    <div class="grammar-title">Động Từ "machen" Ở Thì Hiện Tại</div>
+                    <div class="grammar-explanation">
+                        "macht" là dạng chia ngôi thứ 3 số ít của động từ "machen" (làm) ở thì hiện tại. 
+                        Cách chia: ich mache, du machst, er/sie/es macht, wir machen, ihr macht, sie machen.
+                    </div>
+                </div>
+                
+                <div class="grammar-point">
+                    <div class="grammar-title">Cụm Động Từ "Spaß machen"</div>
+                    <div class="grammar-explanation">
+                        "Spaß machen" là một cụm động từ cố định có nghĩa là "mang lại niềm vui" hoặc "rất vui". 
+                        Cấu trúc: [Chủ ngữ] + macht + [tính từ] + Spaß.
+                    </div>
+                </div>
+                
+                <div class="grammar-point">
+                    <div class="grammar-title">Trạng Từ "wirklich"</div>
+                    <div class="grammar-explanation">
+                        "wirklich" là trạng từ có nghĩa là "thực sự", được đặt trước tính từ hoặc cụm từ mà nó bổ nghĩa.
+                    </div>
+                </div>
+                
+                <div class="grammar-point">
+                    <div class="grammar-title">Danh Từ Giống Đực "der Spaß"</div>
+                    <div class="grammar-explanation">
+                        "Spaß" là danh từ giống đực, có nghĩa là "niềm vui" hoặc "sự vui vẻ". 
+                        Trong cụm "Spaß machen", nó đóng vai trò là tân ngữ trực tiếp.
+                    </div>
+                </div>
+                
+                <div class="grammar-point">
+                    <div class="grammar-title">Trật Tự Từ Trong Câu Khẳng Định</div>
+                    <div class="grammar-explanation">
+                        Câu này tuân theo trật tự chuẩn trong tiếng Đức: Chủ ngữ + Động từ đứng vị trí 2 + Trạng ngữ + Tân ngữ.
+                    </div>
+                </div>
+                
+                <div class="grammar-point">
+                    <div class="grammar-title">Dấu Chấm Than Trong Tiếng Đức</div>
+                    <div class="grammar-explanation">
+                        Dấu chấm than (!) được sử dụng để thể hiện cảm xúc tích cực, ngạc nhiên hoặc nhấn mạnh, tương tự như trong tiếng Việt.
+                    </div>
+                </div>
+            </section>
+            
+            <section class="game-section">
+                <h2>Trò Chơi Ghép Từ</h2>
+                <div class="game-area">
+                    <p>Hãy sắp xếp các chữ cái để tạo thành từ đúng!</p>
+                    <div class="scrambled-word" id="scrambled-word">...</div>
+                    
+                    <div class="word-bank" id="word-bank">
+                        <!-- Các chữ cái sẽ được thêm bằng JavaScript -->
+                    </div>
+                    
+                    <div class="controls">
+                        <button id="check-btn">Kiểm tra</button>
+                        <button id="hint-btn">Gợi ý</button>
+                        <button id="next-btn">Từ tiếp theo</button>
+                    </div>
+                    
+                    <div id="result"></div>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            <p>Ứng dụng Học Tiếng Đức Cho Trẻ Em &copy; 2023</p>
+        </footer>
+    </div>
+
+    <script>
+        // Danh sách từ vựng để chơi game
+        const vocabulary = [
+            { german: "Schule", vietnamese: "trường học" },
+            { german: "machen", vietnamese: "làm" },
+            { german: "wirklich", vietnamese: "thực sự" },
+            { german: "Spaß", vietnamese: "niềm vui" },
+            { german: "Freude", vietnamese: "niềm vui" },
+            { german: "lernen", vietnamese: "học" },
+            { german: "lustig", vietnamese: "vui vẻ" }
+        ];
+        
+        let currentWordIndex = 0;
+        let selectedLetters = [];
+        let correctOrder = [];
+        
+        // Khởi tạo trò chơi
+        function initGame() {
+            currentWordIndex = Math.floor(Math.random() * vocabulary.length);
+            const currentWord = vocabulary[currentWordIndex].german;
+            
+            // Tạo mảng các chữ cái đã xáo trộn
+            const scrambled = scrambleWord(currentWord);
+            correctOrder = currentWord.split('');
+            
+            // Hiển thị từ đã xáo trộn
+            document.getElementById('scrambled-word').textContent = scrambled.join(' ');
+            
+            // Tạo các nút chữ cái
+            createLetterButtons(scrambled);
+            
+            // Xóa kết quả trước đó
+            document.getElementById('result').textContent = '';
+            document.getElementById('result').className = '';
+            
+            // Xóa các chữ cái đã chọn
+            selectedLetters = [];
+        }
+        
+        // Xáo trộn các chữ cái trong từ
+        function scrambleWord(word) {
+            const letters = word.split('');
+            for (let i = letters.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [letters[i], letters[j]] = [letters[j], letters[i]];
+            }
+            return letters;
+        }
+        
+        // Tạo các nút chữ cái
+        function createLetterButtons(letters) {
+            const wordBank = document.getElementById('word-bank');
+            wordBank.innerHTML = '';
+            
+            letters.forEach((letter, index) => {
+                const letterElement = document.createElement('div');
+                letterElement.className = 'letter';
+                letterElement.textContent = letter;
+                letterElement.dataset.index = index;
+                letterElement.addEventListener('click', () => selectLetter(letterElement));
+                wordBank.appendChild(letterElement);
+            });
+        }
+        
+        // Chọn chữ cái
+        function selectLetter(letterElement) {
+            const index = parseInt(letterElement.dataset.index);
+            
+            if (!selectedLetters.includes(index)) {
+                selectedLetters.push(index);
+                letterElement.classList.add('selected');
+                
+                // Kiểm tra xem đã chọn đủ chữ cái chưa
+                if (selectedLetters.length === correctOrder.length) {
+                    checkAnswer();
+                }
+            }
+        }
+        
+        // Kiểm tra câu trả lời
+        function checkAnswer() {
+            const userAnswer = selectedLetters.map(index => {
+                return document.querySelector(`.letter[data-index="${index}"]`).textContent;
+            }).join('');
+            
+            const correctAnswer = correctOrder.join('');
+            const resultElement = document.getElementById('result');
+            
+            if (userAnswer === correctAnswer) {
+                resultElement.textContent = `Chính xác! "${correctAnswer}" có nghĩa là "${vocabulary[currentWordIndex].vietnamese}"`;
+                resultElement.className = 'correct';
+            } else {
+                resultElement.textContent = `Chưa đúng. Thử lại nhé!`;
+                resultElement.className = 'incorrect';
+                
+                // Đặt lại các chữ cái đã chọn
+                selectedLetters.forEach(index => {
+                    document.querySelector(`.letter[data-index="${index}"]`).classList.remove('selected');
+                });
+                selectedLetters = [];
+            }
+        }
+        
+        // Cung cấp gợi ý
+        function provideHint() {
+            if (selectedLetters.length < correctOrder.length) {
+                // Tìm chữ cái tiếp theo cần chọn
+                for (let i = 0; i < correctOrder.length; i++) {
+                    if (!selectedLetters.includes(i)) {
+                        const letterElement = document.querySelector(`.letter[data-index="${i}"]`);
+                        letterElement.style.backgroundColor = '#f39c12';
+                        setTimeout(() => {
+                            letterElement.style.backgroundColor = '#8e44ad';
+                        }, 1000);
+                        break;
+                    }
+                }
+            }
+        }
+        
+        // Sự kiện khi nhấn nút
+        document.getElementById('check-btn').addEventListener('click', checkAnswer);
+        document.getElementById('hint-btn').addEventListener('click', provideHint);
+        document.getElementById('next-btn').addEventListener('click', initGame);
+        
+        // Khởi động trò chơi khi trang được tải
+        window.addEventListener('load', initGame);
+    </script>
+</body>
+</html>
