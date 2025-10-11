@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học Tiếng Đức Vui Nhộn</title>
+    <style>
+        :root {
+            --primary: #4CAF50;
+            --secondary: #FF9800;
+            --accent: #2196F3;
+            --light: #f9f9f9;
+            --dark: #333;
+            --german-color: #4CAF50;
+            --vietnamese-color: #FF9800;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .tabs {
+            display: flex;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab.active {
+            background-color: var(--light);
+            border-bottom: 3px solid var(--secondary);
+            color: var(--accent);
+        }
+        
+        .tab:hover {
+            background-color: var(--light);
+        }
+        
+        .content {
+            display: none;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+        
+        .content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .vocab-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--accent);
+        }
+        
+        .german-word {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        
+        .vietnamese-meaning {
+            color: var(--dark);
+            margin-top: 0.5rem;
+        }
+        
+        .dialogue-section {
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+        
+        .dialogue {
+            background-color: #e8f4fd;
+            border-radius: 10px;
+            padding: 1.5rem;
+            flex: 2;
+        }
+        
+        .audio-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff3e0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .audio-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .audio-player {
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 1rem;
+        }
+        
+        .audio-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+        
+        .audio-link:hover {
+            text-decoration: underline;
+        }
+        
+        .dialogue-item {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .dialogue-speaker {
+            font-weight: bold;
+            margin-right: 1rem;
+            min-width: 30px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        
+        .dialogue-content {
+            flex: 1;
+        }
+        
+        .dialogue-german {
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+        
+        .dialogue-vietnamese {
+            color: #555;
+            font-style: italic;
+        }
+        
+        .speaker-a {
+            color: var(--accent);
+        }
+        
+        .speaker-b {
+            color: var(--primary);
+        }
+        
+        .game-container {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .game-columns {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+        }
+        
+        .game-column {
+            width: 48%;
+            min-height: 300px;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .german-column {
+            background-color: rgba(76, 175, 80, 0.1);
+            border: 2px solid var(--german-color);
+        }
+        
+        .vietnamese-column {
+            background-color: rgba(255, 152, 0, 0.1);
+            border: 2px solid var(--vietnamese-color);
+        }
+        
+        .column-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+        
+        .german-title {
+            background-color: var(--german-color);
+            color: white;
+        }
+        
+        .vietnamese-title {
+            background-color: var(--vietnamese-color);
+            color: white;
+        }
+        
+        .word-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .german-word-card {
+            border-left: 5px solid var(--german-color);
+        }
+        
+        .vietnamese-word-card {
+            border-left: 5px solid var(--vietnamese-color);
+        }
+        
+        .word-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .word-card.selected {
+            background-color: #e3f2fd;
+            transform: scale(1.05);
+        }
+        
+        .word-card.matched {
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.5s;
+            pointer-events: none;
+        }
+        
+        button {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        button:hover {
+            background-color: #f57c00;
+            transform: translateY(-2px);
+        }
+        
+        .score {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+        
+        .film-info {
+            background-color: #fff3e0;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .film-title {
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .message {
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .success-message {
+            background-color: #c8e6c9;
+            color: #2e7d32;
+        }
+        
+        .error-message {
+            background-color: #ffcdd2;
+            color: #c62828;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--dark);
+            color: white;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .dialogue-section {
+                flex-direction: column;
+            }
+            
+            .game-columns {
+                flex-direction: column;
+            }
+            
+            .game-column {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Học Tiếng Đức Vui Nhộn</h1>
+        <p>Khám phá ngôn ngữ mới qua các trò chơi thú vị!</p>
+    </header>
+    
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" data-tab="vocabulary">Từ Vựng</div>
+            <div class="tab" data-tab="dialogue">Hội Thoại</div>
+            <div class="tab" data-tab="grammar">Ngữ Pháp</div>
+            <div class="tab" data-tab="game">Trò Chơi</div>
+            <div class="tab" data-tab="cinema">Đi Xem Phim</div>
+        </div>
+        
+        <div id="vocabulary" class="content active">
+            <h2>Từ Vựng Tiếng Đức</h2>
+            <p>Học các từ vựng quan trọng từ bài học "Đi Xem Phim":</p>
+            
+            <div id="vocab-list">
+                <!-- Vocabulary cards will be generated by JavaScript -->
+            </div>
+            
+            <button id="speak-vocab">🔊 Nghe Phát Âm</button>
+        </div>
+        
+        <div id="dialogue" class="content">
+            <h2>Hội Thoại: Gọi Điện Đến Rạp Phim</h2>
+            <p>Luyện tập hội thoại tiếng Đức về việc gọi điện đến rạp phim:</p>
+            
+            <div class="dialogue-section">
+                <div class="dialogue" id="dialogue-container">
+                    <!-- Dialogue will be generated by JavaScript -->
+                </div>
+                
+                <div class="audio-section">
+                    <div class="audio-title">🎧 Nghe Hội Thoại</div>
+                    <div class="audio-player">
+                        <iframe width="100%" height="60" src="https://vocaroo.com/embed/1nudpFJ7aQ6U?autoplay=0" frameborder="0" allow="autoplay"></iframe>
+                    </div>
+                    <a href="https://voca.ro/1nudpFJ7aQ6U" class="audio-link" title="Vocaroo Voice Recorder" target="_blank">Nghe trên Vocaroo &gt;&gt;</a>
+                    <p class="audio-note">Nhấn play để nghe đoạn hội thoại!</p>
+                </div>
+            </div>
+            
+            <button id="practice-dialogue">🎭 Luyện Tập Hội Thoại</button>
+        </div>
+        
+        <div id="grammar" class="content">
+            <h2>Ngữ Pháp Tiếng Đức</h2>
+            
+            <div class="vocab-card">
+                <h3>1. Phủ định với "nicht"</h3>
+                <p>Từ "nicht" có nghĩa là "không", được sử dụng với tên riêng, cụm từ thời gian và danh từ có mạo từ xác định.</p>
+                
+                <div class="example">
+                    <p><strong>Das ist nicht Herr Müller.</strong> - Đây không phải là ông Müller.</p>
+                    <p><strong>Der Film beginnt nicht um acht Uhr.</strong> - Bộ phim không bắt đầu lúc 8 giờ.</p>
+                    <p><strong>Das ist nicht das Kino.</strong> - Đây không phải là rạp chiếu phim.</p>
+                </div>
+            </div>
+            
+            <div class="vocab-card">
+                <h3>2. Đặt câu hỏi không có từ để hỏi</h3>
+                <p>Trong câu hỏi không có từ để hỏi, động từ đứng ở đầu câu, theo sau là chủ ngữ.</p>
+                
+                <div class="example">
+                    <p><strong>Trinken Sie eine Tasse Tee?</strong> - Bạn có uống một tách trà không?</p>
+                    <p><strong>Kann ich Briefmarken kaufen?</strong> - Tôi có thể mua tem không?</p>
+                    <p><strong>Hast du die Eintrittskarte?</strong> - Bạn có vé vào cửa không?</p>
+                </div>
+            </div>
+            
+            <button id="grammar-exercise">📝 Làm Bài Tập Ngữ Pháp</button>
+        </div>
+        
+        <div id="game" class="content">
+            <h2>Trò Chơi Ghép Từ</h2>
+            <p>Ghép từ tiếng Đức với nghĩa tiếng Việt tương ứng!</p>
+            
+            <div class="score">Điểm: <span id="score">0</span></div>
+            
+            <div class="game-container">
+                <div id="message-area"></div>
+                
+                <div class="game-columns">
+                    <div class="game-column german-column">
+                        <div class="column-title german-title">Từ Tiếng Đức</div>
+                        <div id="german-words">
+                            <!-- German words will be generated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="game-column vietnamese-column">
+                        <div class="column-title vietnamese-title">Nghĩa Tiếng Việt</div>
+                        <div id="vietnamese-words">
+                            <!-- Vietnamese words will be generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="start-game">Bắt Đầu Trò Chơi</button>
+                <button id="next-round" style="display:none;">Vòng Tiếp Theo</button>
+            </div>
+        </div>
+        
+        <div id="cinema" class="content">
+            <h2>Thông Tin Phim Chiếu Rạp</h2>
+            <p>Tìm hiểu về các bộ phim và giá vé từ bài học:</p>
+            
+            <div class="film-info">
+                <div class="film-title">Golden Eye</div>
+                <p>Thời gian bắt đầu: 9:30</p>
+                <p>Giá vé: 12 DM</p>
+            </div>
+            
+            <div class="film-info">
+                <div class="film-title">Das Piano</div>
+                <p>Thời gian bắt đầu: 8:00</p>
+                <p>Giá vé: 12 DM</p>
+            </div>
+            
+            <div class="film-info">
+                <div class="film-title">Dr Dolittle</div>
+                <p>Thời gian bắt đầu: 6:00</p>
+                <p>Giá vé: 8 DM (trẻ em), 12 DM (người lớn)</p>
+            </div>
+            
+            <button id="cinema-quiz">🎬 Kiểm Tra Kiến Thức Về Phim</button>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Ứng dụng Học Tiếng Đức Cho Trẻ Em - Dựa trên bài học "Ins Kino gehen"</p>
+    </footer>
+
+    <script>
+        // Vocabulary data
+        const vocabulary = [
+            { german: "ist dort", vietnamese: "có phải đây là [khi nói điện thoại]" },
+            { german: "nicht haben", vietnamese: "không có" },
+            { german: "die falsche Telefonnummer", vietnamese: "số điện thoại sai" },
+            { german: "die richtige Nummer", vietnamese: "số đúng" },
+            { german: "wiederholen", vietnamese: "lặp lại" },
+            { german: "auf Wiederhören", vietnamese: "tạm biệt [khi nói điện thoại]" },
+            { german: "heute Abend", vietnamese: "tối nay" },
+            { german: "zeigen", vietnamese: "chiếu" },
+            { german: "wie viel", vietnamese: "bao nhiêu" },
+            { german: "kosten", vietnamese: "có giá" },
+            { german: "die Eintrittskarte", vietnamese: "vé vào cửa" },
+            { german: "für die Kinder", vietnamese: "cho trẻ em" },
+            { german: "der Erwachsene", vietnamese: "người lớn" }
+        ];
+
+        // Dialogue data in LaTeX format
+        const dialogueItems = [
+            { speaker: "○", german: "Hallo, ist dort das Capitol?", vietnamese: "Xin chào, có phải đây là rạp Capitol không?" },
+            { speaker: "▼", german: "Nein, hier ist nicht das Capitol. Hier ist das Princess. Sie haben die falsche Telefonnummer.", vietnamese: "Không, đây không phải là rạp Capitol. Đây là rạp Princess. Bạn đã gọi nhầm số điện thoại." },
+            { speaker: "○", german: "Haben Sie die richtige Nummer?", vietnamese: "Bạn có số đúng không?" },
+            { speaker: "▼", german: "Ja, natürlich. Sie ist 7-4-8-5-3-7.", vietnamese: "Vâng, tất nhiên. Số đó là 7-4-8-5-3-7." },
+            { speaker: "○", german: "Können Sie das bitte wiederholen?", vietnamese: "Bạn có thể vui lòng lặp lại không?" },
+            { speaker: "▼", german: "Ja, 7-4-8-5-3-7.", vietnamese: "Vâng, 7-4-8-5-3-7." },
+            { speaker: "○", german: "Vielen Dank. Auf Wiederhören.", vietnamese: "Cảm ơn rất nhiều. Tạm biệt." },
+            { speaker: "○", german: "Beginnt der James Bond Film heute Abend um acht Uhr?", vietnamese: "Phim James Bond có bắt đầu tối nay lúc 8 giờ không?" },
+            { speaker: "▼", german: "Golden Eye beginnt nicht um acht Uhr. Er beginnt um 9.30. Das Piano beginnt um 8.00 Uhr und um 6.00 Uhr zeigen wir Dr Dolittle.", vietnamese: "Golden Eye không bắt đầu lúc 8 giờ. Nó bắt đầu lúc 9:30. Das Piano bắt đầu lúc 8:00 và lúc 6:00 chúng tôi chiếu Dr Dolittle." },
+            { speaker: "○", german: "Wie viel kostet die Eintrittskarte?", vietnamese: "Vé vào cửa giá bao nhiêu?" },
+            { speaker: "▼", german: "Golden Eye und Das Piano kosten DM 12. Dr Dolittle kostet DM 8 für Kinder und DM 12 für Erwachsene.", vietnamese: "Golden Eye và Das Piano giá 12 DM. Dr Dolittle giá 8 DM cho trẻ em và 12 DM cho người lớn." }
+        ];
+
+        // Game variables
+        let score = 0;
+        let currentPairs = [];
+        let selectedGermanCard = null;
+        let selectedVietnameseCard = null;
+        let matchedPairs = 0;
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize tabs
+            initTabs();
+            
+            // Initialize vocabulary section
+            initVocabulary();
+            
+            // Initialize dialogue section
+            initDialogue();
+            
+            // Initialize game section
+            initGame();
+            
+            // Add event listeners
+            document.getElementById('speak-vocab').addEventListener('click', speakVocabulary);
+            document.getElementById('practice-dialogue').addEventListener('click', practiceDialogue);
+            document.getElementById('grammar-exercise').addEventListener('click', showGrammarExercise);
+            document.getElementById('start-game').addEventListener('click', startGame);
+            document.getElementById('next-round').addEventListener('click', nextRound);
+            document.getElementById('cinema-quiz').addEventListener('click', startCinemaQuiz);
+        });
+
+        // Tab functionality
+        function initTabs() {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs and contents
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        }
+
+        // Initialize vocabulary section
+        function initVocabulary() {
+            const vocabList = document.getElementById('vocab-list');
+            vocabList.innerHTML = '';
+            
+            vocabulary.forEach(word => {
+                const card = document.createElement('div');
+                card.className = 'vocab-card';
+                card.innerHTML = `
+                    <div class="german-word">${word.german}</div>
+                    <div class="vietnamese-meaning">${word.vietnamese}</div>
+                `;
+                vocabList.appendChild(card);
+            });
+        }
+
+        // Initialize dialogue section with LaTeX-style formatting
+        function initDialogue() {
+            const dialogueContainer = document.getElementById('dialogue-container');
+            dialogueContainer.innerHTML = '';
+            
+            dialogueItems.forEach(item => {
+                const dialogueItem = document.createElement('div');
+                dialogueItem.className = 'dialogue-item';
+                
+                const speakerClass = item.speaker === "○" ? "speaker-a" : "speaker-b";
+                
+                dialogueItem.innerHTML = `
+                    <div class="dialogue-speaker ${speakerClass}">${item.speaker}</div>
+                    <div class="dialogue-content">
+                        <div class="dialogue-german">${item.german}</div>
+                        <div class="dialogue-vietnamese">${item.vietnamese}</div>
+                    </div>
+                `;
+                
+                dialogueContainer.appendChild(dialogueItem);
+            });
+        }
+
+        // Initialize game section
+        function initGame() {
+            // This will be populated when the game starts
+        }
+
+        // Speak vocabulary (text-to-speech simulation)
+        function speakVocabulary() {
+            alert("🔊 Tính năng phát âm sẽ hoạt động khi tích hợp API Text-to-Speech!");
+            // In a real implementation, you would use the Web Speech API here
+        }
+
+        // Practice dialogue
+        function practiceDialogue() {
+            alert("🎭 Bắt đầu luyện tập hội thoại! Bạn sẽ đóng vai một nhân vật trong đoạn hội thoại.");
+            // In a real implementation, you would create an interactive dialogue practice
+        }
+
+        // Show grammar exercise
+        function showGrammarExercise() {
+            alert("📝 Bài tập ngữ pháp sẽ được hiển thị ở đây!");
+            // In a real implementation, you would create grammar exercises
+        }
+
+        // Start the matching game
+        function startGame() {
+            score = 0;
+            matchedPairs = 0;
+            document.getElementById('score').textContent = score;
+            document.getElementById('start-game').style.display = 'none';
+            document.getElementById('next-round').style.display = 'inline-block';
+            document.getElementById('message-area').innerHTML = '';
+            
+            createGamePairs();
+        }
+
+        // Create word pairs for the matching game
+        function createGamePairs() {
+            const germanWordsContainer = document.getElementById('german-words');
+            const vietnameseWordsContainer = document.getElementById('vietnamese-words');
+            
+            germanWordsContainer.innerHTML = '';
+            vietnameseWordsContainer.innerHTML = '';
+            
+            // Reset selection
+            selectedGermanCard = null;
+            selectedVietnameseCard = null;
+            
+            // Shuffle vocabulary and select 6 random words
+            const shuffledVocab = [...vocabulary].sort(() => 0.5 - Math.random()).slice(0, 6);
+            currentPairs = shuffledVocab;
+            
+            // Create German cards
+            shuffledVocab.forEach((word, index) => {
+                const card = document.createElement('div');
+                card.className = 'word-card german-word-card';
+                card.textContent = word.german;
+                card.dataset.id = index;
+                
+                card.addEventListener('click', function() {
+                    handleGermanCardClick(this);
+                });
+                
+                germanWordsContainer.appendChild(card);
+            });
+            
+            // Create Vietnamese cards (shuffled)
+            const shuffledVietnamese = [...shuffledVocab].sort(() => 0.5 - Math.random());
+            
+            shuffledVietnamese.forEach((word, index) => {
+                const card = document.createElement('div');
+                card.className = 'word-card vietnamese-word-card';
+                card.textContent = word.vietnamese;
+                card.dataset.id = shuffledVocab.indexOf(word);
+                
+                card.addEventListener('click', function() {
+                    handleVietnameseCardClick(this);
+                });
+                
+                vietnameseWordsContainer.appendChild(card);
+            });
+        }
+
+        // Handle German card click
+        function handleGermanCardClick(card) {
+            // If already matched, ignore click
+            if (card.classList.contains('matched')) return;
+            
+            // If already selected, deselect it
+            if (selectedGermanCard === card) {
+                card.classList.remove('selected');
+                selectedGermanCard = null;
+                return;
+            }
+            
+            // Deselect previous selection
+            if (selectedGermanCard) {
+                selectedGermanCard.classList.remove('selected');
+            }
+            
+            // Select new card
+            card.classList.add('selected');
+            selectedGermanCard = card;
+            
+            // Check if we have a pair selected
+            checkPair();
+        }
+
+        // Handle Vietnamese card click
+        function handleVietnameseCardClick(card) {
+            // If already matched, ignore click
+            if (card.classList.contains('matched')) return;
+            
+            // If already selected, deselect it
+            if (selectedVietnameseCard === card) {
+                card.classList.remove('selected');
+                selectedVietnameseCard = null;
+                return;
+            }
+            
+            // Deselect previous selection
+            if (selectedVietnameseCard) {
+                selectedVietnameseCard.classList.remove('selected');
+            }
+            
+            // Select new card
+            card.classList.add('selected');
+            selectedVietnameseCard = card;
+            
+            // Check if we have a pair selected
+            checkPair();
+        }
+
+        // Check if selected cards form a correct pair
+        function checkPair() {
+            if (selectedGermanCard && selectedVietnameseCard) {
+                const germanId = selectedGermanCard.dataset.id;
+                const vietnameseId = selectedVietnameseCard.dataset.id;
+                
+                if (germanId === vietnameseId) {
+                    // Correct match
+                    showMessage("Chính xác! Bạn đã ghép đúng!", "success");
+                    score += 10;
+                    document.getElementById('score').textContent = score;
+                    
+                    // Mark cards as matched and make them disappear
+                    setTimeout(() => {
+                        selectedGermanCard.classList.add('matched');
+                        selectedVietnameseCard.classList.add('matched');
+                        
+                        selectedGermanCard = null;
+                        selectedVietnameseCard = null;
+                        
+                        matchedPairs++;
+                        
+                        // Check if all pairs are matched
+                        if (matchedPairs === currentPairs.length) {
+                            setTimeout(() => {
+                                showMessage(`Chúc mừng! Bạn đã hoàn thành vòng này với ${score} điểm!`, "success");
+                            }, 500);
+                        }
+                    }, 1000);
+                } else {
+                    // Incorrect match
+                    showMessage("Chưa đúng, hãy thử lại!", "error");
+                    
+                    // Deselect cards after a delay
+                    setTimeout(() => {
+                        selectedGermanCard.classList.remove('selected');
+                        selectedVietnameseCard.classList.remove('selected');
+                        selectedGermanCard = null;
+                        selectedVietnameseCard = null;
+                    }, 1000);
+                }
+            }
+        }
+
+        // Show message to user
+        function showMessage(text, type) {
+            const messageArea = document.getElementById('message-area');
+            const message = document.createElement('div');
+            message.className = `message ${type}-message`;
+            message.textContent = text;
+            
+            messageArea.innerHTML = '';
+            messageArea.appendChild(message);
+            
+            // Remove message after 2 seconds
+            setTimeout(() => {
+                message.remove();
+            }, 2000);
+        }
+
+        // Next round of the game
+        function nextRound() {
+            createGamePairs();
+        }
+
+        // Start cinema quiz
+        function startCinemaQuiz() {
+            alert("🎬 Bắt đầu kiểm tra kiến thức về phim! Bạn sẽ trả lời các câu hỏi về thời gian chiếu và giá vé.");
+            // In a real implementation, you would create a quiz about the films
+        }
+    </script>
+</body>
+</html>
