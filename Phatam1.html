@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Học phát âm tiếng Đức — Demo từ JSON + Quiz</title>
+  <style>
+    :root{
+      --bg:#0f172a; --panel:#111827; --muted:#94a3b8; --text:#e5e7eb;
+      --accent:#22c55e; --accent-2:#38bdf8; --danger:#ef4444; --card:#0b1222; --ring:#334155;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 10% -10%, #0b1222 0%, #0f172a 35%, #0f172a 100%);
+      color:var(--text);
+    }
+    header{position:sticky;top:0;z-index:10;backdrop-filter:saturate(180%) blur(8px);background:rgba(15,23,42,.6);border-bottom:1px solid #1f2937;}
+    .wrap{max-width:1100px;margin:0 auto;padding:16px 20px}
+    h1{margin:0;font-size:clamp(20px,2.8vw,28px)}
+    .sub{color:var(--muted);font-size:.95rem;margin-top:6px}
+    .toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .toolbar input[type="search"]{flex:1 1 260px;padding:10px 12px;border-radius:10px;border:1px solid var(--ring);background:#0b1222;color:var(--text);}
+    .btn{appearance:none;border:1px solid var(--ring);background:#0b1222;color:var(--text);padding:10px 14px;border-radius:10px;cursor:pointer;}
+    .btn.primary{border-color:#14532d;background:linear-gradient(180deg,#15803d,#166534);color:#eafff3}
+    .btn.ghost{background:transparent}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:16px}
+    .card{background:linear-gradient(180deg,#0b1222,#0a1220);border:1px solid #1f2a44;border-radius:16px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+    .card .body{padding:14px}
+    .desc{font-size:1.05rem;font-weight:650}
+    .trans{color:var(--muted);font-size:.9rem;margin-top:4px;}
+    .iframeWrap{background:#0a0f1d;border-top:1px dashed #223049;padding:8px 10px}
+    .recorder{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+    .level{height:8px;border-radius:999px;background:#0b1222;border:1px solid #1f2a44;overflow:hidden}
+    .level>span{display:block;height:100%;width:0%;background:linear-gradient(90deg,#22c55e,#38bdf8)}
+    .footer{margin-top:28px;color:var(--muted);font-size:.9rem}
+    /* Quiz section */
+    .quiz-box{margin-top:40px;padding:20px;border-radius:14px;background:#111827;text-align:center}
+    .question{font-size:1.2rem;margin-bottom:12px}
+    .choices button{display:block;width:100%;margin:6px 0;padding:10px;text-align:left;border-radius:8px;border:none;background:#1e293b;color:#e5e7eb;cursor:pointer;}
+    .choices button:hover{background:#334155;}
+    .score{margin-top:10px;font-weight:600}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Học phát âm tiếng Đức</h1>
+      <div class="sub">Nghe - Dịch - Ghi âm - Làm quiz đoán nghĩa để học vui hơn 🎯</div>
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Tìm từ/câu… (ví dụ: Buch, Schüler, Wer…)" />
+        <button id="shuffle" class="btn">🔀 Xáo trộn</button>
+        <button id="reset" class="btn ghost">↺ Đặt lại</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="cards" class="grid" aria-live="polite"></section>
+    <div id="empty" class="empty" style="display:none">Không có mục nào khớp với tìm kiếm.</div>
+
+    <!-- Quiz Section -->
+    <div class="quiz-box">
+      <div class="question" id="question"></div>
+      <div class="choices" id="choices"></div>
+      <div class="score" id="score"></div>
+      <button id="next" class="btn primary">Câu tiếp ▶️</button>
+    </div>
+
+    <p class="footer">Mẹo: Bạn có thể ghi âm giọng của mình và làm bài quiz sau khi nghe mẫu! 🎧</p>
+  </main>
+
+  <template id="card-tpl">
+    <article class="card">
+      <div class="body">
+        <div class="desc"></div>
+        <div class="trans"></div>
+        <div class="recorder">
+          <div class="row">
+            <button class="btn primary rec-btn">🎙 Ghi âm</button>
+            <button class="btn ghost play-btn" disabled>▶️ Phát lại</button>
+            <a class="btn ghost dl-btn" download="record.webm">⤓ Tải bản ghi</a>
+          </div>
+          <div class="level"><span></span></div>
+          <audio class="playback" controls style="display:none"></audio>
+        </div>
+      </div>
+      <div class="iframeWrap embed"></div>
+    </article>
+  </template>
+
+  <script>
+    const DATA = [
+      {description:'der Lehrer', translation:'thầy giáo', embed:`<iframe width="300" height="60" src="https://vocaroo.com/embed/1lmd1uJXlqdn" frameborder="0"></iframe>`},
+      {description:'Wer gibt das Buch?', translation:'Ai đưa quyển sách?', embed:`<iframe width="300" height="60" src="https://vocaroo.com/embed/1o4VvWimH44r" frameborder="0"></iframe>`},
+      {description:'der Schüler', translation:'học sinh nam', embed:`<iframe width="300" height="60" src="https://vocaroo.com/embed/19P70n49nEMw" frameborder="0"></iframe>`},
+      {description:'das Buch', translation:'quyển sách', embed:`<iframe width="300" height="60" src="https://vocaroo.com/embed/1i0WInfOFJLS" frameborder="0"></iframe>`},
+      {description:'die Schwester', translation:'chị/em gái', embed:`<iframe width="300" height="60" src="https://vocaroo.com/embed/17hANBDuOuOm" frameborder="0"></iframe>`},
+      {description:'Ich gebe dir das Buch', translation:'Tôi đưa cho bạn quyển sách', embed:`<iframe width="300" height="60" src="https://vocaroo.com/embed/19f87TgOopkb" frameborder="0"></iframe>`},
+      {description:'Der Schüler gibt den Stift', translation:'Học sinh đưa cây bút', embed:`<iframe width="300" height="60" src="https://vocaroo.com/embed/12AEGVk8wwGN" frameborder="0"></iframe>`},
+      {description:'Wer gibt was, sag es mir?', translation:'Ai đưa cái gì, nói cho tôi biết?', embed:`<iframe width="300" height="60" src="https://vocaroo.com/embed/1689ZYeU6jfI" frameborder="0"></iframe>`}
+    ];
+
+    const cards = document.getElementById('cards');
+    DATA.forEach(item=>{
+      const tpl=document.getElementById('card-tpl').content.cloneNode(true);
+      tpl.querySelector('.desc').textContent=item.description;
+      tpl.querySelector('.trans').textContent=item.translation;
+      tpl.querySelector('.embed').innerHTML=item.embed;
+      cards.appendChild(tpl);
+    });
+
+    // Quiz logic
+    let current=0, score=0;
+    const qEl=document.getElementById('question');
+    const chEl=document.getElementById('choices');
+    const scEl=document.getElementById('score');
+    const nextBtn=document.getElementById('next');
+
+    function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+    function showQ(){
+      const q=DATA[current];
+      qEl.textContent='Từ nào nghĩa là: '+q.translation+'?';
+      chEl.innerHTML='';
+      const opts=shuffle(DATA.map(d=>d.description)).slice(0,3);
+      if(!opts.includes(q.description)) opts[Math.floor(Math.random()*opts.length)] = q.description;
+      shuffle(opts).forEach(opt=>{
+        const b=document.createElement('button');
+        b.textContent=opt;
+        b.onclick=()=>{
+          if(opt===q.description){b.style.background='#22c55e';score++;}else{b.style.background='#ef4444';}
+          Array.from(chEl.children).forEach(btn=>btn.disabled=true);
+          scEl.textContent='Điểm: '+score+'/'+(current+1);
+        };
+        chEl.appendChild(b);
+      });
+    }
+    nextBtn.onclick=()=>{
+      current++;
+      if(current>=DATA.length){qEl.textContent='Hoàn thành 🎉 Điểm tổng: '+score+'/'+DATA.length;chEl.innerHTML='';nextBtn.disabled=true;}
+      else showQ();
+    };
+    showQ();
+  </script>
+</body>
+</html>
